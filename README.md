@@ -22,6 +22,7 @@ This project is set up with:
    npm run dev
    ```
 3. **Open [http://localhost:3000](http://localhost:3000) in your browser.**
+   This might be changed if the server is held 
 
 ## Notes
 - All custom UI components should be placed in `/components/ui` for shadcn/ui compatibility.
