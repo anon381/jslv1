@@ -27,6 +27,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import { useEffect } from "react"
+import { motion, useAnimation } from "framer-motion"
+import { useInView } from "react-intersection-observer"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -44,6 +46,25 @@ const newsletterSchema = z.object({
 })
 
 export default function SpringOfLifeChurch() {
+  // About section animation controls
+  const [aboutRef, aboutInView] = useInView({ triggerOnce: true, threshold: 0.2 })
+  const leftControls = useAnimation()
+  const rightControls = useAnimation()
+
+  useEffect(() => {
+    if (aboutInView) {
+      leftControls.start({
+        y: -80,
+        opacity: 1,
+        transition: { duration: 4, type: "spring", bounce: 0.4 }
+      })
+      rightControls.start({
+        y: 80,
+        opacity: 1,
+        transition: { duration: 4, type: "spring", bounce: 0.4 }
+      })
+    }
+  }, [aboutInView, leftControls, rightControls])
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const [isSubmittingContact, setIsSubmittingContact] = useState(false)
   const [isSubmittingNewsletter, setIsSubmittingNewsletter] = useState(false)
@@ -297,10 +318,14 @@ export default function SpringOfLifeChurch() {
 </section>
 
       {/* About Section */}
-      <section id="about" className="py-32 sm:py-48 bg-slate-800/50 backdrop-blur-sm">
+      <section id="about" className="py-32 sm:py-48 bg-slate-800/50 backdrop-blur-sm" ref={aboutRef}>
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center md:justify-between gap-12 pt-0">
-            <div className="flex-1 text-left pt-0">
+            <motion.div
+              className="flex-1 text-left pt-0"
+              initial={{ opacity: 0, y: 60 }}
+              animate={leftControls}
+            >
               <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-12 sm:mb-16 text-left">About JSL Church</h2>
               <p className="text-base sm:text-lg text-blue-100 mb-6 sm:mb-8 leading-relaxed text-left">
                 We are a Bible-teaching, Christ-centered church committed to proclaiming Jesus Christ and preaching the word of God. Founded by Pastor Zenebech Gessesse and her husband Engineer Luelkal Kassie Eleven years ago, we are dedicated to spreading the Gospel and building a strong community of believers.
@@ -312,9 +337,13 @@ export default function SpringOfLifeChurch() {
                   </Button>
                 </Link>
               </div>
-            </div>
-            <div className="flex-1 flex flex-col md:flex-row gap-8 md:gap-6 justify-end items-center md:items-start">
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-8 w-full mt-32 md:mt-48">
+            </motion.div>
+            <motion.div
+              className="flex-1 flex flex-col md:flex-row gap-8 md:gap-6 justify-end items-center md:items-start"
+              initial={{ opacity: 0, y: -60 }}
+              animate={rightControls}
+            >
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-8 w-full items-start">
                 <div className="flex flex-col items-center text-center">
                   <div className="w-24 h-24 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-full flex items-center justify-center mb-6 border-2 border-blue-500/30">
                     <BookOpen className="w-14 h-14 text-blue-400" />
@@ -344,7 +373,7 @@ export default function SpringOfLifeChurch() {
                   <p className="text-blue-200 text-lg">Serving our community</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
