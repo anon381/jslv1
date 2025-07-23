@@ -194,59 +194,67 @@ export default function SpringOfLifeChurch() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900/50 to-slate-900">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-blue-600/10"></div>
-        <div className="absolute inset-0 opacity-20" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}></div>
-        <div className="relative container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-              Encounter Jesus.
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Grow in the Word.</span>
-              <br />
-              Impact the World.
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Join us for spirit-filled teachings, vibrant community, and engaging online presence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 shadow-lg hover:shadow-blue-500/25 transition-all duration-300 rounded-lg font-medium"
-                onClick={() => {
-                  alert('Map button clicked!')
-                  console.log('Map button clicked')
-                  window.open("https://maps.google.com/?q=Addis+Ketema+Sub+City+Asko+Addis+Sefer+Lizmender+Addis+Ababa+Ethiopia", "_blank")
-                }}
-              >
-                <Calendar className="w-5 h-5 mr-2 inline" />
-                Visit Us This Sunday
-              </button>
-              <button 
-                className="border border-blue-400 text-blue-400 hover:bg-blue-400/10 px-8 py-3 backdrop-blur-sm rounded-lg font-medium"
-                onClick={() => {
-                  console.log('YouTube button clicked')
-                  window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")
-                }}
-              >
-                <Play className="w-5 h-5 mr-2 inline" />
-                Watch Latest Sermon
-              </button>
-              <button
-                className="border border-purple-400 text-purple-400 hover:bg-purple-400/10 px-8 py-3 backdrop-blur-sm shadow-lg hover:shadow-purple-500/25 transition-all duration-300 rounded-lg font-medium"
-                onClick={() => {
-                  console.log('Facebook button clicked')
-                  window.open("https://www.facebook.com/JSLTVWORLDWIDE", "_blank")
-                }}
-              >
-                <Globe className="w-5 h-5 mr-2 inline" />
-                Follow Us Online
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="relative py-32 lg:py-56 overflow-hidden">
+  {/* Background image */}
+  <div className="absolute inset-0">
+    <Image
+      src="/gallery/mom.jpg"
+      alt="Hero background"
+      fill
+      priority
+      className="object-cover w-full h-full"
+    />
+    {/* Overlay for gradient effect */}
+    <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900/50 to-slate-900 opacity-80"></div>
+  </div>
+  <div className="relative container mx-auto px-4 text-center">
+    <div className="max-w-4xl mx-auto">
+      <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+        Encounter Jesus.
+        <br />
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Grow in the Word.</span>
+        <br />
+        Impact the World.
+      </h1>
+      <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
+        Join us for spirit-filled teachings, vibrant community, and engaging online presence.
+      </p>
+      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <button 
+          className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 shadow-lg hover:shadow-blue-500/25 transition-all duration-300 rounded-lg font-medium"
+          onClick={() => {
+            alert('Map button clicked!')
+            console.log('Map button clicked')
+            window.open("https://maps.google.com/?q=Addis+Ketema+Sub+City+Asko+Addis+Sefer+Lizmender+Addis+Ababa+Ethiopia", "_blank")
+          }}
+        >
+          <Calendar className="w-5 h-5 mr-2 inline" />
+          Visit Us This Sunday
+        </button>
+        <button 
+          className="border border-blue-400 text-blue-400 hover:bg-blue-400/10 px-8 py-3 backdrop-blur-sm rounded-lg font-medium"
+          onClick={() => {
+            console.log('YouTube button clicked')
+            window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")
+          }}
+        >
+          <Play className="w-5 h-5 mr-2 inline" />
+          Watch Latest Sermon
+        </button>
+        <button
+          className="border border-purple-400 text-purple-400 hover:bg-purple-400/10 px-8 py-3 backdrop-blur-sm shadow-lg hover:shadow-purple-500/25 transition-all duration-300 rounded-lg font-medium"
+          onClick={() => {
+            console.log('Facebook button clicked')
+            window.open("https://www.facebook.com/JSLTVWORLDWIDE", "_blank")
+          }}
+        >
+          <Globe className="w-5 h-5 mr-2 inline" />
+          Follow Us Online
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* About Section */}
       <section id="about" className="py-12 sm:py-16 bg-slate-800/50 backdrop-blur-sm">
