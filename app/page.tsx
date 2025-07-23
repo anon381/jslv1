@@ -26,6 +26,7 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
+import { useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -46,6 +47,33 @@ export default function SpringOfLifeChurch() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const [isSubmittingContact, setIsSubmittingContact] = useState(false)
   const [isSubmittingNewsletter, setIsSubmittingNewsletter] = useState(false)
+  // Typing effect for hero headline
+  const heroTexts = [
+    "Encounter Jesus.",
+    "Grow in the Word.",
+    "Impact the World."
+  ];
+  const [typedText, setTypedText] = useState("");
+  const [currentTextIdx, setCurrentTextIdx] = useState(0);
+  const [charIdx, setCharIdx] = useState(0);
+  useEffect(() => {
+    if (currentTextIdx >= heroTexts.length) return;
+    if (charIdx < heroTexts[currentTextIdx].length) {
+      const timeout = setTimeout(() => {
+        setTypedText(heroTexts[currentTextIdx].slice(0, charIdx + 1));
+        setCharIdx(charIdx + 1);
+      }, 60);
+      return () => clearTimeout(timeout);
+    } else {
+      // Pause before next line
+      const timeout = setTimeout(() => {
+        setCurrentTextIdx(currentTextIdx + 1);
+        setCharIdx(0);
+        setTypedText("");
+      }, 900);
+      return () => clearTimeout(timeout);
+    }
+  }, [charIdx, currentTextIdx]);
 
   // Contact form
   const contactForm = useForm({
@@ -129,7 +157,7 @@ export default function SpringOfLifeChurch() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
       {/* Header */}
-      <header className="bg-slate-900/95 backdrop-blur-sm border-b border-blue-500/20 sticky top-0 z-50">
+      <header className="bg-transparent backdrop-blur-sm border-b border-blue-500/20 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -210,11 +238,23 @@ export default function SpringOfLifeChurch() {
   <div className="relative container mx-auto px-4 text-center">
     <div className="max-w-4xl mx-auto">
       <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-        Encounter Jesus.
-        <br />
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Grow in the Word.</span>
-        <br />
-        Impact the World.
+        {[0, 1, 2].map(idx => (
+          <div key={idx} style={{ minHeight: '1.2em' }}>
+            {currentTextIdx === idx ? (
+              idx === 1 ? (
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">{typedText}<span className="animate-blink">|</span></span>
+              ) : (
+                <span>{typedText}<span className="animate-blink">|</span></span>
+              )
+            ) : (
+              idx === 1 ? (
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">{currentTextIdx > idx ? heroTexts[idx] : "\u00A0"}</span>
+              ) : (
+                <span>{currentTextIdx > idx ? heroTexts[idx] : "\u00A0"}</span>
+              )
+            )}
+          </div>
+        ))}
       </h1>
       <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
         Join us for spirit-filled teachings, vibrant community, and engaging online presence.
@@ -257,50 +297,52 @@ export default function SpringOfLifeChurch() {
 </section>
 
       {/* About Section */}
-      <section id="about" className="py-12 sm:py-16 bg-slate-800/50 backdrop-blur-sm">
+      <section id="about" className="py-32 sm:py-48 bg-slate-800/50 backdrop-blur-sm">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 sm:mb-8">About JSL Church</h2>
-            <p className="text-base sm:text-lg text-blue-100 mb-6 sm:mb-8 leading-relaxed">
-              We are a Bible-teaching, Christ-centered church committed to proclaiming Jesus Christ and preaching the
-              word of God. Founded by Pastor Zenebech Gessesse and her husband Engineer Luelkal Kassie Eleven years ago,
-              we are dedicated to spreading the Gospel and building a strong community of believers.
-            </p>
-            <div className="mb-6 sm:mb-8">
-              <Link href="/about">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto border-blue-400 text-blue-400 hover:bg-blue-400/10">
-                  Learn More About Our Story
-                </Button>
-              </Link>
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center md:justify-between gap-12 pt-0">
+            <div className="flex-1 text-left pt-0">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-12 sm:mb-16 text-left">About JSL Church</h2>
+              <p className="text-base sm:text-lg text-blue-100 mb-6 sm:mb-8 leading-relaxed text-left">
+                We are a Bible-teaching, Christ-centered church committed to proclaiming Jesus Christ and preaching the word of God. Founded by Pastor Zenebech Gessesse and her husband Engineer Luelkal Kassie Eleven years ago, we are dedicated to spreading the Gospel and building a strong community of believers.
+              </p>
+              <div className="mb-8 sm:mb-10 flex justify-center">
+                <Link href="/about">
+                  <Button variant="outline" size="lg" className="sm:w-auto border-blue-400 text-blue-400 hover:bg-blue-400/10">
+                    Learn More About Our Story
+                  </Button>
+                </Link>
+              </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8 sm:mt-12">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
-                  <BookOpen className="w-8 h-8 text-blue-400" />
+            <div className="flex-1 flex flex-col md:flex-row gap-8 md:gap-6 justify-end items-center md:items-start">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-8 w-full mt-32 md:mt-48">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-24 h-24 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-full flex items-center justify-center mb-6 border-2 border-blue-500/30">
+                    <BookOpen className="w-14 h-14 text-blue-400" />
+                  </div>
+                  <h3 className="font-bold text-white text-2xl mb-3">Scripture</h3>
+                  <p className="text-blue-200 text-lg">Grounded in Biblical truth</p>
                 </div>
-                <h3 className="font-semibold text-white mb-2">Scripture</h3>
-                <p className="text-blue-200 text-sm">Grounded in Biblical truth</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-500/30">
-                  <Users className="w-8 h-8 text-green-400" />
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-24 h-24 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-full flex items-center justify-center mb-6 border-2 border-green-500/30">
+                    <Users className="w-14 h-14 text-green-400" />
+                  </div>
+                  <h3 className="font-bold text-white text-2xl mb-3">Discipleship</h3>
+                  <p className="text-blue-200 text-lg">Growing together in faith</p>
                 </div>
-                <h3 className="font-semibold text-white mb-2">Discipleship</h3>
-                <p className="text-blue-200 text-sm">Growing together in faith</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-purple-500/30">
-                  <Heart className="w-8 h-8 text-purple-400" />
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-24 h-24 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-full flex items-center justify-center mb-6 border-2 border-purple-500/30">
+                    <Heart className="w-14 h-14 text-purple-400" />
+                  </div>
+                  <h3 className="font-bold text-white text-2xl mb-3">Worship</h3>
+                  <p className="text-blue-200 text-lg">Heartfelt praise and prayer</p>
                 </div>
-                <h3 className="font-semibold text-white mb-2">Worship</h3>
-                <p className="text-blue-200 text-sm">Heartfelt praise and prayer</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-500/20 to-orange-600/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-orange-500/30">
-                  <Globe className="w-8 h-8 text-orange-400" />
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-24 h-24 bg-gradient-to-br from-orange-500/20 to-orange-600/20 rounded-full flex items-center justify-center mb-6 border-2 border-orange-500/30">
+                    <Globe className="w-14 h-14 text-orange-400" />
+                  </div>
+                  <h3 className="font-bold text-white text-2xl mb-3">Outreach</h3>
+                  <p className="text-blue-200 text-lg">Serving our community</p>
                 </div>
-                <h3 className="font-semibold text-white mb-2">Outreach</h3>
-                <p className="text-blue-200 text-sm">Serving our community</p>
               </div>
             </div>
           </div>
