@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { PinContainer } from "@/components/ui/3d-pin"
 import { Toaster } from "@/components/ui/sonner"
 import {
   Cross,
@@ -420,23 +421,24 @@ export default function SpringOfLifeChurch() {
 
           {/* Sermon Library Preview */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
-            {[
-              { title: "The Power of Prayer", topic: "Prayer", image: "/gallery/prayer.jpg", date: "Jan 14" },
-              { title: "Living with Purpose", topic: "Faith", image: "/gallery/faith.jpg", date: "Jan 7" },
-              { title: "God's Grace in Action", topic: "Grace", image: "/gallery/grace.jpg", date: "Dec 31" },
+            {[ 
+              { title: "The Power of Prayer", topic: "Prayer", image: "/gallery/prayer.jpg" },
+              { title: "Living with Purpose", topic: "Faith", image: "/gallery/faith.jpg" },
+              { title: "God's Grace in Action", topic: "Grace", image: "/gallery/grace.jpg" }
             ].map((sermon, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-slate-800/50 border-slate-700/50 backdrop-blur-sm hover:bg-slate-800/70">
-                <div className="relative aspect-video bg-gray-200">
-                  <Image src={sermon.image} alt={sermon.title} className="object-cover" fill />
-                </div>
-                <CardContent className="p-4 bg-slate-800/50">
-                  <Badge variant="secondary" className="mb-2 bg-purple-500/20 text-purple-300 border-purple-500/30">
-                    {sermon.topic}
-                  </Badge>
-                  <h4 className="font-semibold text-white mb-1">{sermon.title}</h4>
-                  <p className="text-sm text-blue-300">{sermon.date}</p>
-                </CardContent>
-              </Card>
+              <PinContainer key={index} containerClassName="w-full flex justify-center items-center">
+                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-transparent backdrop-blur-sm hover:bg-transparent w-[320px] max-w-full" style={{ border: 'none', margin: '0 0.5rem', background: 'transparent' }}>
+                  <div className="relative aspect-video" style={{ background: 'transparent' }}>
+                    <Image src={sermon.image} alt={sermon.title} className="object-cover" fill />
+                  </div>
+                  <CardContent className="p-4" style={{ background: 'transparent' }}>
+                    <Badge variant="secondary" className="mb-2 bg-transparent text-purple-300 border-purple-500/30">
+                      {sermon.topic}
+                    </Badge>
+                    <h4 className="font-semibold text-white mb-1">{sermon.title}</h4>
+                  </CardContent>
+                </Card>
+              </PinContainer>
             ))}
           </div>
 
@@ -458,54 +460,64 @@ export default function SpringOfLifeChurch() {
             <p className="text-base sm:text-lg text-blue-200">Follow our journey and join the conversation</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
-            <Card className="text-center p-6 hover:shadow-xl transition-all duration-300 bg-slate-800/50 border-slate-700/50 backdrop-blur-sm hover:bg-slate-800/70">
-              <div className="w-16 h-16 bg-gradient-to-br from-red-500/20 to-red-600/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-red-500/30">
-                <Youtube className="w-8 h-8 text-red-400" />
-              </div>
-              <h3 className="font-semibold text-white mb-2">YouTube</h3>
-              <p className="text-blue-200 text-sm mb-4">Weekly sermons, Bible studies, and worship sessions</p>
-              <Button
-                variant="outline"
-                size="sm"
-                className="border-red-400 text-red-400 hover:bg-red-400/10"
-                onClick={() => window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")}
-              >
-                Subscribe
-              </Button>
-            </Card>
-
-            <Card className="text-center p-6 hover:shadow-xl transition-all duration-300 bg-slate-800/50 border-slate-700/50 backdrop-blur-sm hover:bg-slate-800/70">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="w-8 h-8 text-blue-400"
+          <div className="flex flex-row justify-center items-stretch gap-8 max-w-4xl mx-auto">
+            {/* Social Cards with corner tilt effect, larger size but same grid layout */}
+            {[{
+              key: 'youtube',
+              icon: <Youtube className="w-10 h-10 text-red-400" />, 
+              title: 'YouTube',
+              desc: 'Weekly sermons, Bible studies, and worship sessions',
+              btn: <Button variant="outline" size="lg" className="border-red-400 text-red-400 hover:bg-red-400/10 mt-2" onClick={() => window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")}>Subscribe</Button>,
+              bg: "from-red-500/20 to-red-600/20 border-red-500/30"
+            }, {
+              key: 'telegram',
+              icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-blue-400"><path d="M21.944 4.186a1.5 1.5 0 0 0-1.59-.217L3.6 11.13a1.5 1.5 0 0 0 .13 2.77l3.77 1.36 1.36 4.09a1.5 1.5 0 0 0 2.74.13l2.13-3.77 3.77 1.36a1.5 1.5 0 0 0 2.77-.13l3.77-13.13a1.5 1.5 0 0 0-.13-2.77z" fill="currentColor"/></svg>,
+              title: 'Telegram',
+              desc: 'Daily inspiration, behind-the-scenes, and community moments',
+              btn: <Button variant="outline" size="lg" className="border-blue-400 text-blue-400 hover:bg-blue-400/10 mt-2" onClick={() => window.open("https://t.me/JSLCHURCHOFFICIALCHANNEL", "_blank")}>Follow</Button>,
+              bg: "from-blue-500/20 to-blue-600/20 border-blue-500/30"
+            }, {
+              key: 'facebook',
+              icon: <Facebook className="w-10 h-10 text-blue-400" />, 
+              title: 'Facebook',
+              desc: 'Event updates, live services, and community discussions',
+              btn: <Button variant="outline" size="lg" className="border-blue-400 text-blue-400 hover:bg-blue-400/10 mt-2" onClick={() => window.open("https://www.facebook.com/JSLTVWORLDWIDE", "_blank")}>Like Page</Button>,
+              bg: "from-blue-500/20 to-blue-600/20 border-blue-500/30"
+            }].map(card => {
+              // Card tilt logic
+              const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0 });
+              const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+                const cardEl = e.currentTarget;
+                const rect = cardEl.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const midX = rect.width / 2;
+                const midY = rect.height / 2;
+                // Calculate rotation based on cursor position
+                const rotateY = ((x - midX) / midX) * 12;
+                const rotateX = -((y - midY) / midY) * 12;
+                setTilt({ rotateX, rotateY });
+              };
+              const handleMouseLeave = () => setTilt({ rotateX: 0, rotateY: 0 });
+              return (
+                <motion.div
+                  key={card.key}
+                  style={{ width: 320, maxWidth: 320, perspective: 800, background: 'rgba(30,41,59,0.35)', border: '1px solid rgba(100,116,139,0.18)', boxShadow: tilt.rotateX !== 0 || tilt.rotateY !== 0 ? "0 8px 32px 0 rgba(59,130,246,0.25)" : "0 2px 12px 0 rgba(59,130,246,0.10)", backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
+                  animate={{ rotateX: tilt.rotateX, rotateY: tilt.rotateY, scale: tilt.rotateX !== 0 || tilt.rotateY !== 0 ? 1.06 : 1 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="text-center p-8 rounded-xl cursor-pointer flex-shrink-0"
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  <path
-                    d="M21.944 4.186a1.5 1.5 0 0 0-1.59-.217L3.6 11.13a1.5 1.5 0 0 0 .13 2.77l3.77 1.36 1.36 4.09a1.5 1.5 0 0 0 2.74.13l2.13-3.77 3.77 1.36a1.5 1.5 0 0 0 2.77-.13l3.77-13.13a1.5 1.5 0 0 0-.13-2.77z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-white mb-2">Telegram</h3>
-              <p className="text-blue-200 text-sm mb-4">Daily inspiration, behind-the-scenes, and community moments</p>
-              <Button variant="outline" size="sm" className="border-blue-400 text-blue-400 hover:bg-blue-400/10" onClick={() => window.open("https://t.me/JSLCHURCHOFFICIALCHANNEL", "_blank")}>
-                Follow
-              </Button>
-            </Card>
-
-            <Card className="text-center p-6 hover:shadow-xl transition-all duration-300 bg-slate-800/50 border-slate-700/50 backdrop-blur-sm hover:bg-slate-800/70">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
-                <Facebook className="w-8 h-8 text-blue-400" />
-              </div>
-              <h3 className="font-semibold text-white mb-2">Facebook</h3>
-              <p className="text-blue-200 text-sm mb-4">Event updates, live services, and community discussions</p>
-              <Button variant="outline" size="sm" className="border-blue-400 text-blue-400 hover:bg-blue-400/10" onClick={() => window.open("https://www.facebook.com/JSLTVWORLDWIDE", "_blank")}>
-                Like Page
-              </Button>
-            </Card>
+                  <div className={`w-24 h-24 bg-gradient-to-br ${card.bg} rounded-full flex items-center justify-center mx-auto mb-6 border`}>
+                    {card.icon}
+                  </div>
+                  <h3 className="font-bold text-white text-2xl mb-3">{card.title}</h3>
+                  <p className="text-blue-200 text-lg mb-6">{card.desc}</p>
+                  {card.btn}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
