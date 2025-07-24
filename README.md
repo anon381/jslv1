@@ -1,7 +1,5 @@
 <h1 align="center">Next.js + TypeScript + Tailwind CSS + shadcn/ui </h1>
- **Check the live version:**
 
-  https://jsl-evvu.vercel.app/
 
 <p align="center">
   <img src="https://media.giphy.com/media/L8K62iTDkzGX6/giphy.gif" height="200" alt="Dev Working Animated GIF"/>
