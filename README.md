@@ -1,4 +1,7 @@
-<h1 align="center">âœ¨ Next.js + TypeScript + Tailwind CSS + shadcn/ui âœ¨</h1>
+<h1 align="center">Next.js + TypeScript + Tailwind CSS + shadcn/ui </h1>
+ **Check the live version:**
+
+  https://jsl-evvu.vercel.app/
 
 <p align="center">
   <img src="https://media.giphy.com/media/L8K62iTDkzGX6/giphy.gif" height="200" alt="Dev Working Animated GIF"/>
@@ -6,12 +9,12 @@
 
 <p align="center">
   A modern, beautifully structured project using <strong>Next.js (App Router)</strong>, <strong>TypeScript</strong>, 
-  <strong>Tailwind CSS v4</strong>, and <strong>shadcn/ui</strong> â€“ featuring clean code and scalable UI components.
+  <strong>Tailwind CSS v4</strong>, and <strong>shadcn/ui</strong> “ featuring clean code and scalable UI components.
 </p>
 
 ---
 
-## ðŸ”§ Project Stack
+## Project Stack
 
 | Tech               | Description                                 |
 |--------------------|---------------------------------------------|
@@ -22,16 +25,8 @@
 
 ---
 
-## ðŸ“¦ Custom Components
 
-| File                                | Description                |
-|-------------------------------------|----------------------------|
-| `/components/ui/3d-marquee.tsx`     | 3D Marquee UI Component    |
-| `/components/3d-marquee-demo.tsx`   | Demo Page for the Marquee  |
-
----
-
-## ðŸš€ Getting Started
+##  Getting Started
 
 1. **Install dependencies:**
 
@@ -49,21 +44,15 @@
 
    http://localhost:3000
 
-4. **Check the live version:**
 
-   ðŸ‘‰ https://jsl-evvu.vercel.app/
 
 ---
 
-## ðŸ—‚ Notes
 
-- ðŸ§© All custom UI components should live in `/components/ui` to maintain shadcn/ui compatibility.
-- ðŸŽ¨ Tailwind CSS v4 is already configured.
-- âœ… TypeScript is enabled by default.
 
 ---
 
-## ðŸ“š Documentation Links
+##  Documentation Links
 
 | Tool            | Link                                         |
 |-----------------|----------------------------------------------|
@@ -74,6 +63,6 @@
 ---
 
 <p align="center">
-  <strong>ðŸ”¥ Built with care, animated with style.</strong><br/>
+  <strong>Built with care, animated with style.</strong><br/>
   <em>Craft. Ship. Iterate.</em>
 </p>
