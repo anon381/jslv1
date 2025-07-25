@@ -26,8 +26,8 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
-import { useEffect } from "react"
+import React, { useState, useEffect } from "react"
+// import { useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { useForm } from "react-hook-form"
@@ -67,6 +67,17 @@ export default function SpringOfLifeChurch() {
     }
   }, [aboutInView, leftControls, rightControls])
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
+  const [activePage, setActivePage] = useState("home")
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const path = window.location.pathname;
+      if (path === "/") setActivePage("home");
+      else if (path.startsWith("/about")) setActivePage("about");
+      else if (path.startsWith("/sermons")) setActivePage("sermons");
+      else if (path.startsWith("/connect")) setActivePage("connect");
+      else if (window.location.pathname === "/visit") setActivePage("visit");
+    }
+  }, []);
   const [isSubmittingContact, setIsSubmittingContact] = useState(false)
   const [isSubmittingNewsletter, setIsSubmittingNewsletter] = useState(false)
   // Typing effect for hero headline
@@ -193,21 +204,11 @@ export default function SpringOfLifeChurch() {
             </div>
             {/* Desktop Nav */}
             <nav className="hidden md:flex space-x-6">
-              <Link href="/" className="text-blue-400 font-medium hover:text-blue-300 transition-colors">
-                Home
-              </Link>
-              <Link href="/about" className="text-gray-300 hover:text-blue-400 transition-colors">
-                About
-              </Link>
-              <Link href="/sermons" className="text-gray-300 hover:text-blue-400 transition-colors">
-                Sermons
-              </Link>
-              <Link href="#visit" className="text-gray-300 hover:text-blue-400 transition-colors">
-                Visit
-              </Link>
-              <Link href="#connect" className="text-gray-300 hover:text-blue-400 transition-colors">
-                Connect
-              </Link>
+              <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("home")}>Home</Link>
+              <Link href="/about" className={`${activePage === "about" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("about")}>About</Link>
+              <Link href="/sermons" className={`${activePage === "sermons" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("sermons")}>Sermons</Link>
+              <Link href="/visit" className={`${activePage === "visit" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("visit")}>Visit</Link>
+              <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("connect")}>Connect</Link>
             </nav>
             {/* Hamburger for mobile */}
             <button
@@ -223,21 +224,11 @@ export default function SpringOfLifeChurch() {
           {/* Mobile Nav Drawer */}
           {mobileNavOpen && (
             <nav className="md:hidden mt-4 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-2xl border border-blue-500/20 p-4 flex flex-col space-y-3 animate-fade-in">
-              <Link href="/" className="text-blue-400 font-medium hover:text-blue-300 transition-colors" onClick={() => setMobileNavOpen(false)}>
-                Home
-              </Link>
-              <Link href="/about" className="text-gray-300 hover:text-blue-400 transition-colors" onClick={() => setMobileNavOpen(false)}>
-                About
-              </Link>
-              <Link href="/sermons" className="text-gray-300 hover:text-blue-400 transition-colors" onClick={() => setMobileNavOpen(false)}>
-                Sermons
-              </Link>
-              <Link href="#visit" className="text-gray-300 hover:text-blue-400 transition-colors" onClick={() => setMobileNavOpen(false)}>
-                Visit
-              </Link>
-              <Link href="#connect" className="text-gray-300 hover:text-blue-400 transition-colors" onClick={() => setMobileNavOpen(false)}>
-                Connect
-              </Link>
+              <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("home"); setMobileNavOpen(false); }}>Home</Link>
+              <Link href="/about" className={`${activePage === "about" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("about"); setMobileNavOpen(false); }}>About</Link>
+              <Link href="/sermons" className={`${activePage === "sermons" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("sermons"); setMobileNavOpen(false); }}>Sermons</Link>
+              <Link href="/visit" className={`${activePage === "visit" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("visit"); setMobileNavOpen(false); }}>Visit</Link>
+              <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("connect"); setMobileNavOpen(false); }}>Connect</Link>
             </nav>
           )}
         </div>
@@ -460,25 +451,25 @@ export default function SpringOfLifeChurch() {
             <p className="text-base sm:text-lg text-blue-200">Follow our journey and join the conversation</p>
           </div>
 
-          <div className="flex flex-row justify-center items-stretch gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-center items-stretch gap-8 max-w-4xl mx-auto">
             {/* Social Cards with corner tilt effect, larger size but same grid layout */}
             {[{
               key: 'youtube',
-              icon: <Youtube className="w-10 h-10 text-red-400" />, 
+              icon: <Youtube className="w-8 h-8 text-red-400" />, 
               title: 'YouTube',
               desc: 'Weekly sermons, Bible studies, and worship sessions',
               btn: <Button variant="outline" size="lg" className="border-red-400 text-red-400 hover:bg-red-400/10 mt-2" onClick={() => window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")}>Subscribe</Button>,
               bg: "from-red-500/20 to-red-600/20 border-red-500/30"
             }, {
               key: 'telegram',
-              icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="w-10 h-10 text-blue-400"><path d="M21.944 4.186a1.5 1.5 0 0 0-1.59-.217L3.6 11.13a1.5 1.5 0 0 0 .13 2.77l3.77 1.36 1.36 4.09a1.5 1.5 0 0 0 2.74.13l2.13-3.77 3.77 1.36a1.5 1.5 0 0 0 2.77-.13l3.77-13.13a1.5 1.5 0 0 0-.13-2.77z" fill="currentColor"/></svg>,
+              icon: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="w-8 h-8 text-blue-400"><path d="M21.944 4.186a1.5 1.5 0 0 0-1.59-.217L3.6 11.13a1.5 1.5 0 0 0 .13 2.77l3.77 1.36 1.36 4.09a1.5 1.5 0 0 0 2.74.13l2.13-3.77 3.77 1.36a1.5 1.5 0 0 0 2.77-.13l3.77-13.13a1.5 1.5 0 0 0-.13-2.77z" fill="currentColor"/></svg>,
               title: 'Telegram',
               desc: 'Daily inspiration, behind-the-scenes, and community moments',
               btn: <Button variant="outline" size="lg" className="border-blue-400 text-blue-400 hover:bg-blue-400/10 mt-2" onClick={() => window.open("https://t.me/JSLCHURCHOFFICIALCHANNEL", "_blank")}>Follow</Button>,
               bg: "from-blue-500/20 to-blue-600/20 border-blue-500/30"
             }, {
               key: 'facebook',
-              icon: <Facebook className="w-10 h-10 text-blue-400" />, 
+              icon: <Facebook className="w-8 h-8 text-blue-400" />, 
               title: 'Facebook',
               desc: 'Event updates, live services, and community discussions',
               btn: <Button variant="outline" size="lg" className="border-blue-400 text-blue-400 hover:bg-blue-400/10 mt-2" onClick={() => window.open("https://www.facebook.com/JSLTVWORLDWIDE", "_blank")}>Like Page</Button>,
@@ -493,9 +484,9 @@ export default function SpringOfLifeChurch() {
                 const y = e.clientY - rect.top;
                 const midX = rect.width / 2;
                 const midY = rect.height / 2;
-                // Calculate rotation based on cursor position
-                const rotateY = ((x - midX) / midX) * 12;
-                const rotateX = -((y - midY) / midY) * 12;
+                // Increased intensity: rotation multiplier from 12 to 24
+                const rotateY = ((x - midX) / midX) * 24;
+                const rotateX = -((y - midY) / midY) * 24;
                 setTilt({ rotateX, rotateY });
               };
               const handleMouseLeave = () => setTilt({ rotateX: 0, rotateY: 0 });
@@ -505,16 +496,16 @@ export default function SpringOfLifeChurch() {
                   style={{ width: 320, maxWidth: 320, perspective: 800, background: 'rgba(30,41,59,0.35)', border: '1px solid rgba(100,116,139,0.18)', boxShadow: tilt.rotateX !== 0 || tilt.rotateY !== 0 ? "0 8px 32px 0 rgba(59,130,246,0.25)" : "0 2px 12px 0 rgba(59,130,246,0.10)", backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
                   animate={{ rotateX: tilt.rotateX, rotateY: tilt.rotateY, scale: tilt.rotateX !== 0 || tilt.rotateY !== 0 ? 1.06 : 1 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="text-center p-8 rounded-xl cursor-pointer flex-shrink-0"
+                  className="text-center p-4 rounded-xl cursor-pointer flex-shrink-0"
                   onMouseMove={handleMouseMove}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <div className={`w-24 h-24 bg-gradient-to-br ${card.bg} rounded-full flex items-center justify-center mx-auto mb-6 border`}>
+                  <div className={`w-16 h-16 bg-gradient-to-br ${card.bg} rounded-full flex items-center justify-center mx-auto mb-4 border`}>
                     {card.icon}
                   </div>
-                  <h3 className="font-bold text-white text-2xl mb-3">{card.title}</h3>
-                  <p className="text-blue-200 text-lg mb-6">{card.desc}</p>
-                  {card.btn}
+                  <h3 className="font-bold text-white text-lg mb-2">{card.title}</h3>
+                  <p className="text-blue-200 text-sm mb-4">{card.desc}</p>
+                  {React.cloneElement(card.btn, { size: "sm", className: `${card.btn.props.className} px-4 py-2 text-sm` })}
                 </motion.div>
               );
             })}
@@ -617,177 +608,15 @@ export default function SpringOfLifeChurch() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-4">Impact Stories</h2>
             <p className="text-base sm:text-lg text-blue-200">Hear how God is working in our community</p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
-            {[
-              {
-                quote:
-                  "Since joining this church, I've grown deeper in my faith than I ever imagined possible.",
-                name: " Zerihun",
-                role: "NEHMIA member",
-              },
-              {
-                quote: "The teaching here helped me understand the Bible in a whole new way.",
-                name: "Yohannes ",
-                role: "Youth Leader",
-              },
-              {
-                quote: "It's more than just a church — it's a family",
-                name: " DR. Saron",
-                role: "NEHMIA member",
-              },
-            ].map((testimonial, index) => (
-              <Card key={index} className="p-6 text-center bg-slate-800/50 border-slate-700/50 backdrop-blur-sm hover:bg-slate-800/70 transition-all duration-300">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-blue-500/30">
-                  <Heart className="w-6 h-6 text-blue-400" />
-                </div>
-                <blockquote className="text-blue-200 mb-4 italic">"{testimonial.quote}"</blockquote>
-                <div>
-                  <p className="font-semibold text-white">{testimonial.name}</p>
-                  <p className="text-sm text-blue-300">{testimonial.role}</p>
-                </div>
-              </Card>
-            ))}
+          <div className="max-w-5xl mx-auto">
+            {/* Animated Testimonials Demo */}
+            {require('@/components/animated-testimonials-demo').default()}
           </div>
         </div>
       </section>
 
-      {/* Connect Section */}
-      <section id="connect" className="py-12 sm:py-16 bg-slate-900/50 backdrop-blur-sm">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8 sm:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-4">Connect & Engage</h2>
-              <p className="text-base sm:text-lg text-blue-200">We'd love to hear from you and keep you updated</p>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-              {/* Contact Form */}
-              <Card className="p-6 bg-slate-800/50 border-slate-700/50 backdrop-blur-sm">
-                <h3 className="text-xl font-semibold text-white mb-4">Send Us a Message</h3>
-                <form onSubmit={contactForm.handleSubmit(onSubmitContact)} className="space-y-4">
-                  <div>
-                    <Input 
-                      placeholder="Your Name" 
-                      {...contactForm.register('name')}
-                      className={contactForm.formState.errors.name ? 'border-red-500' : ''}
-                    />
-                    {contactForm.formState.errors.name && (
-                      <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.name.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <Input 
-                      type="email" 
-                      placeholder="Your Email" 
-                      {...contactForm.register('email')}
-                      className={contactForm.formState.errors.email ? 'border-red-500' : ''}
-                    />
-                    {contactForm.formState.errors.email && (
-                      <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.email.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <Textarea 
-                      placeholder="Prayer requests, questions, or how we can help..." 
-                      rows={4}
-                      {...contactForm.register('message')}
-                      className={contactForm.formState.errors.message ? 'border-red-500' : ''}
-                    />
-                    {contactForm.formState.errors.message && (
-                      <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.message.message}</p>
-                    )}
-                  </div>
-                  <button 
-                    type="button"
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-blue-500/25 transition-all duration-300 rounded-lg font-medium py-2 px-4 text-white"
-                    onClick={() => {
-                      alert('Contact form button clicked!')
-                      console.log('Contact form button clicked')
-                    }}
-                  >
-                    <Send className="w-4 h-4 mr-2 inline" />
-                    Test Contact Button
-                  </button>
-                  <Button 
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-blue-500/25 transition-all duration-300" 
-                    disabled={isSubmittingContact}
-                  >
-                    <Send className="w-4 h-4 mr-2" />
-                    {isSubmittingContact ? 'Sending...' : 'Send Message'}
-                  </Button>
-                </form>
-              </Card>
-
-              {/* Newsletter Signup */}
-              <Card className="p-6 bg-slate-800/50 border-slate-700/50 backdrop-blur-sm">
-                <h3 className="text-xl font-semibold text-white mb-4">Stay Updated</h3>
-                <p className="text-blue-200 mb-6">
-                  Subscribe to our newsletter for church updates, upcoming events, and weekly teachings.
-                </p>
-                <form onSubmit={newsletterForm.handleSubmit(onSubmitNewsletter)} className="space-y-4">
-                  <div>
-                    <Input 
-                      type="email" 
-                      placeholder="Your Email Address" 
-                      {...newsletterForm.register('email')}
-                      className={newsletterForm.formState.errors.email ? 'border-red-500' : ''}
-                    />
-                    {newsletterForm.formState.errors.email && (
-                      <p className="text-red-500 text-sm mt-1">{newsletterForm.formState.errors.email.message}</p>
-                    )}
-                  </div>
-                  <Button 
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg hover:shadow-green-500/25 transition-all duration-300"
-                    disabled={isSubmittingNewsletter}
-                  >
-                    <Mail className="w-4 h-4 mr-2" />
-                    {isSubmittingNewsletter ? 'Subscribing...' : 'Subscribe to Newsletter'}
-                  </Button>
-                </form>
-
-                <div className="mt-8 pt-6 border-t border-slate-600/50">
-                  <h4 className="font-semibold text-white mb-3">Contact Info</h4>
-                  <div className="space-y-2 text-sm text-blue-200">
-                    <div className="flex items-center">
-                      <Phone className="w-4 h-4 mr-2 text-blue-400" />
-                      +251 926 141 414
-                    </div>
-                    <div className="flex items-center">
-                      <Phone className="w-4 h-4 mr-2 text-blue-400" />
-                      +251 947 153 805
-                    </div>
-                    <div className="flex items-center">
-                      <Mail className="w-4 h-4 mr-2 text-blue-400" />
-                      your-church-email@example.com
-                    </div>
-                    <div className="flex items-center">
-                      <MapPin className="w-4 h-4 mr-2 text-blue-400" />
-                      Kolfe Keraniyo Sub City, Asko-Addis Sefer Condominium Area, Addis Ababa, Ethiopia
-                    </div>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Give Section */}
-      <section className="py-12 sm:py-16 bg-gradient-to-r from-blue-900 via-purple-900 to-blue-900 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-4">Partner with Us</h2>
-            <p className="text-base sm:text-xl mb-6 sm:mb-8 text-blue-100">Help us advance the Kingdom through your generous giving</p>
-            <Button size="lg" variant="secondary" className="w-full sm:w-auto bg-gradient-to-r from-white to-gray-100 text-blue-900 hover:from-gray-100 hover:to-white shadow-lg hover:shadow-white/25 transition-all duration-300" onClick={() => window.open("https://www.facebook.com/JSLTVWORLDWIDE", "_blank")}>
-              <Heart className="w-5 h-5 mr-2" />
-              Give Now
-            </Button>
-          </div>
-        </div>
-      </section>
+     
 
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-8 sm:py-12 border-t border-slate-700/50">
@@ -827,7 +656,7 @@ export default function SpringOfLifeChurch() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#visit" className="hover:text-blue-200 transition-colors">
+              <Link href="/visit" className="hover:text-blue-200 transition-colors">
                     Plan a Visit
                   </Link>
                 </li>
