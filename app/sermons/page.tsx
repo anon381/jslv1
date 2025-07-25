@@ -7,10 +7,24 @@ import { Badge } from "@/components/ui/badge"
 import { Cross, Play, Search, Calendar, Clock, Heart, Youtube, ExternalLink, Filter, ArrowLeft, Facebook } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function SermonsPage() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
+  const [activePage, setActivePage] = useState("sermons")
+  // Set active page based on current route on mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const path = window.location.pathname;
+      if (path === "/") setActivePage("home");
+      else if (path.startsWith("/about")) setActivePage("about");
+      else if (path.startsWith("/sermons")) setActivePage("sermons");
+      else if (path.startsWith("/connect")) setActivePage("connect");
+      // For anchor navigation
+      else if (window.location.pathname === "/visit") setActivePage("visit");
+      // Already correct, no hash logic present
+    }
+  }, []);
 
   const sermonCategories = [
     "All Sermons",
@@ -83,41 +97,29 @@ export default function SermonsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Header */}
-      <header className="bg-white/95 backdrop-blur-sm border-b border-blue-100 sticky top-0 z-50">
+      <header className="bg-transparent backdrop-blur-sm border-b border-blue-500/20 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <Link href="/" className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                  <Cross className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h1 className="text-xl font-bold text-gray-800">JSL Church</h1>
-                  <p className="text-sm text-gray-600">Jesus the Spring of Life International</p>
-                </div>
-              </Link>
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                <Cross className="w-7 h-7 text-white" />
+              </div>
+              <div>
+                <h1 className="text-xl font-bold text-white">JSL Church</h1>
+                <p className="text-sm text-blue-200">Jesus the Spring of Life International</p>
+              </div>
             </div>
             {/* Desktop Nav */}
             <nav className="hidden md:flex space-x-6">
-              <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors">
-                Home
-              </Link>
-              <Link href="/about" className="text-gray-700 hover:text-blue-600 transition-colors">
-                About
-              </Link>
-              <Link href="/sermons" className="text-blue-600 font-medium">
-                Sermons
-              </Link>
-              <Link href="/#visit" className="text-gray-700 hover:text-blue-600 transition-colors">
-                Visit
-              </Link>
-              <Link href="/#connect" className="text-gray-700 hover:text-blue-600 transition-colors">
-                Connect
-              </Link>
+              <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("home")}>Home</Link>
+              <Link href="/about" className={`${activePage === "about" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("about")}>About</Link>
+              <Link href="/sermons" className={`${activePage === "sermons" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("sermons")}>Sermons</Link>
+              <Link href="/visit" className={`${activePage === "visit" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("visit")}>Visit</Link>
+              <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("connect")}>Connect</Link>
             </nav>
             {/* Hamburger for mobile */}
             <button
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-full border border-blue-100 text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              className="md:hidden flex items-center justify-center w-10 h-10 rounded-full border border-blue-500/30 text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
               onClick={() => setMobileNavOpen((v) => !v)}
               aria-label="Open navigation menu"
             >
@@ -128,22 +130,12 @@ export default function SermonsPage() {
           </div>
           {/* Mobile Nav Drawer */}
           {mobileNavOpen && (
-            <nav className="md:hidden mt-4 bg-white rounded-lg shadow-lg p-4 flex flex-col space-y-3 animate-fade-in">
-              <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setMobileNavOpen(false)}>
-                Home
-              </Link>
-              <Link href="/about" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setMobileNavOpen(false)}>
-                About
-              </Link>
-              <Link href="/sermons" className="text-blue-600 font-medium" onClick={() => setMobileNavOpen(false)}>
-                Sermons
-              </Link>
-              <Link href="/#visit" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setMobileNavOpen(false)}>
-                Visit
-              </Link>
-              <Link href="/#connect" className="text-gray-700 hover:text-blue-600 transition-colors" onClick={() => setMobileNavOpen(false)}>
-                Connect
-              </Link>
+            <nav className="md:hidden mt-4 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-2xl border border-blue-500/20 p-4 flex flex-col space-y-3 animate-fade-in">
+              <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("home"); setMobileNavOpen(false); }}>Home</Link>
+              <Link href="/about" className={`${activePage === "about" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("about"); setMobileNavOpen(false); }}>About</Link>
+              <Link href="/sermons" className={`${activePage === "sermons" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("sermons"); setMobileNavOpen(false); }}>Sermons</Link>
+              <Link href="/visit" className={`${activePage === "visit" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("visit"); setMobileNavOpen(false); }}>Visit</Link>
+              <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("connect"); setMobileNavOpen(false); }}>Connect</Link>
             </nav>
           )}
         </div>
@@ -468,7 +460,7 @@ export default function SermonsPage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#visit" className="hover:text-white transition-colors">
+                  <Link href="/visit" className="hover:text-white transition-colors">
                     Plan a Visit
                   </Link>
                 </li>
