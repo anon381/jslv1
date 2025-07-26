@@ -160,7 +160,7 @@ export default function AboutPage() {
               </svg>
             </button>
           </div>
-          {/* Mobile Nav Drawer */}
+          {/* Mobile Nav-Drawer */}
           {mobileNavOpen && (
             <nav className="md:hidden mt-4 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-2xl border border-blue-500/20 p-4 flex flex-col space-y-3 animate-fade-in">
               <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("home"); setMobileNavOpen(false); }}>Home</Link>
