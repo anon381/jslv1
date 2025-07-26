@@ -109,7 +109,7 @@ export default function SermonsPage() {
                 <p className="text-sm text-blue-200">Jesus the Spring of Life International</p>
               </div>
             </div>
-            {/* Desktop Nav */}
+            {/* Desktop-Nav */}
             <nav className="hidden md:flex space-x-6">
               <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("home")}>Home</Link>
               <Link href="/about" className={`${activePage === "about" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("about")}>About</Link>
