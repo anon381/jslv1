@@ -58,7 +58,7 @@ export default function ConnectPage() {
 
   return (
     <>
-      {/* Header Navigation (copied from home page) */}
+      {/* Header-Navigation (copied from home page) */}
       <header className="bg-transparent backdrop-blur-sm border-b border-blue-500/20 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
