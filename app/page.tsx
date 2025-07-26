@@ -452,7 +452,7 @@ export default function SpringOfLifeChurch() {
           </div>
 
           <div className="flex flex-col md:flex-row justify-center items-stretch gap-8 max-w-4xl mx-auto">
-            {/* Social Cards with corner tilt effect, larger size but same grid layout */}
+            {/* Social Cards with corner tilt-effect, larger size but same grid layout */}
             {[{
               key: 'youtube',
               icon: <Youtube className="w-8 h-8 text-red-400" />, 
