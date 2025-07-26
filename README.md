@@ -11,8 +11,8 @@
 </p>
 
 ---
-
-## Project Stack
+<p align="center">
+ Project Stack
 
 | Tech               | Description                                 |
 |--------------------|---------------------------------------------|
@@ -22,6 +22,8 @@
 | **shadcn/ui**      | Accessible, themeable UI component library  |
 
 ---
+</p>
+
 
 
 ##  Getting Started
