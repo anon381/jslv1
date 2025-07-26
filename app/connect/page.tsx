@@ -63,12 +63,12 @@ export default function ConnectPage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
-                <Cross className="w-7 h-7 text-white" />
+              <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-emerald-600 rounded-full flex items-center justify-center shadow-lg">
+                <Cross className="w-7 h-7 text-green-200" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-white">JSL Church</h1>
-                <p className="text-sm text-blue-200">Jesus the Spring of Life International</p>
+                <h1 className="text-xl font-bold text-green-200">JSL Church</h1>
+                <p className="text-sm text-green-300">Jesus the Spring of Life International</p>
               </div>
             </div>
             {/* Desktop Nav */}
