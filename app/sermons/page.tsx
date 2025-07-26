@@ -293,49 +293,27 @@ export default function SermonsPage() {
               <h2 className="text-3xl font-bold text-gray-800 mb-4">Sermon Library</h2>
               <p className="text-gray-600">Explore our collection of life-changing messages</p>
             </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredSermons.map((sermon, index) => (
-                <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow group">
-                  <div className="relative aspect-video bg-gray-200">
-                    <Image
-                      src={sermon.thumbnail || "/placeholder.svg"}
-                      alt={sermon.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-                      <Button
-                        size="sm"
-                        className="bg-white/90 text-gray-800 hover:bg-white"
-                        onClick={() => window.open(sermon.youtubeUrl, "_blank")}
-                      >
-                        <Play className="w-4 h-4 mr-1" />
-                        Watch
-                      </Button>
-                    </div>
-                  </div>
-                  <CardContent className="p-6">
-                    <Badge variant="secondary" className="mb-3">
-                      {sermon.category}
-                    </Badge>
-                    <h4 className="font-bold text-gray-800 mb-2 line-clamp-2">{sermon.title}</h4>
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-3">{sermon.description}</p>
-                    <div className="flex items-center justify-between text-xs text-gray-500">
-                      <div className="flex items-center">
-                        <Calendar className="w-3 h-3 mr-1" />
-                        <span>{sermon.date}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Clock className="w-3 h-3 mr-1" />
-                        <span>{sermon.duration}</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+            {/* Card Hover Effect Demo */}
+            <div className="mb-12">
+              {/* Card Hover Effect with real sermon data */}
+              {typeof window !== "undefined" && (
+                <>
+                  {(() => {
+                    const { HoverEffect } = require("@/components/ui/card-hover-effect");
+                    return (
+                      <HoverEffect
+                        items={featuredSermons.map((sermon) => ({
+                          title: sermon.title,
+                          description: sermon.description,
+                          link: sermon.youtubeUrl,
+                          thumbnail: sermon.thumbnail,
+                        }))}
+                      />
+                    );
+                  })()}
+                </>
+              )}
             </div>
-
             <div className="text-center mt-12">
               <Button
                 size="lg"
