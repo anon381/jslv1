@@ -127,7 +127,7 @@ export default function AboutPage() {
 
   return (
     <ParallaxProvider>
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
         {/* Header */}
         <header className="bg-transparent backdrop-blur-sm border-b border-blue-500/20 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
@@ -174,15 +174,15 @@ export default function AboutPage() {
       </header>
 
         {/* Hero Section */}
-        <section className="relative py-8 lg:py-12 overflow-hidden bg-[linear-gradient(to_right,_#bfdbfe,_#f9a8d4)] z-10">
+        <section className="relative py-8 lg:py-12 overflow-hidden z-10 bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
           <div className="relative container mx-auto px-4 z-10">
             <div className="max-w-4xl mx-auto text-center">
               <Link href="/" className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-6">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Home
               </Link>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Our Story</h1>
-              <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Story</h1>
+              <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
                 Discover the journey of JSL Church - from a vision in the hearts of two faithful servants to a thriving
                 community proclaiming Jesus Christ across Ethiopia and beyond.
               </p>
@@ -191,12 +191,12 @@ export default function AboutPage() {
         </section>
 
         {/* Founders Section */}
-        <section className="py-16 bg-blue-100 relative z-10 overflow-hidden">
+        <section className="py-16 relative z-10 overflow-hidden bg-gradient-to-tl from-blue-900 via-slate-900 to-purple-900">
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Founders</h2>
-                <p className="text-lg text-gray-600">Meet the visionary leaders who planted JSL Church</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Founders</h2>
+                <p className="text-lg text-white/80">Meet the visionary leaders who planted JSL Church</p>
               </div>
 
               <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -207,11 +207,11 @@ export default function AboutPage() {
                         <Heart className="w-8 h-8 text-purple-600" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-gray-800">Pastor Zenebech Gessesse</h3>
-                        <p className="text-gray-600">Senior Pastor & Founder</p>
+                        <h3 className="text-xl font-bold text-black">Pastor Zenebech Gessesse</h3>
+                        <p className="text-black/80">Senior Pastor & Founder</p>
                       </div>
                     </div>
-                    <p className="text-gray-700 leading-relaxed">
+                    <p className="text-black leading-relaxed">
                       A passionate teacher of God's Word with a heart for evangelism and discipleship. Pastor Zenebech has
                       dedicated her life to proclaiming Jesus Christ and building strong communities of faith.
                     </p>
@@ -223,11 +223,11 @@ export default function AboutPage() {
                         <Building className="w-8 h-8 text-blue-600" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-gray-800">Engineer Luelkal Kassie</h3>
-                        <p className="text-gray-600">Co-Founder & Administrator</p>
+                        <h3 className="text-xl font-bold text-black">Engineer Luelkal Kassie</h3>
+                        <p className="text-black/80">Co-Founder & Administrator</p>
                       </div>
                     </div>
-                    <p className="text-gray-700 leading-relaxed">
+                    <p className="text-black leading-relaxed">
                       Bringing professional expertise and administrative excellence to church operations. Engineer Luelkal
                       ensures the church runs smoothly while supporting the ministry vision.
                     </p>
@@ -248,7 +248,7 @@ export default function AboutPage() {
                   <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
                     <div className="text-center">
                       <p className="text-2xl font-bold text-blue-600 drop-shadow-[0_0_8px_rgba(37,99,235,0.7)]">11</p>
-                      <p className="text-sm text-gray-600">Years of Ministry</p>
+                      <p className="text-sm text-black/80">Years of Ministry</p>
                     </div>
                   </div>
                 </div>
@@ -258,14 +258,14 @@ export default function AboutPage() {
         </section>
 
         {/* Interactive Timeline */}
-        <section className="py-16 bg-gray-50 overflow-hidden min-h-[70vh] relative z-10">
+        <section className="py-16 overflow-hidden min-h-[70vh] relative z-10 bg-gradient-to-r from-blue-900 via-slate-800 to-blue-700">
           <Parallax speed={-80}>
             <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white z-0"></div>
           </Parallax>
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Journey</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Journey</h2>
                 <p className="text-center text-lg font-bold text-blue-600 drop-shadow-[0_0_8px_rgba(37,99,235,0.7)] mb-8">
                   Click on each milestone to learn more about our growth
                 </p>
@@ -307,11 +307,11 @@ export default function AboutPage() {
                             {item.icon}
                           </span>
                           <Badge className="mb-3">{item.year}</Badge>
-                          <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">{item.title}</h3>
-                          <p className="text-gray-600 mb-3">{item.description}</p>
+                          <h3 className="text-lg sm:text-xl font-bold text-black mb-2">{item.title}</h3>
+                          <p className="text-black/80 mb-3">{item.description}</p>
                           {activeTimeline === index && (
-                            <div className="mt-4 p-4 bg-blue-50 rounded-lg">
-                              <p className="text-gray-700 text-sm">{item.details}</p>
+                            <div className="mt-4 p-4 bg-blue-900/60 rounded-lg">
+                              <p className="text-white text-sm">{item.details}</p>
                             </div>
                           )}
                         </CardContent>
@@ -325,12 +325,12 @@ export default function AboutPage() {
         </section>
 
         {/* Photo Gallery */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Photo Gallery</h2>
-                <p className="text-lg text-gray-600">Moments that tell our story</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Photo Gallery</h2>
+                <p className="text-lg text-white/80">Moments that tell our story</p>
               </div>
 
               {/* Main Gallery */}
@@ -397,11 +397,11 @@ export default function AboutPage() {
         </div>
 
         {/* Achievements Counter */}
-        <section className="py-16 bg-blue-600 text-white">
+        <section className="py-16 bg-gradient-to-tr from-blue-900 via-slate-800 to-blue-800">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Impact</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Impact</h2>
                 <p className="text-xl text-blue-100">God's faithfulness through the years</p>
               </div>
 
@@ -429,9 +429,9 @@ export default function AboutPage() {
                       key={index}
                       className="bg-white/10 border-white/20 text-center p-6 hover:bg-white/20 transition-colors"
                     >
-                      <div className="flex justify-center mb-4 text-white">{achievement.icon}</div>
-                      <div className="text-3xl font-bold mb-2">{achievement.number.match(/\D/) ? `${count}+` : count}</div>
-                      <div className="text-blue-100">{achievement.label}</div>
+                      <div className="flex justify-center mb-4 text-black">{achievement.icon}</div>
+              <div className="text-3xl font-bold mb-2 text-black">{achievement.number.match(/\D/) ? `${count}+` : count}</div>
+              <div className="text-black/80">{achievement.label}</div>
                     </Card>
                   )
                 })}
@@ -441,7 +441,7 @@ export default function AboutPage() {
         </section>
 
         {/* Mission & Vision */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-gradient-to-bl from-blue-900 via-slate-800 to-purple-900">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="grid md:grid-cols-2 gap-12">
@@ -450,24 +450,24 @@ export default function AboutPage() {
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
                       <BookOpen className="w-6 h-6 text-blue-600" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-800">Our Mission</h3>
+                <h3 className="text-2xl font-bold text-black">Our Mission</h3>
                   </div>
-                  <p className="text-gray-700 leading-relaxed mb-6">
+                  <p className="text-black leading-relaxed mb-6">
                     To proclaim Jesus Christ and preach the word of God, building a strong community of believers who are
                     equipped to serve and make disciples in Ethiopia and beyond.
                   </p>
                   <div className="space-y-3">
                     <div className="flex items-center">
                       <Star className="w-4 h-4 text-yellow-500 mr-2" />
-                      <span className="text-gray-600">Proclaiming Jesus Christ</span>
+                      <span className="text-black/80">Proclaiming Jesus Christ</span>
                     </div>
                     <div className="flex items-center">
                       <Star className="w-4 h-4 text-yellow-500 mr-2" />
-                      <span className="text-gray-600">Preaching the Word of God</span>
+                      <span className="text-black/80">Preaching the Word of God</span>
                     </div>
                     <div className="flex items-center">
                       <Star className="w-4 h-4 text-yellow-500 mr-2" />
-                      <span className="text-gray-600">Building Strong Communities</span>
+                      <span className="text-black/80">Building Strong Communities</span>
                     </div>
                   </div>
                 </Card>
@@ -477,24 +477,24 @@ export default function AboutPage() {
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
                       <Globe className="w-6 h-6 text-purple-600" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-800">Our Vision</h3>
+                <h3 className="text-2xl font-bold text-black">Our Vision</h3>
                   </div>
-                  <p className="text-gray-700 leading-relaxed mb-6">
+                  <p className="text-black leading-relaxed mb-6">
                     To be a beacon of hope and transformation in Addis Ababa and beyond, reaching every nation through the
                     power of the Gospel and digital ministry.
                   </p>
                   <div className="space-y-3">
                     <div className="flex items-center">
                       <Award className="w-4 h-4 text-green-500 mr-2" />
-                      <span className="text-gray-600">Local Community Impact</span>
+                      <span className="text-black/80">Local Community Impact</span>
                     </div>
                     <div className="flex items-center">
                       <Award className="w-4 h-4 text-green-500 mr-2" />
-                      <span className="text-gray-600">International Reach</span>
+                      <span className="text-black/80">International Reach</span>
                     </div>
                     <div className="flex items-center">
                       <Award className="w-4 h-4 text-green-500 mr-2" />
-                      <span className="text-gray-600">Digital Ministry Excellence</span>
+                      <span className="text-black/80">Digital Ministry Excellence</span>
                     </div>
                   </div>
                 </Card>
@@ -504,22 +504,22 @@ export default function AboutPage() {
         </section>
 
         {/* Testimonial Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-12">What People Say</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">What People Say</h2>
 
               <Card className="p-8 bg-gradient-to-r from-blue-50 to-purple-50">
                 <Quote className="w-12 h-12 text-blue-600 mx-auto mb-6" />
-                <blockquote className="text-xl text-gray-700 italic mb-6 leading-relaxed">
+                <blockquote className="text-xl text-black italic mb-6 leading-relaxed">
                   "JSL Church has been a blessing to our community. Pastor Zenebech's teachings have transformed countless
                   lives, and the church's commitment to both local and digital ministry is inspiring."
                 </blockquote>
                 <div className="flex items-center justify-center">
                   <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
                   <div>
-                    <p className="font-semibold text-gray-800">Community Leader</p>
-                    <p className="text-gray-600">Addis Ketema Sub City</p>
+                    <p className="font-semibold text-black">Community Leader</p>
+                    <p className="text-black/80">Addis Ketema Sub City</p>
                   </div>
                 </div>
               </Card>
@@ -528,7 +528,7 @@ export default function AboutPage() {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 bg-blue-600 text-white">
+        <section className="py-16">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Story</h2>
