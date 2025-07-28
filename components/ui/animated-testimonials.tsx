@@ -3,7 +3,7 @@
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "motion/react";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 type Testimonial = {
   quote: string;
@@ -19,13 +19,23 @@ export const AnimatedTestimonials = ({
   autoplay?: boolean;
 }) => {
   const [active, setActive] = useState(0);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+
+  // Helper to clear and restart interval
+  const restartInterval = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(handleNext, 12000);
+  };
 
   const handleNext = () => {
     setActive((prev) => (prev + 1) % testimonials.length);
+    restartInterval();
   };
 
   const handlePrev = () => {
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    restartInterval();
   };
 
   const isActive = (index: number) => {
@@ -33,9 +43,12 @@ export const AnimatedTestimonials = ({
   };
 
   useEffect(() => {
-    // Always autoplay every 6 seconds
-    const interval = setInterval(handleNext, 6000);
-    return () => clearInterval(interval);
+    // Always autoplay every 12 seconds
+    intervalRef.current = setInterval(handleNext, 12000);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [testimonials.length]);
 
   const randomRotateY = () => {
