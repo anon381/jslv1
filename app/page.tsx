@@ -411,26 +411,43 @@ export default function SpringOfLifeChurch() {
           </div>
 
           {/* Sermon Library Preview */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
-            {[ 
-              { title: "The Power of Prayer", topic: "Prayer", image: "/gallery/prayer.jpg" },
-              { title: "Living with Purpose", topic: "Faith", image: "/gallery/faith.jpg" },
-              { title: "God's Grace in Action", topic: "Grace", image: "/gallery/grace.jpg" }
-            ].map((sermon, index) => (
-              <PinContainer key={index} containerClassName="w-full flex justify-center items-center">
-                <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-transparent backdrop-blur-sm hover:bg-transparent w-[320px] max-w-full" style={{ border: 'none', margin: '0 0.5rem', background: 'transparent' }}>
-                  <div className="relative aspect-video" style={{ background: 'transparent' }}>
-                    <Image src={sermon.image} alt={sermon.title} className="object-cover" fill />
-                  </div>
-                  <CardContent className="p-4" style={{ background: 'transparent' }}>
-                    <Badge variant="secondary" className="mb-2 bg-transparent text-purple-300 border-purple-500/30">
-                      {sermon.topic}
-                    </Badge>
-                    <h4 className="font-semibold text-white mb-1">{sermon.title}</h4>
-                  </CardContent>
-                </Card>
-              </PinContainer>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
+            {(() => {
+              const getYoutubeId = (url: string) => {
+                // Accepts both embed and watch URLs
+                const match = url.match(/(?:embed\/|watch\?v=|youtu.be\/)([\w-]{11})/);
+                return match ? match[1] : "";
+              };
+              const sermons = [
+                { title: "The Power of Prayer", topic: "Prayer", video: "https://www.youtube.com/embed/_Myjo4M3NdQ?si=odGoUAKB34FSRGVe" },
+                { title: "Connection with God", topic: "Songs", video: "https://www.youtube.com/embed/5-xC-uqFKHM?si=gQcI94_xeCH17ArA" },
+                { title: "God's Grace in Action", topic: "Power", video: "https://www.youtube.com/embed/KBySVNRoWDY?si=4QNSHCLyUJONkKVl" }
+              ].map(s => ({
+                ...s,
+                image: `https://img.youtube.com/vi/${getYoutubeId(s.video)}/hqdefault.jpg`
+              }));
+              const [hovered, setHovered] = React.useState<number | null>(null);
+              return sermons.map((sermon, index) => (
+                <PinContainer key={index} containerClassName="w-full flex justify-center items-center" index={index}>
+                  <Card
+                    className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-transparent backdrop-blur-sm hover:bg-transparent w-[290px] md:w-[320px] max-w-full"
+                    style={{ border: 'none', margin: '0 0.5rem', background: 'transparent' }}
+                    onMouseEnter={() => setHovered(index)}
+                    onMouseLeave={() => setHovered(null)}
+                  >
+                    <div className="relative aspect-video cursor-pointer group" style={{ background: 'transparent' }} onClick={() => window.open(sermon.video.replace('/embed/', '/watch?v=').split('?')[0], '_blank')}>
+                      <Image src={sermon.image} alt={sermon.title} className="object-cover transition-opacity duration-200 group-hover:opacity-80" fill />
+                    </div>
+                    <CardContent className="p-4" style={{ background: 'transparent' }}>
+                      <Badge variant="secondary" className="mb-2 bg-transparent text-purple-300 border-purple-500/30">
+                        {sermon.topic}
+                      </Badge>
+                      <h4 className="font-semibold text-white mb-1">{sermon.title}</h4>
+                    </CardContent>
+                  </Card>
+                </PinContainer>
+              ));
+            })()}
           </div>
 
           <div className="text-center">
