@@ -451,7 +451,7 @@ export default function SpringOfLifeChurch() {
             <p className="text-base sm:text-lg text-blue-200">Follow our journey and join the conversation</p>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-center items-stretch gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 max-w-4xl mx-auto w-full">
             {/* Social Cards with corner tilt-effect, larger size but same grid layout */}
             {[{
               key: 'youtube',
@@ -493,10 +493,10 @@ export default function SpringOfLifeChurch() {
               return (
                 <motion.div
                   key={card.key}
-                  style={{ width: 320, maxWidth: 320, perspective: 800, background: 'rgba(30,41,59,0.35)', border: '1px solid rgba(100,116,139,0.18)', boxShadow: tilt.rotateX !== 0 || tilt.rotateY !== 0 ? "0 8px 32px 0 rgba(59,130,246,0.25)" : "0 2px 12px 0 rgba(59,130,246,0.10)", backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
+                  style={{ perspective: 800, background: 'rgba(30,41,59,0.35)', border: '1px solid rgba(100,116,139,0.18)', boxShadow: tilt.rotateX !== 0 || tilt.rotateY !== 0 ? "0 8px 32px 0 rgba(59,130,246,0.25)" : "0 2px 12px 0 rgba(59,130,246,0.10)", backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
                   animate={{ rotateX: tilt.rotateX, rotateY: tilt.rotateY, scale: tilt.rotateX !== 0 || tilt.rotateY !== 0 ? 1.06 : 1 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="text-center p-4 rounded-xl cursor-pointer flex-shrink-0"
+                  className="text-center p-4 rounded-xl cursor-pointer flex-shrink-0 w-full max-w-xs md:max-w-[320px]"
                   onMouseMove={handleMouseMove}
                   onMouseLeave={handleMouseLeave}
                 >
