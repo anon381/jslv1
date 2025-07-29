@@ -101,16 +101,16 @@ export default function SermonsPage() {
       <Nav activePage="sermons" />
 
       {/* Hero Section */}
-      <section className="relative py-16 lg:py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10"></div>
+      <section className="relative py-16 lg:py-24 overflow-hidden bg-gradient-to-br from-blue-950 via-blue-950 to-black">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-blue-950/80 to-black/70 pointer-events-none"></div>
         <div className="relative container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mt-10 md:mt-16">
             <Link href="/" className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-4 sm:mb-6 text-base sm:text-lg">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Link>
-            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4 sm:mb-6">Sermons & Teachings</h1>
-            <p className="text-base sm:text-xl text-gray-700 mb-6 sm:mb-8 max-w-3xl mx-auto">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">Sermons & Teachings</h1>
+            <p className="text-base sm:text-xl text-blue-100 mb-6 sm:mb-8 max-w-3xl mx-auto">
               Dive deeper into God's Word with Pastor Zenebech Gessesse's powerful teachings. Experience
               life-transforming messages that will strengthen your faith and guide your spiritual journey.
             </p>
@@ -154,15 +154,16 @@ export default function SermonsPage() {
       </section>
 
       {/* Featured Sermon */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gradient-to-br from-blue-950 via-blue-950 to-black">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-6 sm:mb-8">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 sm:mb-4">Latest Message</h2>
-              <p className="text-base sm:text-lg text-gray-600">Watch our most recent sermon from Pastor Zenebech</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-4">Latest Message</h2>
+              <p className="text-base sm:text-lg text-white">Watch our most recent sermon from Pastor Zenebech</p>
             </div>
 
             <Card className="overflow-hidden max-w-4xl mx-auto">
+              
               <div className="relative aspect-video bg-gray-200">
                 <Image src="/gallery/sermon_1.jpg" alt="Latest sermon" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
@@ -213,12 +214,12 @@ export default function SermonsPage() {
       </section>
 
       {/* Sermon Library */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gradient-to-br from-blue-950 via-blue-950 to-black">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Sermon Library</h2>
-              <p className="text-gray-600">Explore our collection of life-changing messages</p>
+              <h2 className="text-3xl font-bold text-white mb-4">Sermon Library</h2>
+              <p className="text-white">Explore our collection of life-changing messages</p>
             </div>
             {/* Card Hover Effect Demo */}
             <div className="mb-12">
@@ -257,18 +258,18 @@ export default function SermonsPage() {
       </section>
 
       {/* Pastor Section */}
-      <section className="py-16 bg-blue-50">
+      <section className="py-16 bg-gradient-to-br from-blue-950 via-blue-950 to-black">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">Meet Pastor Zenebech Gessesse</h2>
-                <p className="text-gray-700 mb-6 leading-relaxed">
+                <h2 className="text-3xl font-bold text-white mb-6">Meet Pastor Zenebech Gessesse</h2>
+                <p className="text-white mb-6 leading-relaxed">
                   Pastor Zenebech Gessesse is a passionate teacher of God's Word, dedicated to helping believers grow in
                   their faith and discover their divine purpose. With years of ministry experience, she brings deep
                   biblical insights and practical wisdom to every message.
                 </p>
-                <p className="text-gray-700 mb-6 leading-relaxed">
+                <p className="text-white mb-6 leading-relaxed">
                   Her heart for international ministry has led to the establishment of JSL Church as a global community
                   where people from all nations can encounter Jesus and be transformed by His love.
                 </p>
@@ -301,7 +302,7 @@ export default function SermonsPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-blue-600 text-white">
+      <section className="py-16 bg-gradient-to-br from-blue-950 via-blue-950 to-black text-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Stay Connected</h2>
