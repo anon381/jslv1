@@ -25,6 +25,8 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 
+import Nav from "@/components/nav"
+
 export default function AboutPage() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [activeTimeline, setActiveTimeline] = useState(0)
@@ -128,57 +130,14 @@ export default function AboutPage() {
   return (
     <ParallaxProvider>
       <div className="min-h-screen bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
-        {/* Header */}
-        <header className="bg-transparent backdrop-blur-sm border-b border-blue-500/20 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
-                <Cross className="w-7 h-7 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-white">JSL Church</h1>
-                <p className="text-sm text-blue-200">Jesus the Spring of Life International</p>
-              </div>
-            </div>
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex space-x-6">
-              <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("home")}>Home</Link>
-              <Link href="/about" className={`${activePage === "about" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("about")}>About</Link>
-              <Link href="/sermons" className={`${activePage === "sermons" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("sermons")}>Sermons</Link>
-              <Link href="/visit" className={`${activePage === "visit" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("visit")}>Visit</Link>
-              <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("connect")}>Connect</Link>
-            </nav>
-            {/* Hamburger for mobile */}
-            <button
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-full border border-blue-500/30 text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
-              onClick={() => setMobileNavOpen((v) => !v)}
-              aria-label="Open navigation menu"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d={mobileNavOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-              </svg>
-            </button>
-          </div>
-          {/* Mobile Nav-Drawer */}
-          {mobileNavOpen && (
-            <nav className="md:hidden mt-4 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-2xl border border-blue-500/20 p-4 flex flex-col space-y-3 animate-fade-in">
-              <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("home"); setMobileNavOpen(false); }}>Home</Link>
-              <Link href="/about" className={`${activePage === "about" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("about"); setMobileNavOpen(false); }}>About</Link>
-              <Link href="/sermons" className={`${activePage === "sermons" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("sermons"); setMobileNavOpen(false); }}>Sermons</Link>
-              <Link href="/visit" className={`${activePage === "visit" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("visit"); setMobileNavOpen(false); }}>Visit</Link>
-              <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("connect"); setMobileNavOpen(false); }}>Connect</Link>
-            </nav>
-          )}
-        </div>
-      </header>
+        <Nav activePage="about" />
 
         {/* Hero Section with Parallax */}
         <Parallax speed={-8}>
-          <section className="relative py-8 lg:py-12 overflow-hidden z-10 bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
+          <section className="relative mt-20 lg:mt-0 py-20 lg:py-32 overflow-hidden z-10 bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
             <div className="relative container mx-auto px-4 z-10">
-              <div className="max-w-4xl mx-auto text-center">
-                <div className="mb-6">
+              <div className="max-w-4xl mx-auto text-center mt-10 md:mt-16">
+                <div className="mb-10 md:mb-14">
                   {/* Animated Text Effect for Title */}
                   {typeof window !== "undefined" && (
                     <>
@@ -372,7 +331,7 @@ export default function AboutPage() {
         {/* Photo Gallery with Parallax */}
         <Parallax speed={-4}>
           <section className="py-16 bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
-            <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 pt-10 sm:pt-16">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
                   <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Photo Gallery</h2>
