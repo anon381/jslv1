@@ -66,10 +66,10 @@ export default function ConnectPage() {
   };
 
   return (
-    <>
-      
+    <div className="min-h-screen bg-[#223A5E]">
       <Nav activePage="connect" />
-      <section id="connect" className="mt-20 sm:mt-16 py-12 sm:py-16 bg-[#223A5E] backdrop-blur-sm">
+
+      <section id="connect" className="py-20 sm:py-32 bg-[#223A5E] backdrop-blur-sm">
         <div className="container mx-auto px-4 pt-10 sm:pt-16">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 sm:mb-12">
@@ -152,7 +152,6 @@ export default function ConnectPage() {
         </div>
       </section>
       {/* Extra scrollable content: cards and text */}
-      
-    </>
+    </div>
   );
 }
