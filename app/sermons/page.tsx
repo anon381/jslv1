@@ -101,7 +101,7 @@ export default function SermonsPage() {
       <Nav activePage="sermons" />
 
       {/* Hero Section */}
-      <section className="relative py-16 lg:py-24 overflow-hidden bg-gradient-to-br from-blue-950 via-blue-950 to-black">
+      <section className="relative py-16 lg:py-24 overflow-hidden bg-gradient-to-br from-blue-800 via-blue-950 to-black-600">
         <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-blue-950/80 to-black/70 pointer-events-none"></div>
         <div className="relative container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mt-10 md:mt-16">
@@ -154,16 +154,14 @@ export default function SermonsPage() {
       </section>
 
       {/* Featured Sermon */}
-      <section className="py-12 bg-gradient-to-br from-blue-950 via-blue-950 to-black">
+      <section className="py-12 bg-gradient-to-br from-blue-800 via-blue-950 to-black-600">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-6 sm:mb-8">
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-4">Latest Message</h2>
               <p className="text-base sm:text-lg text-white">Watch our most recent sermon from Pastor Zenebech</p>
             </div>
-
             <Card className="overflow-hidden max-w-4xl mx-auto">
-              
               <div className="relative aspect-video bg-gray-200">
                 <Image src="/gallery/sermon_1.jpg" alt="Latest sermon" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
@@ -258,7 +256,7 @@ export default function SermonsPage() {
       </section>
 
       {/* Pastor Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-950 via-blue-950 to-black">
+      <section className="py-16 bg-gradient-to-br from-blue-800 via-blue-950 to-black-600">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -302,7 +300,7 @@ export default function SermonsPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-br from-blue-950 via-blue-950 to-black text-white">
+      <section className="py-16 bg-gradient-to-br from-blue-800 via-blue-950 to-black-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Stay Connected</h2>
