@@ -134,7 +134,7 @@ export default function AboutPage() {
 
         {/* Hero Section with Parallax */}
         <Parallax speed={-8}>
-          <section className="relative mt-20 lg:mt-0 py-20 lg:py-32 overflow-hidden z-10 bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
+          <section className="relative mt-20 lg:mt-0 py-20 lg:py-32 overflow-hidden z-10 bg-slate-800/30 backdrop-blur-sm">
             <div className="relative container mx-auto px-4 z-10">
               <div className="max-w-4xl mx-auto text-center mt-10 md:mt-16">
                 <div className="mb-10 md:mb-14">
@@ -178,7 +178,7 @@ export default function AboutPage() {
 
         {/* Founders Section with Parallax */}
         <Parallax speed={-5}>
-          <section className="py-16 relative z-10 overflow-hidden bg-gradient-to-tl from-blue-900 via-slate-900 to-purple-900">
+          <section className="py-16 relative z-10 overflow-hidden bg-gradient-to-br from-blue-900/30 via-slate-800/50 to-blue-900/30 backdrop-blur-sm">
             <div className="container mx-auto px-4 relative z-10">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
@@ -244,7 +244,7 @@ export default function AboutPage() {
 
         {/* Interactive Timeline with Parallax */}
         <Parallax speed={-6}>
-          <section className="py-16 overflow-hidden min-h-[70vh] relative z-10 bg-gradient-to-r from-blue-900 via-slate-800 to-blue-700">
+          <section className="py-16 overflow-hidden min-h-[70vh] relative z-10 bg-slate-800/50 backdrop-blur-sm">
             <Parallax speed={-40}>
               <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white z-0"></div>
             </Parallax>
@@ -330,7 +330,7 @@ export default function AboutPage() {
 
         {/* Photo Gallery with Parallax */}
         <Parallax speed={-4}>
-          <section className="py-16 bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
+          <section className="py-16 bg-gradient-to-br from-slate-900 via-blue-900/50 to-slate-900 opacity-80">
         <div className="container mx-auto px-4 pt-10 sm:pt-16">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
@@ -399,7 +399,7 @@ export default function AboutPage() {
         </div>
 
         {/* Achievements Counter */}
-        <section className="py-16 bg-gradient-to-tr from-blue-900 via-slate-800 to-blue-800">
+        <section className="py-16 bg-slate-900/50 backdrop-blur-sm">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
@@ -443,7 +443,7 @@ export default function AboutPage() {
         </section>
 
         {/* Mission & Vision */}
-        <section className="py-16 bg-gradient-to-bl from-blue-900 via-slate-800 to-purple-900">
+        <section className="py-16 bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="grid md:grid-cols-2 gap-12">
