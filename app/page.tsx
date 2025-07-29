@@ -193,7 +193,7 @@ export default function SpringOfLifeChurch() {
         <Nav activePage={activePage} />
 
       {/* Hero Section */}
-      <section className="relative mt-16 py-32 lg:py-56 overflow-hidden">
+      <section className="relative py-32 lg:py-56 overflow-hidden">
   {/* Background image */}
   <div className="absolute inset-0">
     <Image
