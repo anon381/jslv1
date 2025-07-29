@@ -152,22 +152,7 @@ export default function ConnectPage() {
         </div>
       </section>
       {/* Extra scrollable content: cards and text */}
-      <section className="py-12 bg-[#F6E7C1]">
-        <div className="container mx-auto px-4">
-          <h3 className="text-2xl font-bold text-[#223A5E] mb-6">More to Explore</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            {[1,2,3,4].map((n) => (
-              <div key={n} className="bg-[#B7C9E2] rounded-xl shadow-lg p-6 flex flex-col items-center">
-                <span className="text-2xl font-bold text-[#223A5E]">Card {n}</span>
-                <p className="text-[#223A5E] mt-2">This is a sample card for scrolling.</p>
-              </div>
-            ))}
-          </div>
-          <div className="max-w-2xl mx-auto text-center text-[#223A5E] text-lg">
-            <p>Thank you for connecting with us! Scroll down to see more content and explore what our community has to offer. Stay tuned for updates and new features coming soon.</p>
-          </div>
-        </div>
-      </section>
+      
     </>
   );
 }
