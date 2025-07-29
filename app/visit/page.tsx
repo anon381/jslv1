@@ -8,6 +8,7 @@ import Nav from "@/components/nav"
 export default function VisitPage() {
   // Nav handles active page and scroll logic
 
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
       <Nav activePage="visit" />
