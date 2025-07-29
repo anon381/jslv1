@@ -101,10 +101,10 @@ export default function SermonsPage() {
       <Nav activePage="sermons" />
 
       {/* Hero Section */}
-      <section className="relative mt-20 py-16 lg:py-24 overflow-hidden">
+      <section className="relative py-16 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10"></div>
         <div className="relative container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center mt-10 md:mt-16">
             <Link href="/" className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-4 sm:mb-6 text-base sm:text-lg">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
@@ -114,7 +114,6 @@ export default function SermonsPage() {
               Dive deeper into God's Word with Pastor Zenebech Gessesse's powerful teachings. Experience
               life-transforming messages that will strengthen your faith and guide your spiritual journey.
             </p>
-
             {/* YouTube Channel CTA */}
             <div
               className="bg-white rounded-lg shadow-lg p-6 mb-8 max-w-2xl mx-auto relative overflow-hidden"
@@ -153,37 +152,6 @@ export default function SermonsPage() {
           </div>
         </div>
       </section>
-
-      {/* Search and Filter Section */}
-      {/* <section className="py-8 bg-white border-b border-gray-100">
-        <div className="container mx-auto px-4 pt-10 sm:pt-16">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex flex-col md:flex-row gap-4 mb-6">
-              <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                <Input placeholder="Search sermons by title, topic, or scripture..." className="pl-10 py-3" />
-              </div>
-              <Button variant="outline" className="flex items-center">
-                <Filter className="w-4 h-4 mr-2" />
-                Filter
-              </Button>
-            </div> */}
-
-            {/* Category Tags */}
-            {/* <div className="flex flex-wrap gap-2">
-              {sermonCategories.map((category, index) => (
-                <Badge
-                  key={index}
-                  variant={index === 0 ? "default" : "secondary"}
-                  className={`cursor-pointer hover:bg-blue-100 ${index === 0 ? "bg-blue-600 text-white" : ""}`}
-                >
-                  {category}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Featured Sermon */}
       <section className="py-12 bg-gray-50">
