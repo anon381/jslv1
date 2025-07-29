@@ -27,6 +27,7 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import React, { useState, useEffect } from "react"
+import Nav from "@/components/nav"
 // import { useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
@@ -47,6 +48,7 @@ const newsletterSchema = z.object({
 })
 
 export default function SpringOfLifeChurch() {
+  // ...existing code...
   // About section animation controls
   const [aboutRef, aboutInView] = useInView({ triggerOnce: true, threshold: 0.2 })
   const leftControls = useAnimation()
@@ -66,8 +68,7 @@ export default function SpringOfLifeChurch() {
       })
     }
   }, [aboutInView, leftControls, rightControls])
-  const [mobileNavOpen, setMobileNavOpen] = useState(false)
-  const [activePage, setActivePage] = useState("home")
+  const [activePage, setActivePage] = useState("home");
   useEffect(() => {
     if (typeof window !== "undefined") {
       const path = window.location.pathname;
@@ -187,55 +188,12 @@ export default function SpringOfLifeChurch() {
       setIsSubmittingNewsletter(false)
     }
   }
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-      {/* Header */}
-      <header className="bg-transparent backdrop-blur-sm border-b border-blue-500/20 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
-                <Cross className="w-7 h-7 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-white">JSL Church</h1>
-                <p className="text-sm text-blue-200">Jesus the Spring of Life International</p>
-              </div>
-            </div>
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex space-x-6">
-              <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("home")}>Home</Link>
-              <Link href="/about" className={`${activePage === "about" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("about")}>About</Link>
-              <Link href="/sermons" className={`${activePage === "sermons" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("sermons")}>Sermons</Link>
-              <Link href="/visit" className={`${activePage === "visit" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("visit")}>Visit</Link>
-              <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("connect")}>Connect</Link>
-            </nav>
-            {/* Hamburger for mobile */}
-            <button
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-full border border-blue-500/30 text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
-              onClick={() => setMobileNavOpen((v) => !v)}
-              aria-label="Open navigation menu"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d={mobileNavOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-              </svg>
-            </button>
-          </div>
-          {/* Mobile Nav Drawer */}
-          {mobileNavOpen && (
-            <nav className="md:hidden mt-4 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-2xl border border-blue-500/20 p-4 flex flex-col space-y-3 animate-fade-in">
-              <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("home"); setMobileNavOpen(false); }}>Home</Link>
-              <Link href="/about" className={`${activePage === "about" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("about"); setMobileNavOpen(false); }}>About</Link>
-              <Link href="/sermons" className={`${activePage === "sermons" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("sermons"); setMobileNavOpen(false); }}>Sermons</Link>
-              <Link href="/visit" className={`${activePage === "visit" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("visit"); setMobileNavOpen(false); }}>Visit</Link>
-              <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("connect"); setMobileNavOpen(false); }}>Connect</Link>
-            </nav>
-          )}
-        </div>
-      </header>
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        <Nav activePage={activePage} />
 
       {/* Hero Section */}
-      <section className="relative py-32 lg:py-56 overflow-hidden">
+      <section className="relative mt-16 py-32 lg:py-56 overflow-hidden">
   {/* Background image */}
   <div className="absolute inset-0">
     <Image
@@ -727,5 +685,5 @@ export default function SpringOfLifeChurch() {
       </footer>
       <Toaster />
     </div>
-  )
+  );
 }
