@@ -1,75 +1,20 @@
 "use client"
+
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Clock, MapPin, Cross } from "lucide-react"
-import Link from "next/link"
-import { useState, useEffect } from "react"
+import { Clock, MapPin } from "lucide-react"
+import Nav from "@/components/nav"
 
 export default function VisitPage() {
-  const [mobileNavOpen, setMobileNavOpen] = useState(false)
-  const [activePage, setActivePage] = useState("visit")
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const path = window.location.pathname;
-      if (path === "/") setActivePage("home");
-      else if (path.startsWith("/about")) setActivePage("about");
-      else if (path.startsWith("/sermons")) setActivePage("sermons");
-      else if (path.startsWith("/connect")) setActivePage("connect");
-      else if (path.startsWith("/visit")) setActivePage("visit");
-      // No hash logic needed, handled by pathname above
-    }
-  }, []);
+  // Nav handles active page and scroll logic
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
-      {/* Headers */}
-      <header className="bg-transparent backdrop-blur-sm border-b border-blue-500/20 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
-                <Cross className="w-7 h-7 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-white">JSL Church</h1>
-                <p className="text-sm text-blue-200">Jesus the Spring of Life International</p>
-              </div>
-            </div>
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex space-x-6">
-              <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("home")}>Home</Link>
-              <Link href="/about" className={`${activePage === "about" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("about")}>About</Link>
-              <Link href="/sermons" className={`${activePage === "sermons" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("sermons")}>Sermons</Link>
-              <Link href="/visit" className={`${activePage === "visit" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("visit")}>Visit</Link>
-              <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setActivePage("connect")}>Connect</Link>
-            </nav>
-            {/* Hamburger for mobile */}
-            <button
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded-full border border-blue-500/30 text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
-              onClick={() => setMobileNavOpen((v) => !v)}
-              aria-label="Open navigation menu"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d={mobileNavOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-              </svg>
-            </button>
-          </div>
-          {/* Mobile Nav Drawer */}
-          {mobileNavOpen && (
-            <nav className="md:hidden mt-4 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-2xl border border-blue-500/20 p-4 flex flex-col space-y-3 animate-fade-in">
-              <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("home"); setMobileNavOpen(false); }}>Home</Link>
-              <Link href="/about" className={`${activePage === "about" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("about"); setMobileNavOpen(false); }}>About</Link>
-              <Link href="/sermons" className={`${activePage === "sermons" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("sermons"); setMobileNavOpen(false); }}>Sermons</Link>
-              <Link href="/visit" className={`${activePage === "visit" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("visit"); setMobileNavOpen(false); }}>Visit</Link>
-              <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => { setActivePage("connect"); setMobileNavOpen(false); }}>Connect</Link>
-            </nav>
-          )}
-        </div>
-      </header>
+      <Nav activePage="visit" />
 
-      {/* Visit Section */}
-      <section id="visit" className="py-12 sm:py-16 bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
-        <div className="container mx-auto px-4">
+        
+      <section id="visit" className="py-20 sm:py-32 bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
+        <div className="container mx-auto px-4 pt-16 sm:pt-24">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 sm:mb-12">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 sm:mb-4">Plan Your Visit</h2>
@@ -142,6 +87,8 @@ export default function VisitPage() {
                   </li>
                 </ul>
               </Card>
+
+              
             </div>
             <div className="text-center mt-8">
               <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-blue-500/25 transition-all duration-300" onClick={() => window.open("/connect", "_self")}>Let Us Know You're Coming</Button>
