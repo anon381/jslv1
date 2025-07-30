@@ -22,7 +22,6 @@ const newsletterSchema = z.object({
 });
 
 export default function ConnectPage() {
-  // ...existing code...
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
