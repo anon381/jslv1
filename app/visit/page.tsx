@@ -6,7 +6,7 @@ import { Clock, MapPin } from "lucide-react"
 import Nav from "@/components/nav"
 
 export default function VisitPage() {
-  // Nav handles active page and scroll logic
+  // Nav handles active page and-scroll logic
 
   
   return (
