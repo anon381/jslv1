@@ -369,7 +369,7 @@ export default function AboutPage() {
                     <p className="text-sm">{photoGallery[currentSlide].caption}</p>
                   </div>
                 </div>
-                {/* Thumbnail Navigation */}
+                {/* Thumbnail-Navigation */}
                 <div className="grid grid-cols-6 gap-2">
                   {photoGallery.map((photo, index) => (
                     <div
