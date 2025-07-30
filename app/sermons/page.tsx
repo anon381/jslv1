@@ -152,8 +152,8 @@ export default function SermonsPage() {
           </div>
         </div>
       </section>
-      {/* Featured-Sermon */}
-      
+      {/* Featured Sermon */}
+
       <section className="py-12 bg-gradient-to-br from-blue-800 via-blue-950 to-black-600">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
