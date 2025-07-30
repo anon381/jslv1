@@ -584,7 +584,7 @@ export default function SpringOfLifeChurch() {
             <p className="text-base sm:text-lg text-blue-200">Hear how God is working in our community</p>
           </div>
           <div className="max-w-5xl mx-auto">
-            {/* Animated Testimonials Demo */}
+            {/* Animated- Testimonials Demo */}
             {require('@/components/animated-testimonials-demo').default()}
           </div>
         </div>
