@@ -114,41 +114,48 @@ export default function SermonsPage() {
               Dive deeper into God's Word with Pastor Zenebech Gessesse's powerful teachings. Experience
               life-transforming messages that will strengthen your faith and guide your spiritual journey.
             </p>
-            {/* YouTube Channel CTA */}
-            <div
-              className="bg-white rounded-lg shadow-lg p-6 mb-8 max-w-2xl mx-auto relative overflow-hidden"
-              style={{
-                backgroundImage: "url('/gallery/banner.jpg')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              <div className="absolute inset-0 bg-white/80 z-0"></div>
-              <div className="relative z-10">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                    <Youtube className="w-8 h-8 text-red-600" />
+            {/* YouTube Channel CTA with CometCard effect */}
+            {(() => {
+              const CometCard = require("@/components/ui/comet-card").CometCard || require("@/components/ui/comet-card").default;
+              return (
+                <CometCard className="mb-8 max-w-2xl mx-auto">
+                  <div
+                    className="bg-white rounded-lg shadow-lg p-6 relative overflow-hidden"
+                    style={{
+                      backgroundImage: "url('/gallery/banner.jpg')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-white/80 z-0"></div>
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-center mb-4">
+                        <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                          <Youtube className="w-8 h-8 text-red-600" />
+                        </div>
+                        <div className="text-left">
+                          <h3 className="text-lg font-extrabold text-gray-900 drop-shadow-md">JSL TV Word Channel</h3>
+                          <p className="text-gray-800 font-semibold drop-shadow">Pastor Zenebech Gessesse</p>
+                        </div>
+                      </div>
+                      <p className="text-gray-900 font-bold text-lg mb-4 drop-shadow-md">
+                        Subscribe to our YouTube channel for the latest sermons, live services, and special teachings.
+                      </p>
+                      <Button
+                        size="lg"
+                        className="bg-red-600 hover:bg-red-700 text-white font-bold shadow-lg"
+                        onClick={() => window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")}
+                      >
+                        <Youtube className="w-5 h-5 mr-2" />
+                        Visit YouTube Channel
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
                   </div>
-                  <div className="text-left">
-                    <h3 className="text-lg font-extrabold text-gray-900 drop-shadow-md">JSL TV Word Channel</h3>
-                    <p className="text-gray-800 font-semibold drop-shadow">Pastor Zenebech Gessesse</p>
-                  </div>
-                </div>
-                <p className="text-gray-900 font-bold text-lg mb-4 drop-shadow-md">
-                  Subscribe to our YouTube channel for the latest sermons, live services, and special teachings.
-                </p>
-                <Button
-                  size="lg"
-                  className="bg-red-600 hover:bg-red-700 text-white font-bold shadow-lg"
-                  onClick={() => window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")}
-                >
-                  <Youtube className="w-5 h-5 mr-2" />
-                  Visit YouTube Channel
-                  <ExternalLink className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
-            </div>
+                </CometCard>
+              );
+            })()}
           </div>
         </div>
       </section>
