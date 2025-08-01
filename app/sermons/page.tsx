@@ -161,69 +161,78 @@ export default function SermonsPage() {
       </section>
       {/* Featured Sermon */}
 
+      {/* Featured Sermon with ContainerScroll effect and original section background */}
       <section className="py-12 bg-gradient-to-br from-blue-800 via-blue-950 to-black-600">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-6 sm:mb-8">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 sm:mb-4">Latest Message</h2>
-              <p className="text-base sm:text-lg text-white">Watch our most recent sermon from Pastor Zenebech</p>
-            </div>
-            <Card className="overflow-hidden max-w-4xl mx-auto">
-              <div className="relative aspect-video bg-gray-200">
-                <Image 
-                  src="/gallery/sermon_1.jpg" 
-                  alt="Latest sermon" 
-                  fill 
-                  className="object-contain sm:object-cover rounded-lg sm:rounded-xl md:rounded-2xl w-full h-full bg-black" 
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw" 
-                  style={{objectPosition: 'center'}}
-                  priority
-                />
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+        {(() => {
+          const { ContainerScroll } = require("@/components/ui/container-scroll-animation");
+          return (
+            <ContainerScroll
+              titleComponent={
+                <>
+                  <div className="text-center mb-6 sm:mb-8">
+<h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-4 sm:mb-6">Latest Message</h2>
+<p className="text-xl sm:text-2xl text-white">Watch our most recent sermon from Pastor Zenebech</p>
+                  </div>
+                </>
+              }
+            >
+              <div className="max-w-4xl mx-auto">
+                <div className="relative aspect-video bg-gray-200">
+                  <Image 
+                    src="/gallery/sermon_1.jpg" 
+                    alt="Latest sermon" 
+                    fill 
+                    className="object-contain sm:object-cover rounded-lg sm:rounded-xl md:rounded-2xl w-full h-full bg-black" 
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw" 
+                    style={{objectPosition: 'center'}}
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <Button
+                      size="lg"
+                      className="bg-white/90 text-gray-800 hover:bg-white"
+                      onClick={() => window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")}
+                    >
+                      <Play className="w-6 h-6 mr-2" />
+                      Watch on YouTube
+                    </Button>
+                  </div>
+                </div>
+                <CardContent className="p-8">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
+                    <Badge className="bg-blue-600">Latest Message</Badge>
+                    <Badge variant="secondary">Faith & Trust</Badge>
+                  </div>
+                  <h3 className="text-lg sm:text-2xl font-bold text-gray-800 mb-2 sm:mb-4">Walking in Divine Purpose</h3>
+                  <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                    In this powerful message, Pastor Zenebech Gessesse explores how we can discover and walk in God's
+                    unique purpose for our lives. Learn how to align your steps with His divine plan and experience the
+                    fulfillment that comes from living according to His will.
+                  </p>
+                  <div className="flex flex-col sm:flex-row sm:items-center text-xs sm:text-sm text-gray-500 space-y-1 sm:space-y-0 sm:space-x-4">
+                    <div className="flex items-center">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      <span>January 21, 2024</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Clock className="w-4 h-4 mr-1" />
+                      <span>52 minutes</span>
+                    </div>
+                  </div>
                   <Button
-                    size="lg"
-                    className="bg-white/90 text-gray-800 hover:bg-white"
+                    variant="outline"
+                    size="sm"
+                    className="mt-2 sm:mt-0"
                     onClick={() => window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")}
                   >
-                    <Play className="w-6 h-6 mr-2" />
+                    <Youtube className="w-4 h-4 mr-2" />
                     Watch on YouTube
                   </Button>
-                </div>
+                </CardContent>
               </div>
-              <CardContent className="p-8">
-                <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
-                  <Badge className="bg-blue-600">Latest Message</Badge>
-                  <Badge variant="secondary">Faith & Trust</Badge>
-                </div>
-                <h3 className="text-lg sm:text-2xl font-bold text-gray-800 mb-2 sm:mb-4">Walking in Divine Purpose</h3>
-                <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                  In this powerful message, Pastor Zenebech Gessesse explores how we can discover and walk in God's
-                  unique purpose for our lives. Learn how to align your steps with His divine plan and experience the
-                  fulfillment that comes from living according to His will.
-                </p>
-                <div className="flex flex-col sm:flex-row sm:items-center text-xs sm:text-sm text-gray-500 space-y-1 sm:space-y-0 sm:space-x-4">
-                  <div className="flex items-center">
-                    <Calendar className="w-4 h-4 mr-1" />
-                    <span>January 21, 2024</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Clock className="w-4 h-4 mr-1" />
-                    <span>52 minutes</span>
-                  </div>
-                </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="mt-2 sm:mt-0"
-                  onClick={() => window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")}
-                >
-                  <Youtube className="w-4 h-4 mr-2" />
-                  Watch on YouTube
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
+            </ContainerScroll>
+          );
+        })()}
       </section>
 
       {/* Sermon Library */}
