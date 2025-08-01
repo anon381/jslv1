@@ -65,10 +65,10 @@ export default function ConnectPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#223A5E]">
+    <div className="min-h-screen bg-[linear-gradient(135deg,_#223A5E_0%,_#111827_100%)]">
       <Nav activePage="connect" />
 
-      <section id="connect" className="py-20 sm:py-32 bg-[#223A5E] backdrop-blur-sm">
+      <section id="connect" className="py-20 sm:py-32 bg-[linear-gradient(135deg,_#223A5E_0%,_#111827_100%)] backdrop-blur-sm">
         <div className="container mx-auto px-4 pt-10 sm:pt-16">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8 sm:mb-12">
