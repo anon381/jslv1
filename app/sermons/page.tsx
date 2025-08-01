@@ -170,7 +170,15 @@ export default function SermonsPage() {
             </div>
             <Card className="overflow-hidden max-w-4xl mx-auto">
               <div className="relative aspect-video bg-gray-200">
-                <Image src="/gallery/sermon_1.jpg" alt="Latest sermon" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+                <Image 
+                  src="/gallery/sermon_1.jpg" 
+                  alt="Latest sermon" 
+                  fill 
+                  className="object-contain sm:object-cover rounded-lg sm:rounded-xl md:rounded-2xl w-full h-full bg-black" 
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw" 
+                  style={{objectPosition: 'center'}}
+                  priority
+                />
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                   <Button
                     size="lg"
