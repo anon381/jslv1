@@ -64,5 +64,6 @@
 
 <p align="center">
   <strong>Built with care, animated with style.</strong><br/>
-  <em>Craft. Ship. Iterate.</em>
+  <em>Craft-> Ship-> Iterate-></em>
 </p>
+
