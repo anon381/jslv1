@@ -6,7 +6,6 @@ import React, { useState, useEffect } from "react";
 interface NavProps {
   activePage: string;
 }
-
 export default function Nav({ activePage }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
