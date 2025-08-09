@@ -7,7 +7,7 @@
 
 <p align="center">
   A modern, beautifully structured project using <strong>Next.js (App Router)</strong>, <strong>TypeScript</strong>, 
-  <strong>Tailwind CSS v4</strong>, and <strong>shadcn/ui</strong> “ featuring clean code and scalable UI components.
+  <strong>Tailwind-CSS v4</strong>, and <strong>shadcn/ui</strong> “ featuring clean code and scalable UI components.
 </p>
 
 ---
@@ -23,7 +23,6 @@
 
 ---
 </p>
-
 
 
 ##  Getting Started
@@ -47,9 +46,6 @@
 
 
 ---
-
-
-
 ---
 
 ##  Documentation Links
@@ -64,5 +60,10 @@
 
 <p align="center">
   <strong>Built with care, animated with style.</strong><br/>
-  <em>Craft. Ship. Iterate.</em>
+  <em>Craft-> Ship-> Iterate-></em>
 </p>
+
+
+
+
+
