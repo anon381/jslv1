@@ -1,4 +1,4 @@
-view it live here https://jsl-evvu.vercel.app/
+view it live <a href="https://jsl-evvu.vercel.app/"> here </a>
 
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=4000&pause=1000&color=38BDF8&center=true&vCenter=true&width=800&lines=Next.js+%2B+TypeScript+%2B+Tailwind+CSS+%2B+shadcn%2Fui" alt="Typing SVG" />
@@ -64,6 +64,7 @@ view it live here https://jsl-evvu.vercel.app/
   <strong>Built with care, animated with style.</strong><br/>
   <em>Craft-> Ship-> Iterate-></em>
 </p>
+
 
 
 
