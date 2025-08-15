@@ -98,10 +98,7 @@ export default function ConnectPage() {
                       <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.message.message}</p>
                     )}
                   </div>
-                  <button type="button" className="w-full bg-[#FFFBEA] text-[#223A5E] shadow-lg hover:bg-[#F6E7C1] transition-all duration-300 rounded-lg font-medium py-2 px-4" onClick={() => { alert('Contact form button clicked!'); }}>
-                    <Send className="w-4 h-4 mr-2 inline" />
-                    Test Contact Button
-                  </button>
+                 
                   <Button type="submit" className="w-full bg-[#B7C9E2] text-[#223A5E] shadow-lg hover:bg-[#FFFBEA] transition-all duration-300" disabled={isSubmittingContact}>
                     <Send className="w-4 h-4 mr-2" />
                     {isSubmittingContact ? 'Sending...' : 'Send Message'}
