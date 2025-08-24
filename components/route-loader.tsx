@@ -27,6 +27,16 @@ export default function RouteLoader({ label = 'Loading' }: RouteLoaderProps) {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[10px] tracking-[0.3em] text-[#FFFBEA] font-semibold">
             LOAD
           </div>
+          {/* Orbiting dots on circular paths */}
+          <div className="absolute inset-0 animate-orbit-spin">
+            <span className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#FFFBEA] shadow-[0_0_12px_rgba(255,251,234,0.7)]" />
+          </div>
+          <div className="absolute inset-3 animate-orbit-spin-fast" style={{ animationDirection: 'reverse' as const }}>
+            <span className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#B7C9E2] shadow-[0_0_10px_rgba(183,201,226,0.5)]" />
+          </div>
+          <div className="absolute inset-6 animate-orbit-spin" style={{ animationDuration: '9s' }}>
+            <span className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#B7C9E2]/80 shadow-[0_0_8px_rgba(183,201,226,0.45)]" />
+          </div>
         </div>
         {/* Progress bar with percent */}
         <div
