@@ -22,7 +22,7 @@ export default function SplashLoader({ minimumTime = 1200, onFinish }: SplashLoa
 
     return (
       <div className="fixed inset-0 z-[999]">
-        <RouteLoader label="Loading..." />
+        <RouteLoader label="Loading" />
       </div>
     );
 }
