@@ -1,3 +1,5 @@
+view it live <a href="https://jsl-evvu.vercel.app/"> here </a>
+
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=4000&pause=1000&color=38BDF8&center=true&vCenter=true&width=800&lines=Next.js+%2B+TypeScript+%2B+Tailwind+CSS+%2B+shadcn%2Fui" alt="Typing SVG" />
 </p>
@@ -6,7 +8,7 @@
 </p>
 
 <p align="center">
-  A modern, beautifully structured project using <strong>Next.js (App Router)</strong>, <strong>TypeScript</strong>, 
+  A modern, beautifully structured project using <strong>Next.js (App Router)</strong>, <strong>TypeScript (TS)</strong>, 
   <strong>Tailwind-CSS v4</strong>, and <strong>shadcn/ui</strong> “ featuring clean code and scalable UI components.
 </p>
 
@@ -62,6 +64,9 @@
   <strong>Built with care, animated with style.</strong><br/>
   <em>Craft-> Ship-> Iterate-></em>
 </p>
+
+
+
 
 
 
