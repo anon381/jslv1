@@ -138,7 +138,7 @@ export default function ConnectPage() {
                     </div>
                     <div className="flex items-center">
                       <MapPin className="w-4 h-4 mr-2 text-[#B7C9E2]" />
-                      <span className="text-[#FFFBEA]">Kolfe Keraniyo Sub City, Asko-Addis Sefer Condominium Area, Addis Ababa, Ethiopia</span>
+                      <span className="text-[#FFFBEA]">Addis Ketema Sub City, Asko-Addis Sefer Lizmender, Addis Ababa, Ethiopia</span>
                     </div>
                   </div>
                 </div>
