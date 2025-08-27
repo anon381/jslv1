@@ -351,89 +351,96 @@ export default function SermonsPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12">
+<footer className="bg-slate-900 text-white py-8 sm:py-12 border-t border-slate-700/50">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                  <Cross className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                  <Cross className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-bold">JSL Church</h3>
-                  <p className="text-sm text-gray-400">Jesus the Spring of Life International</p>
+                  <h3 className="font-bold text-white">JSL Church</h3>
+                  <p className="text-sm text-blue-300">Jesus the Spring of Life International</p>
                 </div>
               </div>
-              <p className="text-gray-400 text-sm">
+              <p className="text-blue-200 text-sm">
                 Active in the World. A Church That Teaches, Reaches, and Welcomes All.
               </p>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h4 className="font-semibold mb-4 text-white">Quick Links</h4>
+              <ul className="space-y-2 text-sm text-blue-300">
                 <li>
-                  <Link href="/" className="hover:text-white transition-colors">
+                  <Link href="/" className="hover:text-blue-200 transition-colors">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="hover:text-white transition-colors">
+                  <Link href="/about" className="hover:text-blue-200 transition-colors">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="/sermons" className="hover:text-white transition-colors">
+                  <Link href="/sermons" className="hover:text-blue-200 transition-colors">
                     Sermons
                   </Link>
                 </li>
                 <li>
-                  <Link href="/visit" className="hover:text-white transition-colors">
+              <Link href="/visit" className="hover:text-blue-200 transition-colors">
                     Plan a Visit
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#connect" className="hover:text-blue-200 transition-colors">
+                    Contact
                   </Link>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Service Times</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-              <li>Sunday Morning: 10:00 AM - 01:30 PM</li>
+              <h4 className="font-semibold mb-4 text-white">Service Times</h4>
+              <ul className="space-y-2 text-sm text-blue-300">
+  <li>Sunday Morning: 10:00 AM - 01:30 PM</li>
   <li>Monday Morning: 9:00 AM - 12:00 PM</li>
   <li>Tuesday Morning: 10:00 AM - 5:00 PM</li>
   <li>Thursday Evening: 05:00 PM - 08:30 PM</li>
   <li>Addis Ketema Sub City, Asko-Addis Sefer Lizmender, Addis Ababa, Ethiopia</li>
-              </ul>
+</ul>
+
             </div>
+
             <div>
-              <h4 className="font-semibold mb-4 text-shadow-lg shadow-purple-200">Follow Us</h4>
+              <h4 className="font-semibold mb-4 text-white">Follow Us</h4>
               <div className="flex space-x-4">
                 <Button
                   size="sm"
                   variant="ghost"
-                  className="text-gray-400 hover:text-white p-2"
+                  className="text-blue-300 hover:text-blue-200 p-2 hover:bg-blue-500/10 rounded-full transition-all duration-300"
                   onClick={() => window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")}
                 >
                   <Youtube className="w-5 h-5" />
                 </Button>
-                <Button size="sm" variant="ghost" className="text-gray-400 hover:text-white p-2" onClick={() => window.open("https://t.me/JSLCHURCHOFFICIALCHANNEL", "_blank")}>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="w-5 h-5" style={{ color: 'rgb(29, 155, 209)' }}>
+                <Button size="sm" variant="ghost" className="text-blue-300 hover:text-blue-200 p-2 hover:bg-blue-500/10 rounded-full transition-all duration-300" onClick={() => window.open("https://t.me/JSLCHURCHOFFICIALCHANNEL", "_blank")}>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="w-5 h-5" style={{ color: 'rgb(59, 130, 246)' }}>
                     <path d="M21.944 4.186a1.5 1.5 0 0 0-1.59-.217L3.6 11.13a1.5 1.5 0 0 0 .13 2.77l3.77 1.36 1.36 4.09a1.5 1.5 0 0 0 2.74.13l2.13-3.77 3.77 1.36a1.5 1.5 0 0 0 2.77-.13l3.77-13.13a1.5 1.5 0 0 0-.13-2.77z" fill="currentColor" />
                   </svg>
                 </Button>
-                <Button size="sm" variant="ghost" className="text-gray-400 hover:text-white p-2" onClick={() => window.open("https://www.facebook.com/JSLTVWORLDWIDE?mibextid=ZbWKwL", "_blank")}>
+                <Button size="sm" variant="ghost" className="text-blue-300 hover:text-blue-200 p-2 hover:bg-blue-500/10 rounded-full transition-all duration-300" onClick={() => window.open("https://www.facebook.com/JSLTVWORLDWIDE", "_blank")}>
                   <Facebook className="w-5 h-5" />
                 </Button>
                 </div>
              </div>
-            
           </div>
-        
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+
+          <div className="border-t border-slate-700/50 mt-8 pt-8 text-center text-sm text-blue-300">
             <p>&copy; {new Date().getFullYear()} Jesus the Spring of Life International Church. All rights reserved.</p>
           </div>
         </div>
       </footer>
+      
     </div>
   )
 }
