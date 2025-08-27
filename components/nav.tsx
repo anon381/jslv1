@@ -28,7 +28,7 @@ export default function Nav({ activePage }: NavProps) {
             </div>
             <div>
               <h1 className="text-xl font-bold text-white">JSL Church</h1>
-              <p className="text-sm text-blue-200">Jesus the Spring of Life International</p>
+              <p className="text-sm text-blue-200">Jesus the Spring of Life International Church</p>
             </div>
           </div>
           {/* Desktop Nav */}
