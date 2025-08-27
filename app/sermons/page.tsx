@@ -236,7 +236,7 @@ export default function SermonsPage() {
       </section>
 
       {/* Sermon Library */}
-      <section className="py-16 bg-gradient-to-br from-blue-800 via-blue-950 to-black-600">
+  <section className="py-16 bg-gradient-to-r from-blue-700 via-blue-900 to-blue-950 backdrop-blur-md">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -324,7 +324,7 @@ export default function SermonsPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-br from-blue-800 via-blue-950 to-black-600 text-white">
+  <section className="py-16 bg-gradient-to-r from-blue-950 via-blue-900 to-black text-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Stay Connected</h2>
