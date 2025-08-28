@@ -23,8 +23,8 @@ export default function Nav({ activePage }: NavProps) {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
-              <Cross className="w-7 h-7 text-white" />
+            <div className="flex items-center justify-center">
+              <img src="/photo_2025-08-28_15-19-22-removebg-preview.ico" alt="Church Logo" className="w-14 h-14" />
             </div>
             <div>
               <h1 className="text-xl font-bold text-white">JSL Church</h1>
