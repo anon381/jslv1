@@ -55,13 +55,43 @@ export default function ConnectPage() {
 
   const onSubmitContact = async (data: z.infer<typeof contactSchema>) => {
     setIsSubmittingContact(true);
-    // Add your API logic here
-    setTimeout(() => setIsSubmittingContact(false), 1000);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        contactForm.reset();
+        alert('Message sent! Thank you for contacting us.');
+      } else {
+        const result = await res.json();
+        alert(result.message || 'Failed to send message.');
+      }
+    } catch (err) {
+      alert('Something went wrong. Please try again.');
+    }
+    setIsSubmittingContact(false);
   };
   const onSubmitNewsletter = async (data: z.infer<typeof newsletterSchema>) => {
     setIsSubmittingNewsletter(true);
-    // Add your API logic here
-    setTimeout(() => setIsSubmittingNewsletter(false), 1000);
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        newsletterForm.reset();
+        alert('Subscribed! Please check your email for a welcome message.');
+      } else {
+        const result = await res.json();
+        alert(result.message || 'Failed to subscribe.');
+      }
+    } catch (err) {
+      alert('Something went wrong. Please try again.');
+    }
+    setIsSubmittingNewsletter(false);
   };
 
   return (
