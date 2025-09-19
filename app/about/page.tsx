@@ -144,7 +144,7 @@ export default function AboutPage() {
                   {/* Animated Text Effect for Title */}
                   <TextGenerateEffect
                     words={"Our Story"}
-                    className="text-10xl md:text-10xl font-extrabold mb-2 text-white drop-shadow-lg !text-white"
+                    className="text-10xl md:text-10xl font-extrabold mb-2 text-white drop-shadow-lg"
                     filter={true}
                     duration={1}
                   />
@@ -291,7 +291,7 @@ export default function AboutPage() {
                         >
                           <CardContent className="p-4 sm:p-6 relative">
                             {/* On mobile, icon at top-left inside card */}
-                            <span className="block md:hidden absolute top-0 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-blue-400 flex items-center justify-center text-white text-2xl z-10">
+                            <span className="md:hidden absolute top-0 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-blue-400 flex items-center justify-center text-white text-2xl z-10">
                               <span className="animate-glow-loop">{item.icon}</span>
                             </span>
                             <Badge className="mb-3">{item.year}</Badge>
