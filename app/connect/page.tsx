@@ -10,6 +10,8 @@ import { z } from "zod";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Nav from "@/components/nav";
+import { ToastProvider, ToastViewport } from "@/components/ui/toast";
+import { toast } from "@/components/ui/use-toast";
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -63,13 +65,24 @@ export default function ConnectPage() {
       });
       if (res.ok) {
         contactForm.reset();
-        alert('Message sent! Thank you for contacting us.');
+        toast({
+          title: 'Message sent!',
+          description: 'Thank you for contacting us.',
+        });
       } else {
         const result = await res.json();
-        alert(result.message || 'Failed to send message.');
+        toast({
+          title: 'Failed to send message',
+          description: result.message || 'Please try again.',
+          variant: 'destructive',
+        });
       }
     } catch (err) {
-      alert('Something went wrong. Please try again.');
+      toast({
+        title: 'Something went wrong',
+        description: 'Please try again.',
+        variant: 'destructive',
+      });
     }
     setIsSubmittingContact(false);
   };
@@ -83,100 +96,114 @@ export default function ConnectPage() {
       });
       if (res.ok) {
         newsletterForm.reset();
-        alert('Subscribed! Please check your email for a welcome message.');
+        toast({
+          title: 'Subscribed!',
+          description: 'Please check your email for a welcome message.',
+        });
       } else {
         const result = await res.json();
-        alert(result.message || 'Failed to subscribe.');
+        toast({
+          title: 'Error',
+          description: result.message || 'Failed to subscribe.',
+          variant: 'destructive',
+        });
       }
     } catch (err) {
-      alert('Something went wrong. Please try again.');
+      toast({
+        title: 'Error',
+        description: 'Something went wrong. Please try again.',
+        variant: 'destructive',
+      });
     }
     setIsSubmittingNewsletter(false);
   };
 
   return (
-    <div className="min-h-screen bg-[linear-gradient(135deg,_#223A5E_0%,_#111827_100%)]">
-      <Nav activePage="connect" />
+    <ToastProvider>
+      <div className="min-h-screen bg-[linear-gradient(135deg,_#223A5E_0%,_#111827_100%)]">
+        <Nav activePage="connect" />
 
-      <section id="connect" className="py-20 sm:py-32 bg-[linear-gradient(135deg,_#223A5E_0%,_#111827_100%)] backdrop-blur-sm">
-        <div className="container mx-auto px-4 pt-10 sm:pt-16">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8 sm:mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FFFBEA] mb-2 sm:mb-4">Connect & Engage</h2>
-              <p className="text-base sm:text-lg text-[#B7C9E2]">We'd love to hear from you and keep you updated</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-              {/* Contact Form */}
-              <Card className="p-6 bg-[#223A5E]/80 border-[#191970]/40 backdrop-blur-sm">
-                <h3 className="text-xl font-semibold text-[#FFFBEA] mb-4">Send Us a Message</h3>
-                <form onSubmit={contactForm.handleSubmit(onSubmitContact)} className="space-y-4">
-                  <div>
-                    <Input placeholder="Your Name" {...contactForm.register('name')} className={contactForm.formState.errors.name ? 'border-red-500' : ''} />
-                    {contactForm.formState.errors.name && (
-                      <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.name.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <Input type="email" placeholder="Your Email" {...contactForm.register('email')} className={contactForm.formState.errors.email ? 'border-red-500' : ''} />
-                    {contactForm.formState.errors.email && (
-                      <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.email.message}</p>
-                    )}
-                  </div>
-                  <div>
-                    <Textarea placeholder="Prayer requests, questions, or how we can help..." rows={4} {...contactForm.register('message')} className={contactForm.formState.errors.message ? 'border-red-500' : ''} />
-                    {contactForm.formState.errors.message && (
-                      <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.message.message}</p>
-                    )}
-                  </div>
-                 
-                  <Button type="submit" className="w-full bg-[#B7C9E2] text-[#223A5E] shadow-lg hover:bg-[#FFFBEA] transition-all duration-300" disabled={isSubmittingContact}>
-                    <Send className="w-4 h-4 mr-2" />
-                    {isSubmittingContact ? 'Sending...' : 'Send Message'}
-                  </Button>
-                </form>
-              </Card>
-              {/* Newsletter Signup */}
-              <Card className="p-6 bg-[#223A5E]/80 border-[#191970]/40 backdrop-blur-sm">
-                <h3 className="text-xl font-semibold text-[#FFFBEA] mb-4">Stay Updated</h3>
-                <p className="text-[#B7C9E2] mb-6">Subscribe to our newsletter for church updates, upcoming events, and weekly teachings.</p>
-                <form onSubmit={newsletterForm.handleSubmit(onSubmitNewsletter)} className="space-y-4">
-                  <div>
-                    <Input type="email" placeholder="Your Email Address" {...newsletterForm.register('email')} className={newsletterForm.formState.errors.email ? 'border-red-500' : ''} />
-                    {newsletterForm.formState.errors.email && (
-                      <p className="text-red-500 text-sm mt-1">{newsletterForm.formState.errors.email.message}</p>
-                    )}
-                  </div>
-                  <Button type="submit" className="w-full bg-[#B7C9E2] text-[#223A5E] shadow-lg hover:bg-[#FFFBEA] transition-all duration-300" disabled={isSubmittingNewsletter}>
-                    <Mail className="w-4 h-4 mr-2" />
-                    {isSubmittingNewsletter ? 'Subscribing...' : 'Subscribe to Newsletter'}
-                  </Button>
-                </form>
-                <div className="mt-8 pt-6 border-t border-[#B7C9E2]/40">
-                  <h4 className="font-semibold text-[#FFFBEA] mb-3">Contact Info</h4>
-                  <div className="space-y-2 text-sm text-[#FFFBEA]">
-                    <div className="flex items-center">
-                      <Phone className="w-4 h-4 mr-2 text-[#B7C9E2]" />
-                      <span className="text-[#FFFBEA]">+251 926 141 414</span>
+        <section id="connect" className="py-20 sm:py-32 bg-[linear-gradient(135deg,_#223A5E_0%,_#111827_100%)] backdrop-blur-sm">
+          <div className="container mx-auto px-4 pt-10 sm:pt-16">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-8 sm:mb-12">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FFFBEA] mb-2 sm:mb-4">Connect & Engage</h2>
+                <p className="text-base sm:text-lg text-[#B7C9E2]">We'd love to hear from you and keep you updated</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                {/* Contact Form */}
+                <Card className="p-6 bg-[#223A5E]/80 border-[#191970]/40 backdrop-blur-sm">
+                  <h3 className="text-xl font-semibold text-[#FFFBEA] mb-4">Send Us a Message</h3>
+                  <form onSubmit={contactForm.handleSubmit(onSubmitContact)} className="space-y-4">
+                    <div>
+                      <Input placeholder="Your Name" {...contactForm.register('name')} className={contactForm.formState.errors.name ? 'border-red-500' : ''} />
+                      {contactForm.formState.errors.name && (
+                        <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.name.message}</p>
+                      )}
                     </div>
-                    <div className="flex items-center">
-                      <Phone className="w-4 h-4 mr-2 text-[#B7C9E2]" />
-                      <span className="text-[#FFFBEA]">+251 947 153 805</span>
+                    <div>
+                      <Input type="email" placeholder="Your Email" {...contactForm.register('email')} className={contactForm.formState.errors.email ? 'border-red-500' : ''} />
+                      {contactForm.formState.errors.email && (
+                        <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.email.message}</p>
+                      )}
                     </div>
-                    <div className="flex items-center">
-                      <Mail className="w-4 h-4 mr-2 text-[#B7C9E2]" />
-                      <span className="text-[#FFFBEA]">jslchurch@gmail.com</span>
+                    <div>
+                      <Textarea placeholder="Prayer requests, questions, or how we can help..." rows={4} {...contactForm.register('message')} className={contactForm.formState.errors.message ? 'border-red-500' : ''} />
+                      {contactForm.formState.errors.message && (
+                        <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.message.message}</p>
+                      )}
                     </div>
-                    <div className="flex items-center">
-                      <MapPin className="w-4 h-4 mr-2 text-[#B7C9E2]" />
-                      <span className="text-[#FFFBEA]">Addis Ketema Sub City, Asko-Addis Sefer Lizmender, Addis Ababa, Ethiopia</span>
+                   
+                    <Button type="submit" className="w-full bg-[#B7C9E2] text-[#223A5E] shadow-lg hover:bg-[#FFFBEA] transition-all duration-300" disabled={isSubmittingContact}>
+                      <Send className="w-4 h-4 mr-2" />
+                      {isSubmittingContact ? 'Sending...' : 'Send Message'}
+                    </Button>
+                  </form>
+                </Card>
+                {/* Newsletter Signup */}
+                <Card className="p-6 bg-[#223A5E]/80 border-[#191970]/40 backdrop-blur-sm">
+                  <h3 className="text-xl font-semibold text-[#FFFBEA] mb-4">Stay Updated</h3>
+                  <p className="text-[#B7C9E2] mb-6">Subscribe to our newsletter for church updates, upcoming events, and weekly teachings.</p>
+                  <form onSubmit={newsletterForm.handleSubmit(onSubmitNewsletter)} className="space-y-4">
+                    <div>
+                      <Input type="email" placeholder="Your Email Address" {...newsletterForm.register('email')} className={newsletterForm.formState.errors.email ? 'border-red-500' : ''} />
+                      {newsletterForm.formState.errors.email && (
+                        <p className="text-red-500 text-sm mt-1">{newsletterForm.formState.errors.email.message}</p>
+                      )}
+                    </div>
+                    <Button type="submit" className="w-full bg-[#B7C9E2] text-[#223A5E] shadow-lg hover:bg-[#FFFBEA] transition-all duration-300" disabled={isSubmittingNewsletter}>
+                      <Mail className="w-4 h-4 mr-2" />
+                      {isSubmittingNewsletter ? 'Subscribing...' : 'Subscribe to Newsletter'}
+                    </Button>
+                  </form>
+                  <div className="mt-8 pt-6 border-t border-[#B7C9E2]/40">
+                    <h4 className="font-semibold text-[#FFFBEA] mb-3">Contact Info</h4>
+                    <div className="space-y-2 text-sm text-[#FFFBEA]">
+                      <div className="flex items-center">
+                        <Phone className="w-4 h-4 mr-2 text-[#B7C9E2]" />
+                        <span className="text-[#FFFBEA]">+251 926 141 414</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Phone className="w-4 h-4 mr-2 text-[#B7C9E2]" />
+                        <span className="text-[#FFFBEA]">+251 947 153 805</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Mail className="w-4 h-4 mr-2 text-[#B7C9E2]" />
+                        <span className="text-[#FFFBEA]">jslchurch@gmail.com</span>
+                      </div>
+                      <div className="flex items-center">
+                        <MapPin className="w-4 h-4 mr-2 text-[#B7C9E2]" />
+                        <span className="text-[#FFFBEA]">Addis Ketema Sub City, Asko-Addis Sefer Lizmender, Addis Ababa, Ethiopia</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+        <ToastViewport />
+      </div>
+    </ToastProvider>
   );
 }
