@@ -144,7 +144,7 @@ export default function AboutPage() {
                   {/* Animated Text Effect for Title */}
                   <TextGenerateEffect
                     words={"Our Story"}
-                    className="text-10xl md:text-10xl font-extrabold mb-2 text-white drop-shadow-lg !text-white !font-extrabold"
+                    className="text-10xl md:text-10xl font-extrabold mb-2 text-white drop-shadow-lg !text-white"
                     filter={true}
                     duration={1}
                   />

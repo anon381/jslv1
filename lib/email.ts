@@ -1,32 +1,24 @@
-// Email service configuration using Resend
-let resend: any = null
+import nodemailer from 'nodemailer'
 
-try {
-  const { Resend } = require('resend')
-  resend = new Resend(process.env.RESEND_API_KEY)
-} catch (error) {
-  console.warn('Resend not available. Using development mode.')
-}
+const EMAIL_USER = process.env.EMAIL_USER
+const EMAIL_PASS = process.env.EMAIL_PASS
+const CHURCH_EMAIL = process.env.CHURCH_EMAIL || EMAIL_USER
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: EMAIL_USER,
+    pass: EMAIL_PASS,
+  },
+})
 
 // Send contact form message to church email
 export async function sendEmail(data: { name: string; email: string; message: string }) {
-  if (!resend || !process.env.RESEND_API_KEY) {
-    // Development mode
-    console.log('Contact form submission:', {
-      from: data.email,
-      name: data.name,
-      message: data.message,
-      timestamp: new Date().toISOString(),
-    })
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    return true
-  }
-
   try {
     // Send to church email
-    const { data: result, error } = await resend.emails.send({
-      from: 'JSL Church <noreply@yourdomain.com>',
-      to: [process.env.CHURCH_EMAIL || 'your-church-email@example.com'],
+    await transporter.sendMail({
+      from: `JSL Church <${EMAIL_USER}>`,
+      to: CHURCH_EMAIL,
       subject: `New Contact Form Message from ${data.name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -42,11 +34,6 @@ export async function sendEmail(data: { name: string; email: string; message: st
       `,
     })
 
-    if (error) {
-      console.error('Email error:', error)
-      return false
-    }
-
     // Send auto-reply to the person who submitted the form
     await sendAutoReply(data.email, data.name)
 
@@ -59,14 +46,10 @@ export async function sendEmail(data: { name: string; email: string; message: st
 
 // Send auto-reply to contact form submitter
 async function sendAutoReply(email: string, name: string) {
-  if (!resend || !process.env.RESEND_API_KEY) {
-    return // Skip in development mode
-  }
-
   try {
-    const { error } = await resend.emails.send({
-      from: 'JSL Church <noreply@yourdomain.com>',
-      to: [email],
+    await transporter.sendMail({
+      from: `JSL Church <${EMAIL_USER}>`,
+      to: email,
       subject: 'Thank you for contacting JSL Church',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -92,10 +75,6 @@ async function sendAutoReply(email: string, name: string) {
         </div>
       `,
     })
-
-    if (error) {
-      console.error('Auto-reply error:', error)
-    }
   } catch (error) {
     console.error('Auto-reply sending failed:', error)
   }
@@ -103,21 +82,10 @@ async function sendAutoReply(email: string, name: string) {
 
 // Newsletter subscription with welcome email
 export async function subscribeToNewsletter(email: string) {
-  if (!resend || !process.env.RESEND_API_KEY) {
-    // Development mode
-    console.log('Newsletter subscription:', {
-      email,
-      timestamp: new Date().toISOString(),
-    })
-    await new Promise(resolve => setTimeout(resolve, 500))
-    return true
-  }
-
   try {
-    // Send welcome email to subscriber
-    const { error } = await resend.emails.send({
-      from: 'JSL Church <noreply@yourdomain.com>',
-      to: [email],
+    await transporter.sendMail({
+      from: `JSL Church <${EMAIL_USER}>`,
+      to: email,
       subject: 'Welcome to JSL Church Newsletter!',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -149,18 +117,9 @@ export async function subscribeToNewsletter(email: string) {
         </div>
       `,
     })
-
-    if (error) {
-      console.error('Newsletter welcome email error:', error)
-      return false
-    }
-
-    // Store subscriber in database (optional - you can add this later)
-    // await saveSubscriberToDatabase(email)
-
     return true
   } catch (error) {
     console.error('Newsletter subscription failed:', error)
     return false
   }
-} 
+}

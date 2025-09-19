@@ -147,7 +147,6 @@ export default function ConnectPage() {
           </div>
         </div>
       </section>
-      {/* Extra scrollable content: cards and text */}
     </div>
   );
 }
