@@ -22,15 +22,25 @@ const config: Config = {
 				destructive: { DEFAULT: 'hsl(var(--destructive))', foreground: 'hsl(var(--destructive-foreground))' },
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
-						chart: {
-							'1': 'hsl(var(--chart-1))',
-							'2': 'hsl(var(--chart-2))',
-							'3': 'hsl(var(--chart-3))',
-							'4': 'hsl(var(--chart-4))',
-							'5': 'hsl(var(--chart-5))'
-						},
-				sidebar: {
+				   ring: 'hsl(var(--ring))',
+				   // Custom blue shades for section backgrounds
+				   blue: {
+					   50: '#eff6ff',
+					   75: '#e6f0fe',
+					   100: '#dbeafe',
+					   125: '#cbe0fc',
+					   150: '#b7d6fa',
+					   175: '#a3ccf7',
+					   200: '#bfdbfe',
+				   },
+				   chart: {
+					   '1': 'hsl(var(--chart-1))',
+					   '2': 'hsl(var(--chart-2))',
+					   '3': 'hsl(var(--chart-3))',
+					   '4': 'hsl(var(--chart-4))',
+					   '5': 'hsl(var(--chart-5))'
+				   },
+				   sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
 					primary: 'hsl(var(--sidebar-primary))',
