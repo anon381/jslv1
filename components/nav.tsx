@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
-import { Cross } from "lucide-react";
+import { Cross, Sun, Moon } from "lucide-react";
 import React, { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 
 interface NavProps {
   activePage: string;
@@ -9,6 +10,7 @@ interface NavProps {
 export default function Nav({ activePage }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,27 +34,45 @@ export default function Nav({ activePage }: NavProps) {
             </div>
           </div>
           {/* Desktop Nav */}
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden md:flex space-x-6 items-center">
             <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`}>Home</Link>
             <Link href="/about" className={`${activePage === "about" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`}>About</Link>
             <Link href="/sermons" className={`${activePage === "sermons" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`}>Sermons</Link>
             <Link href="/visit" className={`${activePage === "visit" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`}>Visit</Link>
             <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`}>Connect</Link>
+            {/* Theme Toggle Button */}
+            <button
+              className="ml-4 p-2 rounded-full border border-blue-500/30 text-blue-400 hover:bg-blue-500/10 transition-colors"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              aria-label="Toggle dark/light mode"
+            >
+              {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+            </button>
           </nav>
           {/* Hamburger for mobile */}
-          <button
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-full border border-blue-500/30 text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
-            onClick={() => setMobileNavOpen((v) => !v)}
-            aria-label="Open navigation menu"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d={mobileNavOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-            </svg>
-          </button>
+          <div className="flex items-center space-x-2 md:hidden">
+            {/* Theme Toggle Button for Mobile (next to hamburger) */}
+            <button
+              className="p-2 rounded-full border border-blue-500/30 text-blue-400 hover:bg-blue-500/10 transition-colors"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              aria-label="Toggle dark/light mode"
+            >
+              {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+            </button>
+            <button
+              className="flex items-center justify-center w-10 h-10 rounded-full border border-blue-500/30 text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+              onClick={() => setMobileNavOpen((v) => !v)}
+              aria-label="Open navigation menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d={mobileNavOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+              </svg>
+            </button>
+          </div>
         </div>
         {/* Mobile Nav Drawer */}
         {mobileNavOpen && (
-          <nav className="md:hidden mt-4 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-2xl border border-blue-500/20 p-4 flex flex-col space-y-3 animate-fade-in">
+          <nav className="md:hidden mt-4 bg-slate-800/95 backdrop-blur-sm rounded-lg shadow-2xl border border-blue-500/20 p-4 flex flex-col space-y-3 animate-fade-in items-start">
             <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setMobileNavOpen(false)}>Home</Link>
             <Link href="/about" className={`${activePage === "about" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setMobileNavOpen(false)}>About</Link>
             <Link href="/sermons" className={`${activePage === "sermons" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setMobileNavOpen(false)}>Sermons</Link>
