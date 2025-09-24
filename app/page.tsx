@@ -189,7 +189,7 @@ export default function SpringOfLifeChurch() {
     }
   }
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+  <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 font-inter">
         <Nav activePage={activePage} />
 
       {/* Hero Section */}
@@ -208,7 +208,7 @@ export default function SpringOfLifeChurch() {
   </div>
   <div className="relative container mx-auto px-4 text-center">
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+  <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight font-figtree">
         {[0, 1, 2].map(idx => (
           <div key={idx} style={{ minHeight: '1.2em' }}>
             {currentTextIdx === idx ? (
@@ -276,7 +276,7 @@ export default function SpringOfLifeChurch() {
               initial={{ opacity: 0, y: 60 }}
               animate={leftControls}
             >
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black dark:text-white mb-12 sm:mb-16 text-left">About JSL Church</h2>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black dark:text-white mb-12 sm:mb-16 text-left font-figtree">About JSL Church</h2>
               <p className="text-base sm:text-lg text-black dark:text-blue-100 mb-6 sm:mb-8 leading-relaxed text-left">
                 We are a Bible-teaching, Christ-centered church committed to proclaiming Jesus Christ and preaching the word of God. Founded by Pastor Zenebech Gessesse and her husband Engineer Luelkal Kassie Eleven years ago, we are dedicated to spreading the Gospel and building a strong community of believers.
               </p>
@@ -298,28 +298,28 @@ export default function SpringOfLifeChurch() {
                   <div className="w-24 h-24 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-full flex items-center justify-center mb-6 border-2 border-blue-500/30">
                     <BookOpen className="w-14 h-14 text-blue-400" />
                   </div>
-                  <h3 className="font-bold text-black dark:text-white text-2xl mb-3">Scripture</h3>
+                  <h3 className="font-bold text-black dark:text-white text-2xl mb-3 font-figtree">Scripture</h3>
                   <p className="text-black dark:text-blue-200 text-lg">Grounded in Biblical truth</p>
                 </div>
                 <div className="flex flex-col items-center text-center">
                   <div className="w-24 h-24 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-full flex items-center justify-center mb-6 border-2 border-green-500/30">
                     <Users className="w-14 h-14 text-green-400" />
                   </div>
-                  <h3 className="font-bold text-black dark:text-white text-2xl mb-3">Discipleship</h3>
+                  <h3 className="font-bold text-black dark:text-white text-2xl mb-3 font-figtree">Discipleship</h3>
                   <p className="text-black dark:text-blue-200 text-lg">Growing together in faith</p>
                 </div>
                 <div className="flex flex-col items-center text-center">
                   <div className="w-24 h-24 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-full flex items-center justify-center mb-6 border-2 border-purple-500/30">
                     <Heart className="w-14 h-14 text-purple-400" />
                   </div>
-                  <h3 className="font-bold text-black dark:text-white text-2xl mb-3">Worship</h3>
+                  <h3 className="font-bold text-black dark:text-white text-2xl mb-3 font-figtree">Worship</h3>
                   <p className="text-black dark:text-blue-200 text-lg">Heartfelt praise and prayer</p>
                 </div>
                 <div className="flex flex-col items-center text-center">
                   <div className="w-24 h-24 bg-gradient-to-br from-orange-500/20 to-orange-600/20 rounded-full flex items-center justify-center mb-6 border-2 border-orange-500/30">
                     <Globe className="w-14 h-14 text-orange-400" />
                   </div>
-                  <h3 className="font-bold text-black dark:text-white text-2xl mb-3">Outreach</h3>
+                  <h3 className="font-bold text-black dark:text-white text-2xl mb-3 font-figtree">Outreach</h3>
                   <p className="text-black dark:text-blue-200 text-lg">Serving our community</p>
                 </div>
               </div>
@@ -332,7 +332,7 @@ export default function SpringOfLifeChurch() {
   <section id="sermons" className="py-12 sm:py-16 bg-blue-50 dark:bg-slate-900/50 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-2 sm:mb-4">Media Teaching</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-2 sm:mb-4 font-figtree">Media Teaching</h2>
             <p className="text-base sm:text-lg text-black dark:text-blue-200">Dive deeper into God's Word with our weekly teachings</p>
           </div>
 
@@ -400,7 +400,7 @@ export default function SpringOfLifeChurch() {
                       <Badge variant="secondary" className="mb-2 bg-transparent text-purple-300 border-purple-500/30">
                         {sermon.topic}
                       </Badge>
-                      <h4 className="font-semibold text-black dark:text-white mb-1">{sermon.title}</h4>
+                      <h4 className="font-semibold text-black dark:text-white mb-1 font-figtree">{sermon.title}</h4>
                     </CardContent>
                   </Card>
                 </PinContainer>
@@ -422,7 +422,7 @@ export default function SpringOfLifeChurch() {
   <section className="py-12 sm:py-16 bg-blue-50 dark:bg-slate-800/30 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-2 sm:mb-4">Stay Connected Online</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-2 sm:mb-4 font-figtree">Stay Connected Online</h2>
             <p className="text-base sm:text-lg text-black dark:text-blue-200">Follow our journey and join the conversation</p>
           </div>
 
@@ -478,7 +478,7 @@ export default function SpringOfLifeChurch() {
                   <div className={`w-16 h-16 bg-gradient-to-br ${card.bg} rounded-full flex items-center justify-center mx-auto mb-4 border`}>
                     {card.icon}
                   </div>
-                  <h3 className="font-bold text-black dark:text-white text-lg mb-2">{card.title}</h3>
+                  <h3 className="font-bold text-black dark:text-white text-lg mb-2 font-figtree">{card.title}</h3>
                   <p className="text-black dark:text-blue-200 text-sm mb-4">{card.desc}</p>
                   {React.cloneElement(card.btn, { size: "sm", className: `${card.btn.props.className} px-4 py-2 text-sm` })}
                 </motion.div>
@@ -494,7 +494,7 @@ export default function SpringOfLifeChurch() {
   <section className="py-12 sm:py-16 bg-blue-75 dark:bg-slate-800/30 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-2 sm:mb-4">Impact Stories</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-white mb-2 sm:mb-4 font-figtree">Impact Stories</h2>
             <p className="text-base sm:text-lg text-black dark:text-blue-200">Hear how God is working in our community</p>
           </div>
           <div className="max-w-5xl mx-auto">
@@ -527,7 +527,7 @@ export default function SpringOfLifeChurch() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-blue-400 dark:text-blue-300">Quick Links</h4>
+              <h4 className="font-semibold mb-4 text-blue-400 dark:text-blue-300 font-figtree">Quick Links</h4>
               <ul className="space-y-2 text-sm text-blue-400 dark:text-blue-300">
                 <li>
                   <Link href="/" className="hover:text-blue-450 dark:hover:text-blue-200 transition-colors">
@@ -558,7 +558,7 @@ export default function SpringOfLifeChurch() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-blue-400 dark:text-blue-300">Service Times</h4>
+              <h4 className="font-semibold mb-4 text-blue-400 dark:text-blue-300 font-figtree">Service Times</h4>
               <ul className="space-y-2 text-sm text-blue-400 dark:text-blue-300">
   <li className="text-blue-400 dark:text-blue-300">Sunday Morning: 10:00 AM - 01:30 PM</li>
   <li className="text-blue-400 dark:text-blue-300">Monday Morning: 9:00 AM - 12:00 PM</li>
@@ -570,7 +570,7 @@ export default function SpringOfLifeChurch() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-blue-400 dark:text-blue-300">Follow Us</h4>
+              <h4 className="font-semibold mb-4 text-blue-400 dark:text-blue-300 font-figtree">Follow Us</h4>
               <div className="flex space-x-4">
                 <Button
                   size="sm"
