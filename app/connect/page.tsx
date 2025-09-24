@@ -120,19 +120,19 @@ export default function ConnectPage() {
 
   return (
     <ToastProvider>
-      <div className="min-h-screen bg-white text-black dark:bg-[linear-gradient(135deg,_#223A5E_0%,_#111827_100%)] dark:text-white">
+  <div className="min-h-screen bg-white text-black dark:bg-[linear-gradient(135deg,_#223A5E_0%,_#111827_100%)] dark:text-white font-inter">
         <Nav activePage="connect" />
         <section id="connect" className="py-20 sm:py-32 bg-white dark:bg-[linear-gradient(135deg,_#223A5E_0%,_#111827_100%)] backdrop-blur-sm">
           <div className="container mx-auto px-4 pt-10 sm:pt-16">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8 sm:mb-12">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-[#FFFBEA] mb-2 sm:mb-4">Connect & Engage</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black dark:text-[#FFFBEA] mb-2 sm:mb-4 font-figtree">Connect & Engage</h2>
                 <p className="text-base sm:text-lg text-black/80 dark:text-[#B7C9E2]">We'd love to hear from you and keep you updated</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 {/* Contact Form */}
                 <Card className="p-6 bg-blue-100 border-blue-300 text-black dark:bg-[#223A5E]/80 dark:border-[#191970]/40 dark:text-[#FFFBEA] backdrop-blur-sm">
-                  <h3 className="text-xl font-semibold mb-4">Send Us a Message</h3>
+                  <h3 className="text-xl font-semibold mb-4 font-figtree">Send Us a Message</h3>
                   <form onSubmit={contactForm.handleSubmit(onSubmitContact)} className="space-y-4">
                     <div>
                       <Input placeholder="Your Name" {...contactForm.register('name')} className={contactForm.formState.errors.name ? 'border-red-500' : ''} />
@@ -160,7 +160,7 @@ export default function ConnectPage() {
                 </Card>
                 {/* Newsletter Signup */}
                 <Card className="p-6 bg-blue-100 border-blue-300 text-black dark:bg-[#223A5E]/80 dark:border-[#191970]/40 dark:text-[#FFFBEA] backdrop-blur-sm">
-                  <h3 className="text-xl font-semibold mb-4">Stay Updated</h3>
+                  <h3 className="text-xl font-semibold mb-4 font-figtree">Stay Updated</h3>
                   <p className="mb-6 text-black/80 dark:text-[#B7C9E2]">Subscribe to our newsletter for church updates, upcoming events, and weekly teachings.</p>
                   <form onSubmit={newsletterForm.handleSubmit(onSubmitNewsletter)} className="space-y-4">
                     <div>
@@ -175,7 +175,7 @@ export default function ConnectPage() {
                     </Button>
                   </form>
                   <div className="mt-8 pt-6 border-t border-[#B7C9E2]/40">
-                    <h4 className="font-semibold mb-3">Contact Info</h4>
+                    <h4 className="font-semibold mb-3 font-figtree">Contact Info</h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center">
                         <Phone className="w-4 h-4 mr-2 text-blue-900 dark:text-[#B7C9E2]" />

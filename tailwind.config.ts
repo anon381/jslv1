@@ -9,7 +9,11 @@ const config: Config = {
 		'*.{js,ts,jsx,tsx,mdx}'
 	],
 	theme: {
-		extend: {
+		   extend: {
+			   fontFamily: {
+				   inter: ['var(--font-inter)', 'sans-serif'],
+				   figtree: ['var(--font-figtree)', 'sans-serif'],
+			   },
 			colors: {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',

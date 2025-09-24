@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { Inter, Figtree } from 'next/font/google'
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const figtree = Figtree({ subsets: ['latin'], variable: '--font-figtree' })
 import SplashWrapper from '@/components/splash-wrapper'
 import React from 'react'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -14,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   // Client wrapper with splash
   return (
     <html lang="en">
-      <body>
+      <body className={`${inter.variable} ${figtree.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <SplashWrapper>{children}</SplashWrapper>
         </ThemeProvider>
