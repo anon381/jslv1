@@ -97,7 +97,7 @@ export default function SermonsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white text-black dark:bg-gradient-to-b dark:from-blue-50 dark:to-white dark:text-white">
+  <div className="min-h-screen bg-white text-black dark:bg-gradient-to-b dark:from-blue-50 dark:to-white dark:text-white font-inter">
       <Nav activePage="sermons" />
 
       {/* Hero Section */}
@@ -109,7 +109,7 @@ export default function SermonsPage() {
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Link>
-            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-black dark:text-white mb-4 sm:mb-6">Sermons & Teachings</h1>
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-black dark:text-white mb-4 sm:mb-6 font-figtree">Sermons & Teachings</h1>
             <p className="text-base sm:text-xl text-black dark:text-blue-100 mb-6 sm:mb-8 max-w-3xl mx-auto">
               Dive deeper into God's Word with Pastor Zenebech Gessesse's powerful teachings. Experience
               life-transforming messages that will strengthen your faith and guide your spiritual journey.
@@ -170,7 +170,7 @@ export default function SermonsPage() {
               titleComponent={
                 <>
                   <div className="text-center mb-6 sm:mb-8">
-                    <h2 className="text-4xl sm:text-5xl font-extrabold text-black dark:text-white mb-4 sm:mb-6">Latest Message</h2>
+                    <h2 className="text-4xl sm:text-5xl font-extrabold text-black dark:text-white mb-4 sm:mb-6 font-figtree">Latest Message</h2>
                     <p className="text-xl sm:text-2xl text-black dark:text-white">Watch our most recent sermon from Pastor Zenebech</p>
                   </div>
                 </>
@@ -203,7 +203,7 @@ export default function SermonsPage() {
                     <Badge className="bg-blue-600">Latest Message</Badge>
                     <Badge variant="secondary">Faith & Trust</Badge>
                   </div>
-                  <h3 className="text-lg sm:text-2xl font-bold text-black dark:text-white mb-2 sm:mb-4">Walking in Divine Purpose</h3>
+                  <h3 className="text-lg sm:text-2xl font-bold text-black dark:text-white mb-2 sm:mb-4 font-figtree">Walking in Divine Purpose</h3>
                   <p className="text-gray-700 dark:text-blue-100 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                     In this powerful message, Pastor Zenebech Gessesse explores how we can discover and walk in God's
                     unique purpose for our lives. Learn how to align your steps with His divine plan and experience the
@@ -240,7 +240,7 @@ export default function SermonsPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4 text-black dark:text-white">Sermon Library</h2>
+              <h2 className="text-3xl font-bold mb-4 text-black dark:text-white font-figtree">Sermon Library</h2>
               <p className="text-black dark:text-white">Explore our collection of life-changing messages</p>
             </div>
             {/* Card Hover Effect Demo */}
@@ -285,7 +285,7 @@ export default function SermonsPage() {
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-6 text-black dark:text-white">Meet Pastor Zenebech Gessesse</h2>
+                <h2 className="text-3xl font-bold mb-6 text-black dark:text-white font-figtree">Meet Pastor Zenebech Gessesse</h2>
                 <p className="mb-6 leading-relaxed text-black dark:text-white">
                   Pastor Zenebech Gessesse is a passionate teacher of God's Word, dedicated to helping believers grow in
                   their faith and discover their divine purpose. With years of ministry experience, she brings deep
@@ -327,7 +327,7 @@ export default function SermonsPage() {
   <section className="py-16 bg-blue-75 text-black dark:bg-gradient-to-r dark:from-blue-950 dark:via-blue-900 dark:to-black dark:text-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black dark:text-white">Stay Connected</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black dark:text-white font-figtree">Stay Connected</h2>
             <p className="text-xl mb-8 text-black/80 dark:text-blue-100">
               Never miss a sermon! Subscribe to our YouTube channel and be notified of new teachings.
             </p>
@@ -360,7 +360,7 @@ export default function SermonsPage() {
                   <Cross className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-black dark:text-white">JSL Church</h3>
+                  <h3 className="font-bold text-black dark:text-white font-figtree">JSL Church</h3>
                   <p className="text-sm text-blue-700 dark:text-blue-300">Jesus the Spring of Life International</p>
                 </div>
               </div>
@@ -370,7 +370,7 @@ export default function SermonsPage() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-black dark:text-white">Quick Links</h4>
+              <h4 className="font-semibold mb-4 text-black dark:text-white font-figtree">Quick Links</h4>
               <ul className="space-y-2 text-sm text-blue-700 dark:text-blue-300">
                 <li>
                   <Link href="/" className="hover:text-blue-900 dark:hover:text-blue-200 transition-colors">
@@ -401,7 +401,7 @@ export default function SermonsPage() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-black dark:text-white">Service Times</h4>
+              <h4 className="font-semibold mb-4 text-black dark:text-white font-figtree">Service Times</h4>
               <ul className="space-y-2 text-sm text-blue-700 dark:text-blue-300">
   <li>Sunday Morning: 10:00 AM - 01:30 PM</li>
   <li>Monday Morning: 9:00 AM - 12:00 PM</li>
@@ -413,7 +413,7 @@ export default function SermonsPage() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-black dark:text-white">Follow Us</h4>
+              <h4 className="font-semibold mb-4 text-black dark:text-white font-figtree">Follow Us</h4>
               <div className="flex space-x-4">
                 <Button
                   size="sm"
