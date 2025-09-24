@@ -40,25 +40,45 @@ export default function Nav({ activePage }: NavProps) {
             <Link href="/sermons" className={`${activePage === "sermons" ? "text-blue-400 font-medium" : "text-blue-950 dark:text-gray-300 hover:text-blue-400"} transition-colors`}>Sermons</Link>
             <Link href="/visit" className={`${activePage === "visit" ? "text-blue-400 font-medium" : "text-blue-950 dark:text-gray-300 hover:text-blue-400"} transition-colors`}>Visit</Link>
             <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-blue-950 dark:text-gray-300 hover:text-blue-400"} transition-colors`}>Connect</Link>
-            {/* Theme Toggle Button */}
-            <button
-              className="ml-4 p-2 rounded-full border border-blue-500/30 text-blue-400 hover:bg-blue-500/10 transition-colors"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle dark/light mode"
-            >
-              {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-            </button>
+            {/* Theme Toggle Switch */}
+            <label className="ml-4 flex items-center cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={theme === "dark"}
+                onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="sr-only"
+                aria-label="Toggle dark/light mode"
+              />
+              <span className="w-10 h-6 flex items-center bg-blue-200 dark:bg-blue-900 rounded-full p-1 transition-colors">
+                <span
+                  className={`w-4 h-4 bg-white dark:bg-blue-400 rounded-full shadow-md transform transition-transform duration-300 ${theme === "dark" ? "translate-x-4" : "translate-x-0"}`}
+                />
+              </span>
+              <span className="ml-2 text-blue-400 dark:text-blue-200">
+                {theme === "dark" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+              </span>
+            </label>
           </nav>
           {/* Hamburger for mobile */}
           <div className="flex items-center space-x-2 md:hidden">
-            {/* Theme Toggle Button for Mobile (next to hamburger) */}
-            <button
-              className="p-2 rounded-full border border-blue-500/30 text-blue-400 hover:bg-blue-500/10 transition-colors"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle dark/light mode"
-            >
-              {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-            </button>
+            {/* Theme Toggle Switch for Mobile */}
+            <label className="flex items-center cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={theme === "dark"}
+                onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="sr-only"
+                aria-label="Toggle dark/light mode"
+              />
+              <span className="w-10 h-6 flex items-center bg-blue-200 dark:bg-blue-900 rounded-full p-1 transition-colors">
+                <span
+                  className={`w-4 h-4 bg-white dark:bg-blue-400 rounded-full shadow-md transform transition-transform duration-300 ${theme === "dark" ? "translate-x-4" : "translate-x-0"}`}
+                />
+              </span>
+              <span className="ml-2 text-blue-400 dark:text-blue-200">
+                {theme === "dark" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+              </span>
+            </label>
             <button
               className="flex items-center justify-center w-10 h-10 rounded-full border border-blue-500/30 text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
               onClick={() => setMobileNavOpen((v) => !v)}
