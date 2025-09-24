@@ -132,7 +132,7 @@ export default function AboutPage() {
 
   return (
     <ParallaxProvider>
-  <div className="min-h-screen bg-transparent dark:bg-gradient-to-br dark:from-blue-900 dark:via-slate-800 dark:to-blue-900">
+  <div className="min-h-screen bg-transparent dark:bg-gradient-to-br dark:from-blue-900 dark:via-slate-800 dark:to-blue-900 font-inter">
         <Nav activePage="about" />
 
         {/* Hero Section with Parallax */}
@@ -144,7 +144,7 @@ export default function AboutPage() {
                   {/* Animated Text Effect for Title */}
                   <TextGenerateEffect
                     words={"Our Story"}
-                    className="text-10xl md:text-10xl font-extrabold mb-2 text-black dark:text-white drop-shadow-lg"
+                    className="text-10xl md:text-10xl font-extrabold mb-2 text-black dark:text-white drop-shadow-lg font-figtree"
                     filter={true}
                     duration={1}
                   />
@@ -170,7 +170,7 @@ export default function AboutPage() {
             <div className="container mx-auto px-4 relative z-10">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Our Founders</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 font-figtree">Our Founders</h2>
                   <p className="text-lg text-black/80 dark:text-white/80">Meet the visionary leaders who planted JSL Church</p>
                 </div>
                 <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -239,7 +239,7 @@ export default function AboutPage() {
             <div className="container mx-auto px-4 relative z-10">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Our Journey</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 font-figtree">Our Journey</h2>
                   <p className="text-center text-lg font-bold text-blue-600 dark:text-blue-300 drop-shadow-[0_0_8px_rgba(37,99,235,0.7)] mb-8">
                     Click on each milestone to learn more about our growth
                   </p>
@@ -322,7 +322,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 pt-10 sm:pt-16">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Photo Gallery</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 font-figtree">Photo Gallery</h2>
                   <p className="text-lg text-black/80 dark:text-white/80">Moments that tell our story</p>
                 </div>
                 {/* Main Gallery */}
@@ -391,7 +391,7 @@ export default function AboutPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Our Impact</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 font-figtree">Our Impact</h2>
                 <p className="text-xl text-blue-700 dark:text-blue-100">God's faithfulness through the years</p>
               </div>
 
@@ -440,7 +440,7 @@ export default function AboutPage() {
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
                       <BookOpen className="w-6 h-6 text-blue-600" />
                     </div>
-                <h3 className="text-2xl font-bold text-black">Our Mission</h3>
+                <h3 className="text-2xl font-bold text-black font-figtree">Our Mission</h3>
                   </div>
                   <p className="text-black leading-relaxed mb-6">
                     To proclaim Jesus Christ and preach the word of God, building a strong community of believers who are
@@ -467,7 +467,7 @@ export default function AboutPage() {
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
                       <Globe className="w-6 h-6 text-purple-600" />
                     </div>
-                <h3 className="text-2xl font-bold text-black">Our Vision</h3>
+                <h3 className="text-2xl font-bold text-black font-figtree">Our Vision</h3>
                   </div>
                   <p className="text-black leading-relaxed mb-6">
                     To be a beacon of hope and transformation in Addis Ababa and beyond, reaching every nation through the
@@ -497,7 +497,7 @@ export default function AboutPage() {
   <section className="py-16 bg-blue-50 dark:bg-gradient-to-br dark:from-blue-900 dark:via-slate-800 dark:to-blue-900 !text-black dark:!text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-12">What People Say</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-12 font-figtree">What People Say</h2>
 
               <Card className="p-8 bg-gradient-to-r from-blue-50 to-purple-50">
                 <Quote className="w-12 h-12 text-blue-600 mx-auto mb-6" />
@@ -521,7 +521,7 @@ export default function AboutPage() {
   <section className="py-16 bg-blue-50 dark:bg-transparent !text-black dark:!text-white">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Join Our Story</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4 font-figtree">Join Our Story</h2>
               <p className="text-xl mb-8 text-black dark:text-blue-100">
                 Be part of what God is doing through JSL Church. Your story can be the next chapter in our journey.
               </p>
