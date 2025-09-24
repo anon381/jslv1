@@ -21,7 +21,7 @@ export default function Nav({ activePage }: NavProps) {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 border-b border-blue-500/20 transition-colors duration-300 ${scrolled ? 'bg-transparent' : 'bg-[#1A2940]'} backdrop-blur-sm`}>
+  <header className={`fixed top-0 left-0 w-full z-50 border-b border-blue-500/20 transition-colors duration-300 ${scrolled ? 'bg-transparent' : 'bg-blue-50 dark:bg-[#1A2940]'} backdrop-blur-sm`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
@@ -29,17 +29,17 @@ export default function Nav({ activePage }: NavProps) {
               <img src="/photo_2025-08-28_15-19-22-removebg-preview.ico" alt="Church Logo" className="w-14 h-14" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white">JSL Church</h1>
+              <h1 className="text-xl font-bold text-blue-950 dark:text-white">JSL Church</h1>
               <p className="text-sm text-blue-200">Jesus the Spring of Life International Church</p>
             </div>
           </div>
           {/* Desktop Nav */}
           <nav className="hidden md:flex space-x-6 items-center">
-            <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`}>Home</Link>
-            <Link href="/about" className={`${activePage === "about" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`}>About</Link>
-            <Link href="/sermons" className={`${activePage === "sermons" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`}>Sermons</Link>
-            <Link href="/visit" className={`${activePage === "visit" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`}>Visit</Link>
-            <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`}>Connect</Link>
+            <Link href="/" className={`${activePage === "home" ? "text-blue-400 font-medium" : "text-blue-950 dark:text-gray-300 hover:text-blue-400"} transition-colors`}>Home</Link>
+            <Link href="/about" className={`${activePage === "about" ? "text-blue-400 font-medium" : "text-blue-950 dark:text-gray-300 hover:text-blue-400"} transition-colors`}>About</Link>
+            <Link href="/sermons" className={`${activePage === "sermons" ? "text-blue-400 font-medium" : "text-blue-950 dark:text-gray-300 hover:text-blue-400"} transition-colors`}>Sermons</Link>
+            <Link href="/visit" className={`${activePage === "visit" ? "text-blue-400 font-medium" : "text-blue-950 dark:text-gray-300 hover:text-blue-400"} transition-colors`}>Visit</Link>
+            <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-blue-950 dark:text-gray-300 hover:text-blue-400"} transition-colors`}>Connect</Link>
             {/* Theme Toggle Button */}
             <button
               className="ml-4 p-2 rounded-full border border-blue-500/30 text-blue-400 hover:bg-blue-500/10 transition-colors"
