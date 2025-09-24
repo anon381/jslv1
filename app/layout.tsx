@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import SplashWrapper from '@/components/splash-wrapper'
 import React from 'react'
+import { ThemeProvider } from '@/components/theme-provider'
 
 export const metadata: Metadata = {
   title: 'v0 App',
@@ -14,7 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-  <SplashWrapper>{children}</SplashWrapper>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <SplashWrapper>{children}</SplashWrapper>
+        </ThemeProvider>
       </body>
     </html>
   )
