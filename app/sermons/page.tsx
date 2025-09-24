@@ -97,20 +97,20 @@ export default function SermonsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-white text-black dark:bg-gradient-to-b dark:from-blue-50 dark:to-white dark:text-white">
       <Nav activePage="sermons" />
 
       {/* Hero Section */}
-      <section className="relative py-16 lg:py-24 overflow-hidden bg-gradient-to-br from-blue-800 via-blue-950 to-black-600">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-blue-950/80 to-black/70 pointer-events-none"></div>
+  <section className="relative py-16 lg:py-24 overflow-hidden bg-blue-50 text-black dark:bg-gradient-to-br dark:from-blue-800 dark:via-blue-950 dark:to-black-600 dark:text-white border-b border-blue-200">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-blue-950/80 to-black/70 pointer-events-none dark:block hidden"></div>
         <div className="relative container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mt-10 md:mt-16">
             <Link href="/" className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-4 sm:mb-6 text-base sm:text-lg">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Link>
-            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">Sermons & Teachings</h1>
-            <p className="text-base sm:text-xl text-blue-100 mb-6 sm:mb-8 max-w-3xl mx-auto">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-black dark:text-white mb-4 sm:mb-6">Sermons & Teachings</h1>
+            <p className="text-base sm:text-xl text-black dark:text-blue-100 mb-6 sm:mb-8 max-w-3xl mx-auto">
               Dive deeper into God's Word with Pastor Zenebech Gessesse's powerful teachings. Experience
               life-transforming messages that will strengthen your faith and guide your spiritual journey.
             </p>
@@ -162,7 +162,7 @@ export default function SermonsPage() {
       {/* Featured Sermon */}
 
       {/* Featured Sermon with ContainerScroll effect and original section background */}
-      <section className="py-12 bg-gradient-to-br from-blue-800 via-blue-950 to-black-600">
+  <section className="py-12 bg-blue-75 text-black dark:bg-gradient-to-br dark:from-blue-800 dark:via-blue-950 dark:to-black-600 dark:text-white border-b border-blue-100">
         {(() => {
           const { ContainerScroll } = require("@/components/ui/container-scroll-animation");
           return (
@@ -170,8 +170,8 @@ export default function SermonsPage() {
               titleComponent={
                 <>
                   <div className="text-center mb-6 sm:mb-8">
-<h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-4 sm:mb-6">Latest Message</h2>
-<p className="text-xl sm:text-2xl text-white">Watch our most recent sermon from Pastor Zenebech</p>
+                    <h2 className="text-4xl sm:text-5xl font-extrabold text-black dark:text-white mb-4 sm:mb-6">Latest Message</h2>
+                    <p className="text-xl sm:text-2xl text-black dark:text-white">Watch our most recent sermon from Pastor Zenebech</p>
                   </div>
                 </>
               }
@@ -198,18 +198,18 @@ export default function SermonsPage() {
                     </Button>
                   </div>
                 </div>
-                <CardContent className="p-8">
+                <CardContent className="p-8 bg-white text-black dark:bg-slate-800 dark:text-white rounded-xl">
                   <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-3 sm:mb-4">
                     <Badge className="bg-blue-600">Latest Message</Badge>
                     <Badge variant="secondary">Faith & Trust</Badge>
                   </div>
-                  <h3 className="text-lg sm:text-2xl font-bold text-gray-800 mb-2 sm:mb-4">Walking in Divine Purpose</h3>
-                  <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                  <h3 className="text-lg sm:text-2xl font-bold text-black dark:text-white mb-2 sm:mb-4">Walking in Divine Purpose</h3>
+                  <p className="text-gray-700 dark:text-blue-100 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                     In this powerful message, Pastor Zenebech Gessesse explores how we can discover and walk in God's
                     unique purpose for our lives. Learn how to align your steps with His divine plan and experience the
                     fulfillment that comes from living according to His will.
                   </p>
-                  <div className="flex flex-col sm:flex-row sm:items-center text-xs sm:text-sm text-gray-500 space-y-1 sm:space-y-0 sm:space-x-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center text-xs sm:text-sm text-gray-600 dark:text-blue-200 space-y-1 sm:space-y-0 sm:space-x-4">
                     <div className="flex items-center">
                       <Calendar className="w-4 h-4 mr-1" />
                       <span>January 21, 2024</span>
@@ -222,7 +222,7 @@ export default function SermonsPage() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="mt-2 sm:mt-0"
+                    className="mt-2 sm:mt-0 dark:text-black"
                     onClick={() => window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")}
                   >
                     <Youtube className="w-4 h-4 mr-2" />
@@ -236,12 +236,12 @@ export default function SermonsPage() {
       </section>
 
       {/* Sermon Library */}
-  <section className="py-16 bg-gradient-to-r from-blue-700 via-blue-900 to-blue-950 backdrop-blur-md">
+  <section className="py-16 bg-blue-50 text-black dark:bg-gradient-to-r dark:from-blue-700 dark:via-blue-900 dark:to-blue-950 dark:text-white border-b border-blue-100">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-white mb-4">Sermon Library</h2>
-              <p className="text-white">Explore our collection of life-changing messages</p>
+              <h2 className="text-3xl font-bold mb-4 text-black dark:text-white">Sermon Library</h2>
+              <p className="text-black dark:text-white">Explore our collection of life-changing messages</p>
             </div>
             {/* Card Hover Effect Demo */}
             <div className="mb-12">
@@ -280,24 +280,24 @@ export default function SermonsPage() {
       </section>
 
       {/* Pastor Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-800 via-blue-950 to-black-600">
+  <section className="py-16 bg-blue-75 text-black dark:bg-gradient-to-br dark:from-blue-800 dark:via-blue-950 dark:to-black-600 dark:text-white border-b border-blue-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold text-white mb-6">Meet Pastor Zenebech Gessesse</h2>
-                <p className="text-white mb-6 leading-relaxed">
+                <h2 className="text-3xl font-bold mb-6 text-black dark:text-white">Meet Pastor Zenebech Gessesse</h2>
+                <p className="mb-6 leading-relaxed text-black dark:text-white">
                   Pastor Zenebech Gessesse is a passionate teacher of God's Word, dedicated to helping believers grow in
                   their faith and discover their divine purpose. With years of ministry experience, she brings deep
                   biblical insights and practical wisdom to every message.
                 </p>
-                <p className="text-white mb-6 leading-relaxed">
+                <p className="mb-6 leading-relaxed text-black dark:text-white">
                   Her heart for international ministry has led to the establishment of JSL Church as a global community
                   where people from all nations can encounter Jesus and be transformed by His love.
                 </p>
                 <div className="flex items-center space-x-4">
                   <Button
-                    className="bg-blue-600 hover:bg-blue-700"
+                    className="bg-blue-600 hover:bg-blue-700 text-white"
                     onClick={() => window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")}
                   >
                     <Youtube className="w-4 h-4 mr-2" />
@@ -324,24 +324,24 @@ export default function SermonsPage() {
       </section>
 
       {/* Call to Action */}
-  <section className="py-16 bg-gradient-to-r from-blue-950 via-blue-900 to-black text-white">
+  <section className="py-16 bg-blue-75 text-black dark:bg-gradient-to-r dark:from-blue-950 dark:via-blue-900 dark:to-black dark:text-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Stay Connected</h2>
-            <p className="text-xl mb-8 text-blue-100">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black dark:text-white">Stay Connected</h2>
+            <p className="text-xl mb-8 text-black/80 dark:text-blue-100">
               Never miss a sermon! Subscribe to our YouTube channel and be notified of new teachings.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
                 variant="secondary"
-                className="bg-white text-blue-600 hover:bg-gray-100"
+                className="bg-blue-600 text-white hover:bg-blue-700"
                 onClick={() => window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")}
               >
                 <Youtube className="w-5 h-5 mr-2" />
                 Subscribe on YouTube
               </Button>
-              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100" onClick={() => window.open("https://maps.app.goo.gl/vx68y7VBkCRg3PS47", "_blank")}>
+              <Button size="lg" variant="secondary" className="bg-blue-600 text-white hover:bg-blue-700" onClick={() => window.open("https://maps.app.goo.gl/vx68y7VBkCRg3PS47", "_blank")}> 
                 <Calendar className="w-5 h-5 mr-2" />
                 Join Us Sunday
               </Button>
@@ -351,7 +351,7 @@ export default function SermonsPage() {
       </section>
 
       {/* Footer */}
-<footer className="bg-slate-900 text-white py-8 sm:py-12 border-t border-slate-700/50">
+<footer className="bg-blue-100 text-black dark:bg-slate-900 dark:text-white py-8 sm:py-12 border-t border-blue-200 dark:border-slate-700/50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
@@ -360,40 +360,40 @@ export default function SermonsPage() {
                   <Cross className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-white">JSL Church</h3>
-                  <p className="text-sm text-blue-300">Jesus the Spring of Life International</p>
+                  <h3 className="font-bold text-black dark:text-white">JSL Church</h3>
+                  <p className="text-sm text-blue-700 dark:text-blue-300">Jesus the Spring of Life International</p>
                 </div>
               </div>
-              <p className="text-blue-200 text-sm">
+              <p className="text-blue-700 dark:text-blue-200 text-sm">
                 Active in the World. A Church That Teaches, Reaches, and Welcomes All.
               </p>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-white">Quick Links</h4>
-              <ul className="space-y-2 text-sm text-blue-300">
+              <h4 className="font-semibold mb-4 text-black dark:text-white">Quick Links</h4>
+              <ul className="space-y-2 text-sm text-blue-700 dark:text-blue-300">
                 <li>
-                  <Link href="/" className="hover:text-blue-200 transition-colors">
+                  <Link href="/" className="hover:text-blue-900 dark:hover:text-blue-200 transition-colors">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="hover:text-blue-200 transition-colors">
+                  <Link href="/about" className="hover:text-blue-900 dark:hover:text-blue-200 transition-colors">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="/sermons" className="hover:text-blue-200 transition-colors">
+                  <Link href="/sermons" className="hover:text-blue-900 dark:hover:text-blue-200 transition-colors">
                     Sermons
                   </Link>
                 </li>
                 <li>
-              <Link href="/visit" className="hover:text-blue-200 transition-colors">
+              <Link href="/visit" className="hover:text-blue-900 dark:hover:text-blue-200 transition-colors">
                     Plan a Visit
                   </Link>
                 </li>
                 <li>
-                  <Link href="#connect" className="hover:text-blue-200 transition-colors">
+                  <Link href="#connect" className="hover:text-blue-900 dark:hover:text-blue-200 transition-colors">
                     Contact
                   </Link>
                 </li>
@@ -401,8 +401,8 @@ export default function SermonsPage() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-white">Service Times</h4>
-              <ul className="space-y-2 text-sm text-blue-300">
+              <h4 className="font-semibold mb-4 text-black dark:text-white">Service Times</h4>
+              <ul className="space-y-2 text-sm text-blue-700 dark:text-blue-300">
   <li>Sunday Morning: 10:00 AM - 01:30 PM</li>
   <li>Monday Morning: 9:00 AM - 12:00 PM</li>
   <li>Tuesday Morning: 10:00 AM - 5:00 PM</li>
@@ -413,29 +413,29 @@ export default function SermonsPage() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-white">Follow Us</h4>
+              <h4 className="font-semibold mb-4 text-black dark:text-white">Follow Us</h4>
               <div className="flex space-x-4">
                 <Button
                   size="sm"
                   variant="ghost"
-                  className="text-blue-300 hover:text-blue-200 p-2 hover:bg-blue-500/10 rounded-full transition-all duration-300"
+                  className="text-blue-700 dark:text-blue-300 hover:text-blue-900 dark:hover:text-blue-200 p-2 hover:bg-blue-500/10 rounded-full transition-all duration-300"
                   onClick={() => window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")}
                 >
                   <Youtube className="w-5 h-5" />
                 </Button>
-                <Button size="sm" variant="ghost" className="text-blue-300 hover:text-blue-200 p-2 hover:bg-blue-500/10 rounded-full transition-all duration-300" onClick={() => window.open("https://t.me/JSLCHURCHOFFICIALCHANNEL", "_blank")}>
+                <Button size="sm" variant="ghost" className="text-blue-700 dark:text-blue-300 hover:text-blue-900 dark:hover:text-blue-200 p-2 hover:bg-blue-500/10 rounded-full transition-all duration-300" onClick={() => window.open("https://t.me/JSLCHURCHOFFICIALCHANNEL", "_blank")}> 
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="w-5 h-5" style={{ color: 'rgb(59, 130, 246)' }}>
                     <path d="M21.944 4.186a1.5 1.5 0 0 0-1.59-.217L3.6 11.13a1.5 1.5 0 0 0 .13 2.77l3.77 1.36 1.36 4.09a1.5 1.5 0 0 0 2.74.13l2.13-3.77 3.77 1.36a1.5 1.5 0 0 0 2.77-.13l3.77-13.13a1.5 1.5 0 0 0-.13-2.77z" fill="currentColor" />
                   </svg>
                 </Button>
-                <Button size="sm" variant="ghost" className="text-blue-300 hover:text-blue-200 p-2 hover:bg-blue-500/10 rounded-full transition-all duration-300" onClick={() => window.open("https://www.facebook.com/JSLTVWORLDWIDE", "_blank")}>
+                <Button size="sm" variant="ghost" className="text-blue-700 dark:text-blue-300 hover:text-blue-900 dark:hover:text-blue-200 p-2 hover:bg-blue-500/10 rounded-full transition-all duration-300" onClick={() => window.open("https://www.facebook.com/JSLTVWORLDWIDE", "_blank")}> 
                   <Facebook className="w-5 h-5" />
                 </Button>
                 </div>
              </div>
           </div>
 
-          <div className="border-t border-slate-700/50 mt-8 pt-8 text-center text-sm text-blue-300">
+          <div className="border-t border-blue-200 dark:border-slate-700/50 mt-8 pt-8 text-center text-sm text-blue-700 dark:text-blue-300">
             <p>&copy; {new Date().getFullYear()} Jesus the Spring of Life International Church. All rights reserved.</p>
           </div>
         </div>
