@@ -117,10 +117,10 @@ export default function AboutPage() {
 
   const achievements = [
     { number: "500+", label: "Active Members", icon: <Users className="w-8 h-8" /> },
-    { number: "11", label: "Years of Ministry", icon: <Calendar className="w-8 h-8" /> },
+    { number: "12", label: "Years of Ministry", icon: <Calendar className="w-8 h-8" /> },
     { number: "2", label: "Church Branches", icon: <Building className="w-8 h-8" /> },
     { number: "1000+", label: "Lives Touched", icon: <Heart className="w-8 h-8" /> },
-  ]
+  ] 
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % photoGallery.length)
@@ -132,26 +132,26 @@ export default function AboutPage() {
 
   return (
     <ParallaxProvider>
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900">
+  <div className="min-h-screen bg-transparent dark:bg-gradient-to-br dark:from-blue-900 dark:via-slate-800 dark:to-blue-900">
         <Nav activePage="about" />
 
         {/* Hero Section with Parallax */}
         <Parallax speed={-8}>
-          <section className="relative mt-20 lg:mt-0 py-20 lg:py-32 overflow-hidden z-10 bg-slate-800/30 backdrop-blur-sm mb-16">
+          <section className="relative mt-20 lg:mt-0 py-20 lg:py-32 overflow-hidden z-10 bg-blue-50 !text-black dark:bg-slate-800/30 dark:!text-white backdrop-blur-sm">
             <div className="relative container mx-auto px-4 z-10">
               <div className="max-w-4xl mx-auto text-center mt-10 md:mt-16">
                 <div className="mb-10 md:mb-14">
                   {/* Animated Text Effect for Title */}
                   <TextGenerateEffect
                     words={"Our Story"}
-                    className="text-10xl md:text-10xl font-extrabold mb-2 text-white drop-shadow-lg"
+                    className="text-10xl md:text-10xl font-extrabold mb-2 text-black dark:text-white drop-shadow-lg"
                     filter={true}
                     duration={1}
                   />
                   {/* Animated Text Effect for Subtitle */}
                   <TextGenerateEffect
                     words={"Discover the journey of JSL Church - from a vision in the hearts of two faithful servants to a thriving community proclaiming Jesus Christ across Ethiopia and beyond."}
-                    className="text-xl text-white mb-8 max-w-3xl mx-auto"
+                    className="text-xl text-black dark:text-white mb-8 max-w-3xl mx-auto"
                     filter={true}
                     duration={0.7}
                   />
@@ -159,16 +159,19 @@ export default function AboutPage() {
               </div>
             </div>
           </section>
-        </Parallax>
+    </Parallax>
 
-        {/* Founders Section with Parallax */}
+    {/* Fixed blue-75 gap between hero and founders section */}
+
+
+    {/* Founders Section with Parallax */}
         <Parallax speed={-5}>
-          <section className="py-16 relative z-10 overflow-hidden bg-gradient-to-br from-blue-900/30 via-slate-800/50 to-blue-900/30 backdrop-blur-sm mb-16">
+          <section className="py-16 relative z-10 overflow-hidden bg-blue-50 dark:bg-gradient-to-br dark:from-blue-900 dark:via-slate-800 dark:to-blue-900 text-black dark:text-white backdrop-blur-sm">
             <div className="container mx-auto px-4 relative z-10">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Founders</h2>
-                  <p className="text-lg text-white/80">Meet the visionary leaders who planted JSL Church</p>
+                  <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Our Founders</h2>
+                  <p className="text-lg text-black/80 dark:text-white/80">Meet the visionary leaders who planted JSL Church</p>
                 </div>
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div className="space-y-8">
@@ -216,7 +219,7 @@ export default function AboutPage() {
                     </div>
                     <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
                       <div className="text-center">
-                        <p className="text-2xl font-bold text-blue-600 drop-shadow-[0_0_8px_rgba(37,99,235,0.7)]">11</p>
+                        <p className="text-2xl font-bold text-blue-600 drop-shadow-[0_0_8px_rgba(37,99,235,0.7)]">12</p>
                         <p className="text-sm text-black/80">Years of Ministry</p>
                       </div>
                     </div>
@@ -229,15 +232,15 @@ export default function AboutPage() {
 
         {/* Interactive Timeline with Parallax */}
         <Parallax speed={-6}>
-          <section className="py-16 overflow-hidden min-h-[70vh] relative z-10 bg-slate-800/50 backdrop-blur-sm mb-16">
+          <section className="py-16 overflow-hidden min-h-[70vh] relative z-10 bg-blue-75 !text-black dark:bg-gradient-to-br dark:from-blue-900 dark:via-slate-800 dark:to-blue-900 dark:!text-white backdrop-blur-sm">
             <Parallax speed={-40}>
               <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-white z-0"></div>
             </Parallax>
             <div className="container mx-auto px-4 relative z-10">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Journey</h2>
-                  <p className="text-center text-lg font-bold text-blue-600 drop-shadow-[0_0_8px_rgba(37,99,235,0.7)] mb-8">
+                  <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Our Journey</h2>
+                  <p className="text-center text-lg font-bold text-blue-600 dark:text-blue-300 drop-shadow-[0_0_8px_rgba(37,99,235,0.7)] mb-8">
                     Click on each milestone to learn more about our growth
                   </p>
                 </div>
@@ -315,12 +318,12 @@ export default function AboutPage() {
 
         {/* Photo Gallery with Parallax */}
         <Parallax speed={-4}>
-          <section className="py-16 bg-gradient-to-br from-slate-900 via-blue-900/50 to-slate-900 opacity-80 mb-16">
+          <section className="py-16 bg-blue-50 dark:bg-gradient-to-br dark:from-blue-900 dark:via-slate-800 dark:to-blue-900 text-black dark:text-white">
         <div className="container mx-auto px-4 pt-10 sm:pt-16">
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Photo Gallery</h2>
-                  <p className="text-lg text-white/80">Moments that tell our story</p>
+                  <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Photo Gallery</h2>
+                  <p className="text-lg text-black/80 dark:text-white/80">Moments that tell our story</p>
                 </div>
                 {/* Main Gallery */}
                 <div className="relative mb-8">
@@ -376,7 +379,7 @@ export default function AboutPage() {
         <div className="text-center mt-8 mb-12">
           <Button
             size="lg"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
+            className="bg-blue-75 hover:bg-blue-100 text-black px-8 py-3"
             onClick={() => window.open("https://www.facebook.com/JSLTVWORLDWIDE?mibextid=ZbWKwL", "_blank")}
           >
             Explore More
@@ -384,12 +387,12 @@ export default function AboutPage() {
         </div>
 
         {/* Achievements Counter */}
-        <section className="py-16 bg-slate-900/50 backdrop-blur-sm mb-16">
+  <section className="py-16 bg-blue-50 !text-black dark:bg-slate-900/50 dark:!text-white backdrop-blur-sm">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Impact</h2>
-                <p className="text-xl text-blue-100">God's faithfulness through the years</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Our Impact</h2>
+                <p className="text-xl text-blue-700 dark:text-blue-100">God's faithfulness through the years</p>
               </div>
 
               <div className="grid md:grid-cols-4 gap-8">
@@ -428,7 +431,7 @@ export default function AboutPage() {
         </section>
 
         {/* Mission & Vision */}
-        <section className="py-16 bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900 mb-16">
+  <section className="py-16 bg-blue-75 dark:bg-gradient-to-br dark:from-blue-900 dark:via-slate-800 dark:to-blue-900 !text-black dark:!text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="grid md:grid-cols-2 gap-12">
@@ -491,10 +494,10 @@ export default function AboutPage() {
         </section>
 
         {/* Testimonial Section */}
-        <section className="py-16 bg-gradient-to-br from-blue-900 via-slate-800 to-blue-900 mb-16">
+  <section className="py-16 bg-blue-50 dark:bg-gradient-to-br dark:from-blue-900 dark:via-slate-800 dark:to-blue-900 !text-black dark:!text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">What People Say</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-12">What People Say</h2>
 
               <Card className="p-8 bg-gradient-to-r from-blue-50 to-purple-50">
                 <Quote className="w-12 h-12 text-blue-600 mx-auto mb-6" />
@@ -515,11 +518,11 @@ export default function AboutPage() {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 mb-16">
+  <section className="py-16 bg-blue-50 dark:bg-transparent !text-black dark:!text-white">
           <div className="container mx-auto px-4 text-center">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Story</h2>
-              <p className="text-xl mb-8 text-blue-100">
+              <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Join Our Story</h2>
+              <p className="text-xl mb-8 text-black dark:text-blue-100">
                 Be part of what God is doing through JSL Church. Your story can be the next chapter in our journey.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -534,7 +537,7 @@ export default function AboutPage() {
         </section>
 
         {/* Footer */}
-       <footer className="bg-slate-900 text-white py-8 sm:py-12 border-t border-slate-700/50">
+  <footer className="bg-blue-100 text-black dark:bg-slate-900 dark:text-white py-8 sm:py-12 border-t border-blue-120 dark:border-slate-700/50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
@@ -544,39 +547,39 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h3 className="font-bold text-white">JSL Church</h3>
-                  <p className="text-sm text-blue-300">Jesus the Spring of Life International</p>
+                  <p className="text-sm text-blue-400">Jesus the Spring of Life International</p>
                 </div>
               </div>
-              <p className="text-blue-200 text-sm">
+              <p className="text-blue-400 text-sm">
                 Active in the World. A Church That Teaches, Reaches, and Welcomes All.
               </p>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4 text-white">Quick Links</h4>
-              <ul className="space-y-2 text-sm text-blue-300">
+              <ul className="space-y-2 text-sm text-blue-400">
                 <li>
-                  <Link href="/" className="hover:text-blue-200 transition-colors">
+                  <Link href="/" className="hover:text-blue-450 transition-colors">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="hover:text-blue-200 transition-colors">
+                  <Link href="/about" className="hover:text-blue-450 transition-colors">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="/sermons" className="hover:text-blue-200 transition-colors">
+                  <Link href="/sermons" className="hover:text-blue-450 transition-colors">
                     Sermons
                   </Link>
                 </li>
                 <li>
-              <Link href="/visit" className="hover:text-blue-200 transition-colors">
+              <Link href="/visit" className="hover:text-blue-450 transition-colors">
                     Plan a Visit
                   </Link>
                 </li>
                 <li>
-                  <Link href="#connect" className="hover:text-blue-200 transition-colors">
+                  <Link href="#connect" className="hover:text-blue-450 transition-colors">
                     Contact
                   </Link>
                 </li>
@@ -585,7 +588,7 @@ export default function AboutPage() {
 
             <div>
               <h4 className="font-semibold mb-4 text-white">Service Times</h4>
-              <ul className="space-y-2 text-sm text-blue-300">
+              <ul className="space-y-2 text-sm text-blue-400">
   <li>Sunday Morning: 10:00 AM - 01:30 PM</li>
   <li>Monday Morning: 9:00 AM - 12:00 PM</li>
   <li>Tuesday Morning: 10:00 AM - 5:00 PM</li>
@@ -601,24 +604,24 @@ export default function AboutPage() {
                 <Button
                   size="sm"
                   variant="ghost"
-                  className="text-blue-300 hover:text-blue-200 p-2 hover:bg-blue-500/10 rounded-full transition-all duration-300"
+                  className="text-blue-400 hover:text-blue-200 p-2 hover:bg-blue-500/10 rounded-full transition-all duration-300"
                   onClick={() => window.open("https://www.youtube.com/@pastorzenebechgessessejsltvwor", "_blank")}
                 >
                   <Youtube className="w-5 h-5" />
                 </Button>
-                <Button size="sm" variant="ghost" className="text-blue-300 hover:text-blue-200 p-2 hover:bg-blue-500/10 rounded-full transition-all duration-300" onClick={() => window.open("https://t.me/JSLCHURCHOFFICIALCHANNEL", "_blank")}>
+                <Button size="sm" variant="ghost" className="text-blue-400 hover:text-blue-200 p-2 hover:bg-blue-500/10 rounded-full transition-all duration-300" onClick={() => window.open("https://t.me/JSLCHURCHOFFICIALCHANNEL", "_blank")}>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="w-5 h-5" style={{ color: 'rgb(59, 130, 246)' }}>
                     <path d="M21.944 4.186a1.5 1.5 0 0 0-1.59-.217L3.6 11.13a1.5 1.5 0 0 0 .13 2.77l3.77 1.36 1.36 4.09a1.5 1.5 0 0 0 2.74.13l2.13-3.77 3.77 1.36a1.5 1.5 0 0 0 2.77-.13l3.77-13.13a1.5 1.5 0 0 0-.13-2.77z" fill="currentColor" />
                   </svg>
                 </Button>
-                <Button size="sm" variant="ghost" className="text-blue-300 hover:text-blue-200 p-2 hover:bg-blue-500/10 rounded-full transition-all duration-300" onClick={() => window.open("https://www.facebook.com/JSLTVWORLDWIDE", "_blank")}>
+                <Button size="sm" variant="ghost" className="text-blue-400 hover:text-blue-200 p-2 hover:bg-blue-500/10 rounded-full transition-all duration-300" onClick={() => window.open("https://www.facebook.com/JSLTVWORLDWIDE", "_blank")}>
                   <Facebook className="w-5 h-5" />
                 </Button>
                 </div>
              </div>
           </div>
 
-          <div className="border-t border-slate-700/50 mt-8 pt-8 text-center text-sm text-blue-300">
+          <div className="border-t border-slate-700/50 mt-8 pt-8 text-center text-sm text-blue-400">
             <p>&copy; {new Date().getFullYear()} Jesus the Spring of Life International Church. All rights reserved.</p>
           </div>
         </div>
