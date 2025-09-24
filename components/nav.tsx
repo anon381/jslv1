@@ -29,8 +29,8 @@ export default function Nav({ activePage }: NavProps) {
               <img src="/photo_2025-08-28_15-19-22-removebg-preview.ico" alt="Church Logo" className="w-14 h-14" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-blue-950 dark:text-white">JSL Church</h1>
-              <p className="text-sm text-blue-200">Jesus the Spring of Life International Church</p>
+              <h1 className="text-xl font-bold text-blue-950 dark:text-white font-figtree">JSL Church</h1>
+              <p className="text-sm text-blue-200 font-inter">Jesus the Spring of Life International Church</p>
             </div>
           </div>
           {/* Desktop Nav */}
