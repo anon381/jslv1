@@ -212,7 +212,6 @@ export default function SpringOfLifeChurch() {
       fill
       priority
       className="object-cover w-full h-full bg-transparent"
-      style={{ opacity: 0.95 }}
     />
     {/* No overlay or gradient, just transparent image */}
   </div>
