@@ -198,8 +198,7 @@ export default function SpringOfLifeChurch() {
     return (
       <>
         <div
-          className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 font-inter overflow-y-auto scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-blue-100"
-          style={{ willChange: 'transform' }}
+          className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 font-inter"
         >
           <Nav activePage={activePage} />
 

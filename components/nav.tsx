@@ -20,8 +20,9 @@ export default function Nav({ activePage }: NavProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Always solid background, never transparent, like about/sermons pages
   return (
-  <header className={`fixed top-0 left-0 w-full z-50 border-b border-blue-500/20 transition-colors duration-300 ${scrolled ? 'bg-transparent' : 'bg-blue-50 dark:bg-[#1A2940]'} backdrop-blur-sm`}>
+  <header className={`fixed top-0 left-0 w-full z-50 border-b border-blue-500/20 transition-colors duration-300 bg-blue-50 dark:bg-[#1A2940] backdrop-blur-sm`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
