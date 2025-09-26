@@ -26,8 +26,10 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
+
 import Nav from "@/components/nav"
+import SplashLoader from "@/components/splash-loader"
 // import { useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
@@ -49,6 +51,9 @@ const newsletterSchema = z.object({
 
 export default function SpringOfLifeChurch() {
   // ...existing code...
+  // Hero ref for scroll
+  const heroRef = useRef<HTMLDivElement>(null);
+
   // About section animation controls
   const [aboutRef, aboutInView] = useInView({ triggerOnce: true, threshold: 0.2 })
   const leftControls = useAnimation()
@@ -188,12 +193,18 @@ export default function SpringOfLifeChurch() {
       setIsSubmittingNewsletter(false)
     }
   }
-    return (
-  <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 font-inter">
-        <Nav activePage={activePage} />
 
-      {/* Hero Section */}
-      <section className="relative py-32 lg:py-56 overflow-hidden bg-blue-50 dark:bg-gradient-to-br dark:from-slate-900 dark:via-blue-900/50 dark:to-slate-900">
+
+    return (
+      <>
+        <div
+          className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 font-inter overflow-y-auto scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-blue-100"
+          style={{ willChange: 'transform' }}
+        >
+          <Nav activePage={activePage} />
+
+          {/* Hero Section */}
+          <section ref={heroRef} className="relative py-32 lg:py-56 overflow-hidden bg-blue-50 dark:bg-gradient-to-br dark:from-slate-900 dark:via-blue-900/50 dark:to-slate-900">
   {/* Background image */}
   <div className="absolute inset-0">
     <Image
@@ -598,6 +609,7 @@ export default function SpringOfLifeChurch() {
         </div>
       </footer>
       <Toaster />
-    </div>
+  </div>
+    </>
   );
 }
