@@ -519,11 +519,11 @@ export default function SpringOfLifeChurch() {
      
 
       {/* Footer */}
-  <footer className="bg-blue-100 dark:bg-slate-900 text-blue-450 dark:text-blue-300 py-8 sm:py-12 border-t border-slate-700/50">
+     <footer className="bg-blue-100 dark:bg-slate-900 text-blue-450 dark:text-blue-300 py-8 sm:py-12 border-t border-slate-700/50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
+            <div className="flex flex-col items-center text-center md:items-start md:text-left">
+              <div className="flex items-center space-x-3 mb-4 justify-center md:justify-start">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
                   <Cross className="w-7 h-7 text-white" />
                 </div>
@@ -538,8 +538,8 @@ export default function SpringOfLifeChurch() {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-blue-400 dark:text-blue-300 font-figtree">Quick Links</h4>
-              <ul className="space-y-2 text-sm text-blue-400 dark:text-blue-300">
+              <h4 className="font-semibold mb-4 text-blue-400 dark:text-blue-300 font-figtree text-center md:text-left">Quick Links</h4>
+              <ul className="space-y-2 text-sm text-blue-400 dark:text-blue-300 text-center md:text-left">
                 <li>
                   <Link href="/" className="hover:text-blue-450 dark:hover:text-blue-200 transition-colors">
                     Home
@@ -556,7 +556,7 @@ export default function SpringOfLifeChurch() {
                   </Link>
                 </li>
                 <li>
-              <Link href="/visit" className="hover:text-blue-450 dark:hover:text-blue-200 transition-colors">
+                  <Link href="/visit" className="hover:text-blue-450 dark:hover:text-blue-200 transition-colors">
                     Plan a Visit
                   </Link>
                 </li>
@@ -565,24 +565,34 @@ export default function SpringOfLifeChurch() {
                     Contact
                   </Link>
                 </li>
+                <li>
+                  <a
+                    href="https://gofund.me/f1790137d"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-200 font-medium transition-colors"
+                    onClick={() => {}}
+                  >
+                    Support
+                  </a>
+                </li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-blue-400 dark:text-blue-300 font-figtree">Service Times</h4>
-              <ul className="space-y-2 text-sm text-blue-400 dark:text-blue-300">
-  <li className="text-blue-400 dark:text-blue-300">Sunday Morning: 10:00 AM - 01:30 PM</li>
-  <li className="text-blue-400 dark:text-blue-300">Monday Morning: 9:00 AM - 12:00 PM</li>
-  <li className="text-blue-400 dark:text-blue-300">Tuesday Morning: 10:00 AM - 5:00 PM</li>
-  <li className="text-blue-400 dark:text-blue-300">Thursday Evening: 05:00 PM - 08:30 PM</li>
-  <li className="text-blue-400 dark:text-blue-300">Addis Ketema Sub City, Asko-Addis Sefer Lizmender, Addis Ababa, Ethiopia</li>
-</ul>
+              <h4 className="font-semibold mb-4 text-blue-400 dark:text-blue-300 font-figtree text-center md:text-left">Service Times</h4>
+              <ul className="space-y-2 text-sm text-blue-400 dark:text-blue-300 text-center md:text-left">
+                <li className="text-blue-400 dark:text-blue-300">Sunday Morning: 10:00 AM - 01:30 PM</li>
+                <li className="text-blue-400 dark:text-blue-300">Monday Morning: 9:00 AM - 12:00 PM</li>
+                <li className="text-blue-400 dark:text-blue-300">Tuesday Morning: 10:00 AM - 5:00 PM</li>
+                <li className="text-blue-400 dark:text-blue-300">Thursday Evening: 05:00 PM - 08:30 PM</li>
+                <li className="text-blue-400 dark:text-blue-300">Addis Ketema Sub City, Asko-Addis Sefer Lizmender, Addis Ababa, Ethiopia</li>
+              </ul>
 
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-blue-400 dark:text-blue-300 font-figtree">Follow Us</h4>
-              <div className="flex space-x-4">
+              <h4 className="font-semibold mb-4 text-blue-400 dark:text-blue-300 font-figtree text-center md:text-left">Follow Us</h4>
+              <div className="flex space-x-4 justify-center md:justify-start">
                 <Button
                   size="sm"
                   variant="ghost"

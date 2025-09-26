@@ -139,10 +139,18 @@ export default function SplashLoader({ minimumTime = 2500, onFinish }: SplashLoa
             ))}
           </motion.span>
         </h1>
-        <div className="mt-10 flex justify-center">
-          <div className="relative px-6 py-4 min-w-[320px] max-w-[90vw]">
-            <div className="relative z-10 text-center text-blue-200 dark:text-blue-100 font-inter text-base sm:text-lg md:text-xl bg-slate-900/80 dark:bg-blue-950/80 rounded-xl px-4 py-2 shadow-lg">
-              <span>{typed}<span className="animate-blink">|</span></span>
+
+        {/* Typing effect container */}
+        <div className="mt-10 flex justify-center px-4 sm:px-6">
+          <div className="relative w-full max-w-2xl">
+            <div className="relative z-10 text-center text-blue-200 dark:text-blue-100 font-inter 
+              text-sm sm:text-base md:text-lg lg:text-xl 
+              bg-slate-900/80 dark:bg-blue-950/80 rounded-xl px-3 sm:px-4 py-2 sm:py-3 shadow-lg 
+              break-words leading-relaxed">
+              <span>
+                {typed}
+                <span className="animate-blink">|</span>
+              </span>
             </div>
           </div>
         </div>
