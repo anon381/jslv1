@@ -42,7 +42,6 @@ export default function Nav({ activePage }: NavProps) {
             <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-blue-950 dark:text-gray-300 hover:text-blue-400"} transition-colors`}>Connect</Link>
               <a
                 href="https://gofund.me/f1790137d"
-                target="_blank"
                 rel="noopener noreferrer"
                 className={
                   `font-medium transition-colors text-blue-950 dark:text-gray-300 hover:text-blue-400`
@@ -110,7 +109,6 @@ export default function Nav({ activePage }: NavProps) {
             <Link href="/connect" className={`${activePage === "connect" ? "text-blue-400 font-medium" : "text-gray-300 hover:text-blue-400"} transition-colors`} onClick={() => setMobileNavOpen(false)}>Connect</Link>
               <a
                 href="https://gofund.me/f1790137d"
-                target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-200 font-medium transition-colors"
                 onClick={() => setMobileNavOpen(false)}
