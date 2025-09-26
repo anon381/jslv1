@@ -78,8 +78,66 @@ export default function SplashLoader({ minimumTime = 2500, onFinish }: SplashLoa
         <h1
           className="text-2xl sm:text-3xl md:text-4xl font-figtree font-extrabold text-blue-900 dark:text-blue-100 text-center drop-shadow-lg"
         >
-          <span className="block">JESUS THE SPRING OF LIFE</span>
-          <span className="block text-lg sm:text-xl md:text-2xl font-inter font-semibold text-blue-700 dark:text-blue-200 mt-2 tracking-wide">INTERNATIONAL CHURCH</span>
+          <motion.span
+            className="block"
+            style={{ display: 'inline-block' }}
+            variants={{}}
+            initial="hidden"
+            animate="visible"
+          >
+            {"JESUS THE SPRING OF LIFE INTERNATIONAL CHURCH".split("").map((char, i) => (
+              <motion.span
+                key={i}
+                style={{ display: 'inline-block' }}
+                variants={{
+                  hidden: { y: 0 },
+                  visible: {
+                    y: [0, -12, 0, 12, 0],
+                    transition: {
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: i * 0.08,
+                    },
+                  },
+                }}
+                initial="hidden"
+                animate="visible"
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
+          </motion.span>
+          <motion.span
+            className="block text-lg sm:text-xl md:text-2xl font-inter font-semibold text-blue-700 dark:text-blue-200 mt-2 tracking-wide"
+            style={{ display: 'inline-block' }}
+            variants={{}}
+            initial="hidden"
+            animate="visible"
+          >
+            {"".split("").map((char, i) => (
+              <motion.span
+                key={i}
+                style={{ display: 'inline-block' }}
+                variants={{
+                  hidden: { y: 0 },
+                  visible: {
+                    y: [0, -8, 0, 8, 0],
+                    transition: {
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: i * 0.08 + 0.2,
+                    },
+                  },
+                }}
+                initial="hidden"
+                animate="visible"
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
+          </motion.span>
         </h1>
         <div className="mt-10 flex justify-center">
           <div className="relative px-6 py-4 min-w-[320px] max-w-[90vw]">
