@@ -65,7 +65,18 @@ export default function SplashLoader({ minimumTime = 2500, onFinish }: SplashLoa
         }}
       />
       <div className="flex flex-col items-center">
-        <div className="mb-6">
+        <motion.div
+          className="mb-6"
+          animate={{ scale: 1.08 }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "reverse",
+            type: "spring",
+            stiffness: 80,
+            damping: 18,
+            duration: 1.8
+          }}
+        >
           <Image
             src="/photo_2025-08-28_15-19-22-removebg-preview.ico"
             alt="Church Logo"
@@ -74,7 +85,7 @@ export default function SplashLoader({ minimumTime = 2500, onFinish }: SplashLoa
             className="rounded-full shadow-xl border-4 border-blue-300 dark:border-blue-800 bg-white"
             priority
           />
-        </div>
+        </motion.div>
         <h1
           className="text-lg xs:text-xl sm:text-2xl md:text-4xl font-figtree font-extrabold text-white text-center drop-shadow-lg tracking-tight xs:tracking-normal sm:tracking-wide md:tracking-wider px-2 sm:px-0"
           style={{ wordBreak: 'break-word', lineHeight: 1.15 }}
