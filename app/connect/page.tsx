@@ -187,7 +187,7 @@ export default function ConnectPage() {
                       </div>
                       <div className="flex items-center">
                         <Mail className="w-4 h-4 mr-2 text-blue-900 dark:text-[#B7C9E2]" />
-                        <span className="text-black dark:text-[#FFFBEA]">jslchurch@gmail.com</span>
+                        <span className="text-black dark:text-[#FFFBEA]">jslchurch8@gmail.com</span>
                       </div>
                       <div className="flex items-center">
                         <MapPin className="w-4 h-4 mr-2 text-blue-900 dark:text-[#B7C9E2]" />
