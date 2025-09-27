@@ -135,19 +135,19 @@ export default function ConnectPage() {
                   <h3 className="text-xl font-semibold mb-4 font-figtree">Send Us a Message</h3>
                   <form onSubmit={contactForm.handleSubmit(onSubmitContact)} className="space-y-4">
                     <div>
-                      <Input placeholder="Your Name" {...contactForm.register('name')} className={contactForm.formState.errors.name ? 'border-red-500' : ''} />
+                      <Input placeholder="Your Name" {...contactForm.register('name')} className={(contactForm.formState.errors.name ? 'border-red-500 ' : '') + 'text-black !dark:text-black'} />
                       {contactForm.formState.errors.name && (
                         <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.name.message}</p>
                       )}
                     </div>
                     <div>
-                      <Input type="email" placeholder="Your Email" {...contactForm.register('email')} className={contactForm.formState.errors.email ? 'border-red-500' : ''} />
+                      <Input type="email" placeholder="Your Email" {...contactForm.register('email')} className={(contactForm.formState.errors.email ? 'border-red-500 ' : '') + 'text-black !dark:text-black'} />
                       {contactForm.formState.errors.email && (
                         <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.email.message}</p>
                       )}
                     </div>
                     <div>
-                      <Textarea placeholder="Prayer requests, questions, or how we can help..." rows={4} {...contactForm.register('message')} className={contactForm.formState.errors.message ? 'border-red-500' : ''} />
+                      <Textarea placeholder="Prayer requests, questions, or how we can help..." rows={4} {...contactForm.register('message')} className={(contactForm.formState.errors.message ? 'border-red-500 ' : '') + 'text-black !dark:text-black'} />
                       {contactForm.formState.errors.message && (
                         <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.message.message}</p>
                       )}
@@ -164,7 +164,7 @@ export default function ConnectPage() {
                   <p className="mb-6 text-black/80 dark:text-[#B7C9E2]">Subscribe to our newsletter for church updates, upcoming events, and weekly teachings.</p>
                   <form onSubmit={newsletterForm.handleSubmit(onSubmitNewsletter)} className="space-y-4">
                     <div>
-                      <Input type="email" placeholder="Your Email Address" {...newsletterForm.register('email')} className={newsletterForm.formState.errors.email ? 'border-red-500' : ''} />
+                      <Input type="email" placeholder="Your Email Address" {...newsletterForm.register('email')} className={(newsletterForm.formState.errors.email ? 'border-red-500 ' : '') + 'text-black !dark:text-black'} />
                       {newsletterForm.formState.errors.email && (
                         <p className="text-red-500 text-sm mt-1">{newsletterForm.formState.errors.email.message}</p>
                       )}
