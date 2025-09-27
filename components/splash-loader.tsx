@@ -76,7 +76,8 @@ export default function SplashLoader({ minimumTime = 2500, onFinish }: SplashLoa
           />
         </div>
         <h1
-          className="text-2xl sm:text-3xl md:text-4xl font-figtree font-extrabold text-blue-900 dark:text-blue-100 text-center drop-shadow-lg"
+          className="text-lg xs:text-xl sm:text-2xl md:text-4xl font-figtree font-extrabold text-white text-center drop-shadow-lg tracking-tight xs:tracking-normal sm:tracking-wide md:tracking-wider px-2 sm:px-0"
+          style={{ wordBreak: 'break-word', lineHeight: 1.15 }}
         >
           <motion.span
             className="block"
