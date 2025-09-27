@@ -379,42 +379,61 @@ export default function SpringOfLifeChurch() {
 
           {/* Sermon Library Preview */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
-            {(() => {
-              const getYoutubeId = (url: string) => {
-                // Accepts both embed and watch URLs
-                const match = url.match(/(?:embed\/|watch\?v=|youtu.be\/)([\w-]{11})/);
-                return match ? match[1] : "";
-              };
-              const sermons = [
-                { title: "The Power of Prayer", topic: "Prayer", video: "https://www.youtube.com/embed/_Myjo4M3NdQ?si=odGoUAKB34FSRGVe" },
-                { title: "Connection with God", topic: "Songs", video: "https://www.youtube.com/embed/5-xC-uqFKHM?si=gQcI94_xeCH17ArA" },
-                { title: "God's Grace in Action", topic: "Power", video: "https://www.youtube.com/embed/KBySVNRoWDY?si=4QNSHCLyUJONkKVl" }
-              ].map(s => ({
-                ...s,
-                image: `https://img.youtube.com/vi/${getYoutubeId(s.video)}/hqdefault.jpg`
-              }));
-              const [hovered, setHovered] = React.useState<number | null>(null);
-              return sermons.map((sermon, index) => (
-                <PinContainer key={index} containerClassName="w-full flex justify-center items-center" index={index}>
-                  <Card
-                    className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-transparent backdrop-blur-sm hover:bg-transparent w-[290px] md:w-[320px] max-w-full"
-                    style={{ border: 'none', margin: '0 0.5rem', background: 'transparent' }}
-                    onMouseEnter={() => setHovered(index)}
-                    onMouseLeave={() => setHovered(null)}
-                  >
-                    <div className="relative aspect-video cursor-pointer group" style={{ background: 'transparent' }} onClick={() => window.open(sermon.video.replace('/embed/', '/watch?v=').split('?')[0], '_blank')}>
-                      <Image src={sermon.image} alt={sermon.title} className="object-cover transition-opacity duration-200 group-hover:opacity-80" fill />
-                    </div>
-                    <CardContent className="p-4" style={{ background: 'transparent' }}>
-                      <Badge variant="secondary" className="mb-2 bg-transparent text-purple-300 border-purple-500/30">
-                        {sermon.topic}
-                      </Badge>
-                      <h4 className="font-semibold text-black dark:text-white mb-1 font-figtree">{sermon.title}</h4>
-                    </CardContent>
-                  </Card>
-                </PinContainer>
-              ));
-            })()}
+            {[
+              {
+                title: "The Power of Song",
+                topic: "Song",
+                url: "https://youtu.be/hXojwzDRfSs?si=M9nQ-GY_YyErHZ6V",
+                id: "hXojwzDRfSs"
+              },
+              {
+                title: "Heart of Worship",
+                topic: "Worship",
+                url: "https://youtu.be/zdOh_R1yMf0?si=9lJu4DuixYxDn7Oq",
+                id: "zdOh_R1yMf0"
+              },
+              {
+                title: "JSL Choir Performance",
+                topic: "Choir",
+                url: "https://youtu.be/oHnQRYrF6Ac?si=fqk8J_6gMDqqQE6n",
+                id: "oHnQRYrF6Ac"
+              },
+              {
+                title: "Prophetic Declaration",
+                topic: "Prophecy",
+                url: "https://youtu.be/zilTRCey9Xo?si=gpndez_ik1tT60RH",
+                id: "zilTRCey9Xo"
+              },
+              {
+                title: "Song of Greatness",
+                topic: "Song",
+                url: "https://youtu.be/aFiTkxJfguE?si=00UzaLE5CmQt57HA",
+                id: "aFiTkxJfguE"
+              },
+              {
+                title: "God's Wisdom",
+                topic: "Preaching",
+                url: "https://youtu.be/V_fD8TBSev0?si=QKuKNSQ7YRmnhlSX",
+                id: "V_fD8TBSev0"
+              }
+            ].map((sermon, index) => (
+              <PinContainer key={index} containerClassName="w-full flex justify-center items-center" index={index}>
+                <Card
+                  className="overflow-hidden hover:shadow-xl transition-all duration-300 bg-transparent backdrop-blur-sm hover:bg-transparent w-[290px] md:w-[320px] max-w-full"
+                  style={{ border: 'none', margin: '0 0.5rem', background: 'transparent' }}
+                >
+                  <div className="relative aspect-video cursor-pointer group" style={{ background: 'transparent' }} onClick={() => window.open(sermon.url, '_blank')}>
+                    <Image src={`https://img.youtube.com/vi/${sermon.id}/hqdefault.jpg`} alt={sermon.title} className="object-cover transition-opacity duration-200 group-hover:opacity-80" fill />
+                  </div>
+                  <CardContent className="p-4" style={{ background: 'transparent' }}>
+                    <Badge variant="secondary" className="mb-2 bg-transparent text-purple-300 border-purple-500/30">
+                      {sermon.topic}
+                    </Badge>
+                    <h4 className="font-semibold text-black dark:text-white mb-1 font-figtree">{sermon.title}</h4>
+                  </CardContent>
+                </Card>
+              </PinContainer>
+            ))}
           </div>
 
           <div className="text-center">
