@@ -13,6 +13,15 @@ interface SplashLoaderProps {
 }
 
 export default function SplashLoader({ minimumTime = 2500, onFinish }: SplashLoaderProps) {
+  // For the color overlay typing effect on the verse
+  const [colorTypedIdx, setColorTypedIdx] = useState(0);
+  const verse = splashMessages[0];
+  useEffect(() => {
+    if (colorTypedIdx < verse.length) {
+      const timeout = setTimeout(() => setColorTypedIdx(colorTypedIdx + 1), 45);
+      return () => clearTimeout(timeout);
+    }
+  }, [colorTypedIdx, verse.length]);
   const [done, setDone] = useState(false);
   const [shouldRender, setShouldRender] = useState(true);
   const [msgIdx] = useState(0);
@@ -152,16 +161,49 @@ export default function SplashLoader({ minimumTime = 2500, onFinish }: SplashLoa
           </motion.span>
         </h1>
 
-        {/* Typing effect container */}
+        {/* Color overlay typing effect for the verse */}
         <div className="mt-10 flex justify-center px-4 sm:px-6">
           <div className="relative w-full max-w-2xl">
-            <div className="relative z-10 text-center text-blue-200 dark:text-blue-100 font-inter 
-              text-sm sm:text-base md:text-lg lg:text-xl 
-              bg-slate-900/80 dark:bg-blue-950/80 rounded-xl px-3 sm:px-4 py-2 sm:py-3 shadow-lg 
-              break-words leading-relaxed">
-              <span>
-                {typed}
-                <span className="animate-blink">|</span>
+            <div className="relative z-10 text-center font-inter text-sm sm:text-base md:text-lg lg:text-xl bg-slate-900/80 dark:bg-blue-950/80 rounded-xl px-3 sm:px-4 py-2 sm:py-3 shadow-lg break-words leading-relaxed select-none">
+              <span className="relative inline-block w-full align-middle">
+                {/* Dim base text always visible */}
+                <span className="text-blue-200/40 dark:text-blue-100/40 block w-full" style={{position:'relative',zIndex:1}}>{verse}</span>
+                {/* Animated white overlay, perfectly aligned */}
+                <span
+                  className="absolute left-0 top-0 block w-full h-full whitespace-pre text-blue-200 dark:text-blue-100"
+                  style={{
+                    overflow: 'hidden',
+                    width: `${(colorTypedIdx / verse.length) * 100}%`,
+                    transition: 'width 0.18s linear',
+                    pointerEvents: 'none',
+                    fontFamily: 'inherit',
+                    fontWeight: 'inherit',
+                    fontSize: 'inherit',
+                    lineHeight: 'inherit',
+                    letterSpacing: 'inherit',
+                    padding: 0,
+                    margin: 0,
+                    zIndex: 2,
+                  }}
+                  aria-hidden="true"
+                >
+                  {verse}
+                </span>
+                {colorTypedIdx < verse.length && (
+                  <span 
+                    className="animate-blink absolute text-blue-200/40 dark:text-blue-100/40"
+                    style={{
+                      left: `calc(${(colorTypedIdx / verse.length) * 100}% - 0.5ch)`,
+                      zIndex: 3,
+                      top: '50%',
+                      transform: 'translateY(-55%)',
+                      lineHeight: 'inherit',
+                      fontSize: 'inherit',
+                    }}
+                  >
+                    |
+                  </span>
+                )}
               </span>
             </div>
           </div>
