@@ -183,7 +183,7 @@ export default function ConnectPage() {
                       </div>
                       <div className="flex items-center">
                         <Phone className="w-4 h-4 mr-2 text-blue-900 dark:text-[#B7C9E2]" />
-                        <span className="text-black dark:text-[#FFFBEA]">+251 947 153 805</span>
+                        <span className="text-black dark:text-[#FFFBEA]">+251 978 430 990</span>
                       </div>
                       <div className="flex items-center">
                         <Mail className="w-4 h-4 mr-2 text-blue-900 dark:text-[#B7C9E2]" />
