@@ -8,15 +8,21 @@ import React from 'react'
 import { ThemeProvider } from '@/components/theme-provider'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'JSL CHURCH',
+  description: 'Jesus the Spring of Life International Church',
   generator: 'v0.dev',
+  icons: {
+    icon: '/photo_2025-08-28_15-19-22-removebg-preview.ico',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   // Client wrapper with splash
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/photo_2025-08-28_15-19-22-removebg-preview.ico" type="image/x-icon" />
+      </head>
       <body className={`${inter.variable} ${figtree.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <SplashWrapper>{children}</SplashWrapper>
