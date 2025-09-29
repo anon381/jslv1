@@ -163,7 +163,7 @@ export default function SpringOfLifeChurch() {
     }
   }
 
-  // Handle newsletter subscription
+  // Handle newsletter- subscription
   const onSubmitNewsletter = async (data: z.infer<typeof newsletterSchema>) => {
     console.log('Newsletter form submitted:', data)
     alert('Newsletter form submitted successfully!')
