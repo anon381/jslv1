@@ -130,7 +130,7 @@ export default function ConnectPage() {
                 <p className="text-base sm:text-lg text-black/80 dark:text-[#B7C9E2]">We'd love to hear from you and keep you updated</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                {/* Contact Form */}
+                {/* Contact-Form */}
                 <Card className="p-6 bg-blue-100 border-blue-300 text-black dark:bg-[#223A5E]/80 dark:border-[#191970]/40 dark:text-[#FFFBEA] backdrop-blur-sm">
                   <h3 className="text-xl font-semibold mb-4 font-figtree">Send Us a Message</h3>
                   <form onSubmit={contactForm.handleSubmit(onSubmitContact)} className="space-y-4">
@@ -158,7 +158,7 @@ export default function ConnectPage() {
                     </Button>
                   </form>
                 </Card>
-                {/* Newsletter Signup */}
+                {/* Newsletter-Signup */}
                 <Card className="p-6 bg-blue-100 border-blue-300 text-black dark:bg-[#223A5E]/80 dark:border-[#191970]/40 dark:text-[#FFFBEA] backdrop-blur-sm">
                   <h3 className="text-xl font-semibold mb-4 font-figtree">Stay Updated</h3>
                   <p className="mb-6 text-black/80 dark:text-[#B7C9E2]">Subscribe to our newsletter for church updates, upcoming events, and weekly teachings.</p>

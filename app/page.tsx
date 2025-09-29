@@ -446,7 +446,7 @@ export default function SpringOfLifeChurch() {
         </div>
       </section>
 
-      {/* Social Media Section */}
+      {/* Social-Media Section */}
   <section className="py-12 sm:py-16 bg-blue-50 dark:bg-slate-800/30 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8 sm:mb-12">
@@ -455,7 +455,7 @@ export default function SpringOfLifeChurch() {
           </div>
 
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 max-w-4xl mx-auto w-full">
-            {/* Social Cards with corner tilt-effect, larger size but same grid layout */}
+            {/* Social Cards with corner tilt effect, larger size but same grid layout */}
             {[{
               key: 'youtube',
               icon: <Youtube className="w-8 h-8 text-red-400" />, 
